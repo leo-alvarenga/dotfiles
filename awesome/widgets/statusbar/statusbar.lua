@@ -10,8 +10,8 @@ local tasklist = require'widgets.statusbar.components.lists.tasklist'
 local systray = require'widgets.statusbar.components.info.systray'
 local battery = require'widgets.statusbar.components.info.battery'
 local clock = require'widgets.statusbar.components.info.time.clock'
-local layoutbox = require'widgets.statusbar.components.info.layoutbox'
 
+local layoutbox = require'widgets.statusbar.components.controls.layoutbox'
 local volume = require'widgets.statusbar.components.controls.volume'
 local brightness = require'widgets.statusbar.components.controls.brightness'
 
@@ -73,22 +73,28 @@ local function get_statusbar (s)
 
             margin_utils.add_margin(
                 systray.handler,
-                5, 5
+                5
             ),
 
-            brightness,
+            margin_utils.add_margin(
+                brightness,
+                15
+            ),
 
             margin_utils.add_margin(
                 volume,
-                10, 5
+                15
             ),
 
             margin_utils.add_margin(
                 battery,
-                10, 5
+                15
             ),
 
-            clock,
+            margin_utils.add_margin(
+                clock,
+                10, 10
+            ),
 
             s.mylayoutbox
         },

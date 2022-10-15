@@ -49,8 +49,6 @@ systray.handler:buttons(
 
                 systray.handler.open = not systray.handler.open
                 systray.toogle()
-
-                -- awful.screen.focused().toggle_statbar()
             end
         )
     )

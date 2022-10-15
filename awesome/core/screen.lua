@@ -3,7 +3,6 @@ local awful = require'awful'
 local beautiful = require'beautiful'
 
 local statusbar = require'widgets.statusbar.statusbar'
-local statbar = require'widgets.statbar.statbar'
 
 local function set_wallpaper(s)
     -- Wallpaper
@@ -28,6 +27,5 @@ awful.screen.connect_for_each_screen(
     function (s)
         set_wallpaper(s)
         statusbar(s)
-        statbar(s)
     end
 )
