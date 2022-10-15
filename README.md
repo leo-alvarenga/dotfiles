@@ -19,4 +19,7 @@ This repo is meant to be where I store my config files (those usually stored in 
 It is certainly worth noting that although my config files can be found in this repo, they are still subject to change, as I am **always** thinkering with them (specially with the awesome).
 
 ### Preview
+
 ![Setup preview](assets/images/preview1.png)
+\
+![Setup preview](assets/images/preview2.png)

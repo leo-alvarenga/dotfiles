@@ -70,14 +70,14 @@ return awful.widget.watch (
             -- layout -> progressbar
             widget
                 .children[1]
-                .color = color_scheme.battery_color_low
+                .colors = { color_scheme.battery_color_low }
 
             -- TODO: spawn a notification for low battery
         else
             -- layout -> progressbar
             widget
                 .children[1]
-                .color = color_scheme.battery_color
+                .colors = { color_scheme.battery_color }
         end
 
         -- layout -> progressbar
@@ -87,7 +87,9 @@ return awful.widget.watch (
 
         -- a little thing if the battery is charging
         if stdout:find('Charging') then
-            value = '⚡' .. value
+            widget
+                .children[1]
+                .colors = { color_scheme.accent }
         end
 
         -- layout -> margin -> textbox

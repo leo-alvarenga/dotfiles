@@ -71,7 +71,7 @@ for i = 1, tag_meta.tag_count do
                 end
             end,
             {
-                description = 'view tag '..tag_meta.markers[i],
+                description = 'view tag '..i,
                 group = 'tag'
             }
         ),
@@ -88,7 +88,7 @@ for i = 1, tag_meta.tag_count do
                 end
             end,
             {
-                description = 'toggle tag '..tag_meta.markers[i],
+                description = 'toggle tag '..i,
                 group = 'tag'
             }
         ),
@@ -106,7 +106,7 @@ for i = 1, tag_meta.tag_count do
                 end
             end,
             {
-                description = 'move focused client to tag '..tag_meta.markers[i],
+                description = 'move focused client to tag '..i,
                 group = 'tag'
             }
         ),
@@ -124,7 +124,7 @@ for i = 1, tag_meta.tag_count do
                 end
             end,
             {
-                description = 'toggle focused client on tag '..tag_meta.markers[i],
+                description = 'toggle focused client on tag '..i,
                 group = 'tag'
             }
         )

@@ -117,6 +117,25 @@ client.keys = gears.table.join(
             description = '(un)maximize horizontally',
             group = 'client'
         }
+    )
+)
+
+client.buttons = gears.table.join(
+    -- Raise client when clicked on
+    awful.button(
+        { }, 1,
+        function (c)
+            c:emit_signal('request::activate', 'mouse_click', {raise = true})
+        end
+    ),
+
+    -- Move client freely when the current tag's layout is 'floating'
+    awful.button(
+        { vars.modkey, 'Shift' }, 1,
+        function (c)
+            c:emit_signal('request::activate', 'mouse_click', {raise = true})
+            awful.mouse.client.move(c)
+        end
     ),
 
     -- Mouse keys
@@ -149,7 +168,7 @@ client.keys = gears.table.join(
     ),
 
     awful.button(
-        { vars.modkey }, 3,
+        { vars.modkey, 'Control' }, 1,
         function (c)
             c:emit_signal(
                 'request::activate',
@@ -160,25 +179,6 @@ client.keys = gears.table.join(
             )
 
             awful.mouse.client.resize(c)
-        end
-    )
-)
-
-client.buttons = gears.table.join(
-    -- Raise client when clicked on
-    awful.button(
-        { }, 1,
-        function (c)
-            c:emit_signal('request::activate', 'mouse_click', {raise = true})
-        end
-    ),
-
-    -- Move client freely when the current tag's layout is 'floating'
-    awful.button(
-        { vars.modkey, 'Shift' }, 1,
-        function (c)
-            c:emit_signal('request::activate', 'mouse_click', {raise = true})
-            awful.mouse.client.move(c)
         end
     )
 )
