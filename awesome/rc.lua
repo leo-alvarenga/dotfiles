@@ -96,5 +96,6 @@ require'core.rules'
 require'core.signals'
 
 -- Apps on startup
+-- awful.util.spawn('xautolock ')
 awful.util.spawn('picom --config .config/picom/picom.conf')
 awful.util.spawn('flameshot')

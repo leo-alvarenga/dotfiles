@@ -93,7 +93,7 @@ local function get_statusbar (s)
 
             margin_utils.add_margin(
                 clock,
-                10, 10
+                10, 5
             ),
 
             s.mylayoutbox
