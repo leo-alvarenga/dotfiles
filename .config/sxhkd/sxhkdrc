@@ -14,6 +14,28 @@ super + r
 super + Escape
 	pkill -USR1 -x sxhkd
 
+# Volume
+
+# raise
+XF86AudioRaiseVolume
+	amixer -c 1 set Master 5+
+
+# lower
+XF86AudioLowerVolume
+	amixer -c 1 set Master 5-
+
+# mute
+XF86AudioMute
+	amixer -c 1 set Master mute
+
+# Brightness
+
+# increase
+# XF86MonBrightnessUp
+
+# increase
+# XF86MonBrightnessDown
+
 #
 # bspwm hotkeys
 #
