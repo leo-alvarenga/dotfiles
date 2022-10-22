@@ -10,16 +10,20 @@ This repo is meant to be where I store my config files (those usually stored in 
 - Distro: Arch Linux
 - Display server: Xorg
 - Display manager: LightDM Slick Greeter
-- WM: Awesome 4.3
+- WM: [bspwm 0.9.10](https://github.com/baskerville/bspwm)
 - Compositor: Picom ([jonaburg's fork](https://github.com/jonaburg/picom))
 - Lock: i3lock (🚧config in progress)
 - Shell: Zsh 5.9 (w/ [Oh My Zsh!](https://github.com/ohmyzsh/ohmyzsh))
 - Terminal: [Alacritty](https://github.com/alacritty/alacritty)
 
-It is certainly worth noting that although my config files can be found in this repo, they are still subject to change, as I am **always** thinkering with them (specially with the awesome).
+It is certainly worth noting that although my config files can be found in this repo, they are still subject to change, as I am **always** tinkering with them (specially with the bspwm).
 
 ### Preview
 
-![Setup preview](assets/images/preview1.png)
+#### bpswm
+Todo: add screenshots
+
+#### AwesomeWM (No longer maintained)
+![Setup preview](assets/images/awesomewm1.png)
 \
-![Setup preview](assets/images/preview2.png)
+![Setup preview](assets/images/awesomewm2.png)

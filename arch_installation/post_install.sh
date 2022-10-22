@@ -25,6 +25,9 @@ internet_con () {
     sleep 4
 
     sudo systemctl start iwd && iwctl
+
+    echo "[device]" >> /etc/NetworkManager/conf.d/wifi_backend.conf
+    echo "wifi.backend=iwd" >> /etc/NetworkManager/conf.d/wifi_backend.conf
 }
 
 xorg_install () {
