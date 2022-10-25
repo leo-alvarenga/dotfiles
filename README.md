@@ -20,7 +20,7 @@ It is certainly worth noting that although my config files can be found in this 
 
 ### Preview
 
-#### bpswm
+#### bspwm
 ![Setup preview](assets/images/bspwm1-1.png)
 \
 ![Setup preview](assets/images/bspwm1-2.png)
