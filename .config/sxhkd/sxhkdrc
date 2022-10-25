@@ -6,6 +6,9 @@
 super + Return
 	alacritty
 
+super + p
+	rofi -show drun
+
 # program launcher
 super + r
 	dmenu_run
