@@ -31,6 +31,10 @@ XF86AudioLowerVolume
 XF86AudioMute
 	amixer -c 1 set Master mute
 
+# print
+Print
+	flameshot screen
+
 # Brightness
 
 # increase
@@ -112,8 +116,8 @@ super + {grave,Tab}
 # 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-6}
-	bspc {desktop -f,node -d} '^{1-6}'
+super + {_,shift + }{1-7}
+	bspc {desktop -f,node -d} '^{1-7}'
 
 #
 # preselect

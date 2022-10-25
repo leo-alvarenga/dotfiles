@@ -21,7 +21,9 @@ It is certainly worth noting that although my config files can be found in this 
 ### Preview
 
 #### bpswm
-Todo: add screenshots
+![Setup preview](assets/images/bspwm1-1.png)
+\
+![Setup preview](assets/images/bspwm1-2.png)
 
 #### AwesomeWM (No longer maintained)
 ![Setup preview](assets/images/awesomewm1.png)
