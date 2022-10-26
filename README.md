@@ -5,7 +5,7 @@ This repo is meant to be where I store my config files (those usually stored in 
 ---
 # Current Setup
 
-### GNU/Linux
+## GNU/Linux
 - Kernel: 5.19.13-arch1-1
 - Distro: Arch Linux
 - Display server: Xorg
@@ -18,14 +18,16 @@ This repo is meant to be where I store my config files (those usually stored in 
 
 It is certainly worth noting that although my config files can be found in this repo, they are still subject to change, as I am **always** tinkering with them (specially with the bspwm).
 
-### Preview
+## bspwm
 
-#### bspwm
+### Tuxpuccin 🐧 - a [catpuccin](https://github.com/catppuccin/catppuccin) inspired setup for bspwm
+To use this setup, copy only the `tuxpuccin` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
+
 ![Setup preview](assets/images/bspwm1-1.png)
 \
 ![Setup preview](assets/images/bspwm1-2.png)
 
-#### AwesomeWM (No longer maintained)
+## AwesomeWM (No longer maintained)
 ![Setup preview](assets/images/awesomewm1.png)
 \
 ![Setup preview](assets/images/awesomewm2.png)
