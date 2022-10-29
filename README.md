@@ -20,12 +20,11 @@ It is certainly worth noting that although my config files can be found in this 
 
 ## bspwm
 
-### Tuxppuccin 🐧 - a [catppuccin](https://github.com/catppuccin/catppuccin) inspired setup for bspwm
-To use this setup, copy only the `tuxppuccin` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
+### Blocky 🐱 - a [catppuccin](https://github.com/catppuccin/catppuccin) setup for bspwm (currently in use)
 
-![Setup preview](assets/images/bspwm1-1.png)
-\
-![Setup preview](assets/images/bspwm1-2.png)
+To use this setup, copy only the `blocky` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
+
+![Setup preview](assets/images/bspwm3-1.png)
 
 ### Gruv - a [gruvbox](https://github.com/morhetz/gruvbox) setup for bspwm
 
@@ -33,11 +32,12 @@ To use this setup, copy only the `gruv1` directories from `.config/bspwm` and `.
 
 ![Setup preview](assets/images/bspwm2-1.png)
 
-### Blocky - a [catppuccin](https://github.com/catppuccin/catppuccin) setup for bspwm (currently in use)
+### Tuxppuccin 🐧 - a [catppuccin](https://github.com/catppuccin/catppuccin) inspired setup for bspwm
+To use this setup, copy only the `tuxppuccin` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
 
-To use this setup, copy only the `blocky` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
-
-![Setup preview](assets/images/bspwm3-1.png)
+![Setup preview](assets/images/bspwm1-1.png)
+\
+![Setup preview](assets/images/bspwm1-2.png)
 
 ## AwesomeWM (No longer maintained)
 ![Setup preview](assets/images/awesomewm1.png)
