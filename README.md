@@ -6,7 +6,7 @@ This repo is meant to be where I store my config files (those usually stored in 
 # Current Setup
 
 ## GNU/Linux
-- Kernel: 5.19.13-arch1-1
+- Kernel: 6.0.2-arch1-1
 - Distro: Arch Linux
 - Display server: Xorg
 - Display manager: LightDM Slick Greeter
@@ -26,6 +26,12 @@ To use this setup, copy only the `tuxpuccin` directories from `.config/bspwm` an
 ![Setup preview](assets/images/bspwm1-1.png)
 \
 ![Setup preview](assets/images/bspwm1-2.png)
+
+### Gruv - a [gruvbox](https://github.com/morhetz/gruvbox) inspired setup for bspwm
+
+To use this setup, copy only the `gruv1` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
+
+![Setup preview](assets/images/bspwm2-1.png)
 
 ## AwesomeWM (No longer maintained)
 ![Setup preview](assets/images/awesomewm1.png)
