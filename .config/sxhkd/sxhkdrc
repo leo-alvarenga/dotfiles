@@ -87,10 +87,10 @@ super + ctrl + {m,x,y,z}
 
 # focus the node in the given direction
 # changing keys for better ergonomics
-#	i				 up
-# j k l		left	down	right
+#	j				 up
+# h k l		left	down	right
 
-super + {_,shift + }{j,k,i,l}
+super + {_,shift + }{h,k,j,l}
 	bspc node -{f,s} {west,south,north,east}
 
 # focus the node for the given path jump
