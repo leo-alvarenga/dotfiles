@@ -6,7 +6,7 @@ This repo is meant to be where I store my config files (those usually stored in 
 # Current Setup
 
 ## GNU/Linux
-- Kernel: 6.0.2-arch1-1
+- Kernel: 6.0.5-arch1-1
 - Distro: Arch Linux
 - Display server: Xorg
 - Display manager: LightDM Slick Greeter
@@ -33,13 +33,11 @@ To use this setup, copy only the `gruv1` directories from `.config/bspwm` and `.
 
 ![Setup preview](assets/images/bspwm2-1.png)
 
-### Blocky - a [catppuccin](https://github.com/catppuccin/catppuccin) setup for bspwm
+### Blocky - a [catppuccin](https://github.com/catppuccin/catppuccin) setup for bspwm (currently in use)
 
 To use this setup, copy only the `blocky` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
 
 ![Setup preview](assets/images/bspwm3-1.png)
-\
-![Setup preview](assets/images/bspwm3-2.png)
 
 ## AwesomeWM (No longer maintained)
 ![Setup preview](assets/images/awesomewm1.png)
