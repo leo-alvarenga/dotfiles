@@ -12,7 +12,7 @@ This repo is meant to be where I store my config files (those usually stored in 
 - Display manager: LightDM Slick Greeter
 - WM: [bspwm 0.9.10](https://github.com/baskerville/bspwm)
 - Compositor: Picom ([jonaburg's fork](https://github.com/jonaburg/picom))
-- Lock: i3lock (🚧config in progress)
+- Lock: i3lock
 - Shell: Zsh 5.9 (w/ [Oh My Zsh!](https://github.com/ohmyzsh/ohmyzsh))
 - Terminal: [Alacritty](https://github.com/alacritty/alacritty)
 
