@@ -4,6 +4,7 @@ cp ~/.config/backup_dotfiles.sh ~/Documents/code/dotfiles
 # cp -r ~/.config/awesome ~/Documents/code/dotfiles/.config
 cp -r ~/.config/picom ~/Documents/code/dotfiles/.config
 cp -r ~/.config/alacritty ~/Documents/code/dotfiles/.config
+cp -r ~/.config/i3lock ~/Documents/code/dotfiles/.config
 
 cp -r ~/.config/firefox/home ~/Documents/code/dotfiles/.config/firefox/blocky
 
