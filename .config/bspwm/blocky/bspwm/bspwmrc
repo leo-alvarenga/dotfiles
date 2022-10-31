@@ -7,7 +7,7 @@ picom &
 nitrogen --restore &
 $HOME/.config/polybar/launch.sh &
 
-xautolock -time 5 -locker "$HOME/.config/i3lock/i3lock.sh" &
+xautolock -time 10 -locker "$HOME/.config/i3lock/i3lock.sh" &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
