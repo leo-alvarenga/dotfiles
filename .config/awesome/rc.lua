@@ -99,3 +99,4 @@ require'core.signals'
 -- awful.util.spawn('xautolock ')
 awful.util.spawn('picom --config .config/picom/picom.conf')
 awful.util.spawn('flameshot')
+awful.util.spawn('xautolock -time 10 -locker "$HOME/.config/i3lock/i3lock.sh"')
