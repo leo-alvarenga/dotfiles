@@ -6,21 +6,27 @@ This repo is meant to be where I store my config files (those usually stored in 
 # Current Setup
 
 ## GNU/Linux
-- Kernel: 6.0.5-arch1-1
+- Kernel: 6.0.6-arch1-1
 - Distro: Arch Linux
-- Display server: Xorg
-- Display manager: LightDM Slick Greeter
+- Display server: X
 - WM: [bspwm 0.9.10](https://github.com/baskerville/bspwm)
-- Compositor: Picom ([jonaburg's fork](https://github.com/jonaburg/picom))
-- Lock: i3lock
+- Compositor: [Picom](https://github.com/yshui/picom)
 - Shell: Zsh 5.9 (w/ [Oh My Zsh!](https://github.com/ohmyzsh/ohmyzsh))
-- Terminal: [Alacritty](https://github.com/alacritty/alacritty)
+- Term: [Alacritty](https://github.com/alacritty/alacritty)
 
 It is certainly worth noting that although my config files can be found in this repo, they are still subject to change, as I am **always** tinkering with them (specially with the bspwm).
 
 ## bspwm
 
-### Blocky 🐱 - a [catppuccin](https://github.com/catppuccin/catppuccin) setup for bspwm (currently in use)
+### Void 🌀 - my current setup for bspwm
+
+To use this setup, copy only the `blocky` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
+
+![Setup preview](assets/images/bspwm4-1.png)
+\
+![Setup preview](assets/images/bspwm4-2.png)
+
+### Blocky 🐱 - a [catppuccin](https://github.com/catppuccin/catppuccin) setup for bspwm
 
 To use this setup, copy only the `blocky` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
 
