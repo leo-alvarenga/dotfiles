@@ -11,12 +11,11 @@ RES="$(xdpyinfo | grep dimensions | cut -d' ' -f7)"
 # to cause the blur algorithm to take more than .3s to execute
 BLUR="0x5"
 
-scrot --file "$LOCK_IMAGE_PATH"
-
 if [[ $(cat "$LOCK_IMAGE_PATH") > /dev/null  ]]; then
 	rm "$LOCK_IMAGE_PATH"
 fi
 
+scrot --file "$LOCK_IMAGE_PATH"
 convert -scale "$RES" "$LOCK_IMAGE_PATH" "$RESIZED_IMAGE_PATH"
 convert -blur "$BLUR" "$RESIZED_IMAGE_PATH" "$RESIZED_IMAGE_PATH"
 
