@@ -18,34 +18,40 @@ It is certainly worth noting that although my config files can be found in this 
 
 ## bspwm
 
-### Void 🌀 - my current setup for bspwm
+To use any of the _bspwm_ setups:
 
-To use this setup, copy only the `blocky` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
+1. Copy the contents of the `.config/sxhkd` and `.config/i3lock` directories to your`~/.config` directory
+2. Copy the directories named after the desired setup from the following directories to your `~/.config` directory, renaming them accordingly:
+    - `.config/alacritty`
+    - `.config/bspwm`
+    - `.config/polybar`
+    - `.config/picom`
+
+### void 🌀 - my current setup for bspwm
 
 ![Setup preview](assets/images/bspwm4-1.png)
 \
 ![Setup preview](assets/images/bspwm4-2.png)
 
-### Blocky 🐱 - a [catppuccin](https://github.com/catppuccin/catppuccin) setup for bspwm
+### blocky 🐱 - a [catppuccin](https://github.com/catppuccin/catppuccin) setup for bspwm
 
-To use this setup, copy only the `blocky` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
+To enjoy this setup even more, add the `.config/firefox` to your `~/.config` directory and setup its `index.html` as your default start page on Firefox.
 
 ![Setup preview](assets/images/bspwm3-1.png)
 
-### Gruv - a [gruvbox](https://github.com/morhetz/gruvbox) setup for bspwm
-
-To use this setup, copy only the `gruv1` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
+### gruv1 - a [gruvbox](https://github.com/morhetz/gruvbox) setup for bspwm
 
 ![Setup preview](assets/images/bspwm2-1.png)
 
-### Tuxppuccin 🐧 - a [catppuccin](https://github.com/catppuccin/catppuccin) inspired setup for bspwm
-To use this setup, copy only the `tuxppuccin` directories from `.config/bspwm` and `.config/polybar` to your `~/.config` directory, renaming them to `bspwm` and `polybar`, respectively
+### tuxppuccin 🐧 - a [catppuccin](https://github.com/catppuccin/catppuccin) inspired setup for bspwm
+
+To enjoy this setup even more, add the `.config/firefox` to your `~/.config` directory and setup its `index.html` as your default start page on Firefox.
 
 ![Setup preview](assets/images/bspwm1-1.png)
 \
 ![Setup preview](assets/images/bspwm1-2.png)
 
-## AwesomeWM (No longer maintained)
+## AwesomeWM
 ![Setup preview](assets/images/awesomewm1.png)
 \
 ![Setup preview](assets/images/awesomewm2.png)
