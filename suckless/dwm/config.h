@@ -23,18 +23,19 @@ static const char *fonts[]          = {
 
 static const char dmenufont[]       = "JetBrains Mono:size=12";
 
-//["2E1535","443155","1C172A","130816","C39ED8"]
+// does the black moon howl?
+// #070B15, #E1D6A6, #67827D, #111F29, #1C3F45
 
-static const char col_purple1[] 	= "#2E1535";
-static const char col_purple2[] 	= "#443155";
-static const char col_purple3[] 	= "#C39ED8";
-static const char col_black1[] 		= "#130816";
-static const char col_black2[] 		= "#1C172A";
+static const char col_black1[] 		= "#070B15";
+static const char col_black2[] 		= "#111F29";
+static const char col_gray1[] 		= "#1C3F45";
+static const char col_gray2[] 		= "#67827D";
+static const char col_cream1[] 		= "#E1D6A6";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_purple3, col_black1, col_black1 },
-	[SchemeSel]  = { col_purple3, col_purple2,  col_purple2  },
+	[SchemeNorm] = { col_cream1, col_black1, col_black1 },
+	[SchemeSel]  = { col_cream1, col_gray2,  col_gray2  },
 };
 
 /* tagging */
@@ -81,7 +82,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black1, "-nf", col_purple3, "-sb", col_purple2, "-sf", col_purple3, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black1, "-nf", col_cream1, "-sb", col_gray2, "-sf", col_cream1, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browser1[] = { "firefox", NULL };
 
