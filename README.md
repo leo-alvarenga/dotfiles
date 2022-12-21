@@ -6,15 +6,14 @@ This repo is meant to be where I store my config files (those usually stored in 
 # Current Setup
 
 ## GNU/Linux
-- Kernel: 6.0.6-arch1-1
+- Kernel: 6.0.12-arch1-1
 - Distro: Arch Linux
 - Display server: X
-- WM: [bspwm 0.9.10](https://github.com/baskerville/bspwm)
+- WM: [AwesomeWM 4.3](https://github.com/awesomeWM/awesome)
 - Compositor: [Picom](https://github.com/yshui/picom)
-- Shell: Zsh 5.9 (w/ [Oh My Zsh!](https://github.com/ohmyzsh/ohmyzsh))
 - Term: [Alacritty](https://github.com/alacritty/alacritty)
 
-It is certainly worth noting that although my config files can be found in this repo, they are still subject to change, as I am **always** tinkering with them (specially with the bspwm).
+It is certainly worth noting that although my config files can be found in this repo, they are still subject to change, as I am **always** tinkering with them.
 
 ## bspwm
 
@@ -52,6 +51,17 @@ To enjoy this setup even more, add the `.config/firefox` to your `~/.config` dir
 ![Setup preview](assets/images/bspwm1-2.png)
 
 ## AwesomeWM
+
+To use any of the _AwesomeWM_ setups:
+
+1. Copy the directories named after the desired setup from `.config/awesome/<setup>` following directories to your `~/.config/awesome` directory.
+
+### Dracula
+
+![Setup preview](assets/images/awesome2-1.png)
+
+### Cyber
+
 ![Setup preview](assets/images/awesomewm1.png)
 \
 ![Setup preview](assets/images/awesomewm2.png)
