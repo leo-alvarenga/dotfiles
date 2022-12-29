@@ -66,7 +66,7 @@ browser = "firefox"
 editor_cmd = terminal .. " -e " .. editor
 
 -- beautiful
-beautiful.wallpaper = "/home/duce/Pictures/wallpapers/dracula_arch.png"
+beautiful.wallpaper = "/home/duce/Pictures/wallpapers/dracula_nixos.png"
 
 -- Default modkey.
 modkey = "Mod4"
