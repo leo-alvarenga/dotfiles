@@ -6,8 +6,8 @@ This repo is meant to be where I store my config files (those usually stored in 
 # Current Setup
 
 ## GNU/Linux
-- Kernel: 6.0.12-arch1-1
-- Distro: Arch Linux
+- Kernel: 5.15.85
+- Distro: NixOS
 - Display server: X
 - WM: [AwesomeWM 4.3](https://github.com/awesomeWM/awesome)
 - Compositor: [Picom](https://github.com/yshui/picom)
