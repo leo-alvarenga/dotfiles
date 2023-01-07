@@ -10,34 +10,24 @@
       ./hardware-configuration.nix
     ];
 
-  nixpkgs.config.allowUnfree = true;
-
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "America/Sao_Paulo";
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
     font = "Lat2-Terminus16";
-  #   keyMap = "us";
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
@@ -45,9 +35,17 @@
   services.xserver = {
     enable = true;
     layout = "br";
-   
+
     displayManager = {
-      sddm.enable = true;
+      sddm = {
+        enable = true;
+	theme = "${(pkgs.fetchFromGitHub {
+          owner = "MarianArlt";
+          repo = "kde-plasma-chili";
+          rev = "a371123959676f608f01421398f7400a2f01ae06";
+          sha256 = "17pkxpk4lfgm14yfwg6rw6zrkdpxilzv90s48s2hsicgl3vmyr3x";
+        })}";
+      };
       defaultSession = "none+awesome";
     };
 
@@ -55,18 +53,22 @@
       enable = true;
     };
   };
+
   services.picom = {
     enable = true;
-    activeOpacity = 1.0;
+    activeOpacity  = 1.0;
     inactiveOpacity = 0.8;
     backend = "glx";
     vSync = true;
     fade = true;
 
     opacityRules = [
+      "100:class_g = 'firefox'"
       "95:class_g = 'vscodium'"
+      "95:class_g = 'code'"
       "90:class_g = 'discord'"
       "80:class_g = 'Alacritty'"
+      "80:class_g = 'kitty'"
     ];
   };
 
@@ -76,20 +78,13 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
+  hardware.opengl.driSupport32Bit = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.users.alice = {
-  #   isNormalUser = true;
-  #   extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  #   packages = with pkgs; [
-  #     firefox
-  #     thunderbird
-  #   ];
-  # };
-
   users.users = {
     duce = {
       isNormalUser = true;
@@ -100,36 +95,29 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # basics
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim
     wget
     btop
-
-    # basics
     xdg-user-dirs
-    alacritty
     alsa-utils
     pulsemixer
     acpi
-    brightnessctl 
+    brightnessctl
 
-    neofetch
-    firefox
-     
-    # programming
-    vscodium
-    git
-    bat
-    go
-    nodejs
-
-    # ricing
+    # wm
     picom
-    
-    # misc
+
+    # useful/misc tools
+    feh
+    imagemagick
+    scrot
+    kitty
+    neofetch
+    bat
     lolcat
     cowsay
-    discord
-    steam
   ];
 
   fonts = {
@@ -141,29 +129,15 @@
 
     fontconfig = {
       defaultFonts = {
-        monospace = [ "JetBrains Mono" ];
+        monospace = [ "Jetbrains Mono" ];
       };
     };
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

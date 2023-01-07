@@ -9,9 +9,15 @@
   home.file = {
     ".config/awesome" = {
       recursive = true;
-      source = ../../Repos/dotfiles/.config/awesome/dracula;
+      source = ../../Repos/dotfiles/.config/awesome/wavy;
+    };
+    ".config/alacritty" = {
+      recursive = true;
+      source = ../../Repos/dotfiles/.config/alacritty/wavy;
     };
   };
+
+  nixpkgs.config.allowUnfree = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -22,6 +28,22 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "22.11";
+
+  home.packages = [
+    # development
+    pkgs.alacritty
+    pkgs.git
+    pkgs.vscodium
+    pkgs.go
+    pkgs.nodejs
+    pkgs.gcc
+
+    # utilities
+    pkgs.firefox    
+
+    # unfree
+    pkgs.steam
+  ];
 
   # Let Home Manager install and manage itself.
   programs = {
@@ -35,5 +57,4 @@
       userEmail = "leosgalvarenga@protonmail.com";
     };
   };
-
 }
