@@ -40,6 +40,7 @@
 
     # utilities
     pkgs.firefox    
+    pkgs.pcmanfm
 
     # unfree
     pkgs.steam
@@ -55,6 +56,10 @@
       enable = true;
       userName = "Leonardo A. Alvarenga";
       userEmail = "leosgalvarenga@protonmail.com";
+    };
+
+    gh = {
+      enableGitCredentialHelper = true;
     };
   };
 }
