@@ -2,10 +2,12 @@
 
 This repo is meant to be where I store my config files (those usually stored in the `~/.config` directory, hence the name) for my current setup, so that they can be easily retrieved for recovery and to serve as reference for future configurations.
 
-My `AwesomeWM`, `bspwm` and suckless utilities are kept in separate repos:
+My `AwesomeWM` and `bspwm` setups as well as my nvim config files and suckless utilities are kept in separate repos:
 - [`AwesomeWM`](https://github.com/leo-alvarenga/awesomewm)
 - [`bspwm`](https://github.com/leo-alvarenga/bspwm)
 - [suckless](https://github.com/leo-alvarenga/suckless)
+- [nvim](https://github.com/leo-alvarenga/nvim)
+
 
 ---
 # Current Setup

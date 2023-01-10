@@ -7,9 +7,13 @@
   home.homeDirectory = "/home/duce";
 
   home.file = {
+    ".config/nvim" = {
+        recursive = true;
+        source = ../../Repos/nvim;
+    };
     ".config/awesome" = {
       recursive = true;
-      source = ../../Repos/dotfiles/.config/awesome/wavy;
+      source = ../../Repos/awesomewm/wavy;
     };
     ".config/alacritty" = {
       recursive = true;
