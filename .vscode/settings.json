@@ -15,6 +15,7 @@
         "dotfile_helper_name",
         "dest_dirs",
         "log_file",
-        "log_file_name"
+        "log_file_name",
+        "chmod_scripts"
     ],
 }

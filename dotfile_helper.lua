@@ -27,6 +27,7 @@ options_and_flags = {
 available_targets = {
     'scripts',
     'sway',
+    'swayidle',
     'waybar'
 }
 
@@ -45,6 +46,7 @@ log_file = io.open(log_file_name, 'a+')
 dest_dirs = {
     scripts = os.getenv('SCRIPTS_DIR') or '~/.config/scripts',
     sway = os.getenv('SWAY_DIR') or '~/.config/sway',
+    swayidle = os.getenv('SWAYIDLE_DIR') or '~/.config/swayidle',
     waybar = os.getenv('WAYBAR_DIR') or '~/.config/waybar',
 }
 
@@ -220,7 +222,7 @@ local function get_targets()
     for _, value in ipairs(arg) do
         if is_valid_target(value) then
             table.insert(targets, value)
-        elseif value == '*' then
+        elseif value == '*' or value == 'all' then
             targets = available_targets
             break
         end
@@ -238,6 +240,8 @@ local function confirm(message, callback)
     if not yes_always then
         log(message)
         answer = io.stdin:read("l")
+
+        log('')
     end
 
     if callback then
@@ -266,7 +270,7 @@ local function move_file_or_directory(path, new_path)
 
     debug('[Function] move_file_or_directory -> Path type is "' .. (path_kind or 'NULL') .. '"')
     if path_kind then
-        debug('[Function] move_file_or_directory -> Asking for permissing')
+        debug('[Function] move_file_or_directory -> Asking for permission')
 
         if yes_always then
             debug('[Function] move_file_or_directory -> Yes always is enabled, skipping')
@@ -328,10 +332,32 @@ end
 
 -- region Sync option
 
+function chmod_scripts(update_scripts, dev_dir)
+    debug('[Function] chmod_scripts -> Start')
+
+    if update_scripts then
+        log('Ensuring your user has "execute" permission for the scripts...')
+
+        debug('[Function] chmod_scripts -> Adding "execute" permission to all dest scripts')
+        os.execute('chmod a+x ' .. dest_dirs.scripts .. '/*')
+    end
+
+    if type(dev_dir) ~= 'string' then
+        debug('[Function] chmod_scripts -> Early finish. "dev_dir" is not valid (dev_dir: "' .. tostring(dev_dir) .. '")')
+        return 1
+    end
+
+    log('Ensuring your user has "execute" permission for this script...')
+    debug('[Function] chmod_scripts -> Adding "execute" permission to all local repo scripts')
+    os.execute('chmod a+x ' .. dev_dir .. '/scripts/*')
+    os.execute('chmod a+x ' .. dev_dir .. '/' .. dotfile_helper_name)
+
+    debug('[Function] chmod_scripts -> Finish')
+    return 0
+end
+
 function sync()
     debug('\n[Function] sync -> Start')
-
-    log('Starting now...')
 
     log('Determining the root of this directory...')
     debug('[Function] sync -> Getting the root of this directory')
@@ -342,7 +368,6 @@ function sync()
     local target_list = '[' .. table.concat(targets, ', ') .. ']'
 
     debug('[Function] sync -> Targets set (targets: ' .. target_list .. ' )')
-    log(arg)
     log(nil, 'Targets: ' .. target_list)
 
     debug('[Function] sync -> Starting to copy files over')
@@ -356,8 +381,14 @@ function sync()
         end
     end
 
+    local update_scripts = table_find(targets, function(val)
+        return val == 'scripts'
+    end) ~= nil
+
+    chmod_scripts(update_scripts, dev_dir)
+
     debug('[Function] sync -> Finish')
-    log('\n\nAll done!')
+    log('All done!')
     return 0
 end
 
@@ -366,7 +397,7 @@ end
 -- region Main loop
 
 local function main()
-    log('Dotfile manager')
+    log('Dotfile manager\n')
 
     debug('[Loop] main -> Start')
 
