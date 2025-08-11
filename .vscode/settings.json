@@ -1,0 +1,20 @@
+{
+    "Lua.diagnostics.globals": [
+        "log",
+        "table_find",
+        "sync",
+        "setup",
+        "help",
+        "dev_mode",
+        "options_and_flags",
+        "available_targets",
+        "yes_always",
+        "is_verbose",
+        "mode",
+        "yes_always_delay",
+        "dotfile_helper_name",
+        "dest_dirs",
+        "log_file",
+        "log_file_name"
+    ],
+}
