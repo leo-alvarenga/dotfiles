@@ -20,6 +20,8 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [x] Bare-bones Sway config
 - [x] Bare-bones Waybar config
 - [x] Dotfile helper
+- [ ] Bugfix issue with volume control keys
+- [ ] Solve "sticky" drag with mouse
 - [ ] Improve Waybar config
 - [ ] Add Swaylock config
 - [ ] Add Swayidle config

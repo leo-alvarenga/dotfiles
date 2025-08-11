@@ -25,6 +25,7 @@ options_and_flags = {
 }
 
 available_targets = {
+    'scripts',
     'sway',
     'waybar'
 }
@@ -42,6 +43,7 @@ log_file = io.open(log_file_name, 'a+')
 -- config dirs
 
 dest_dirs = {
+    scripts = os.getenv('SCRIPTS_DIR') or '~/.config/scripts',
     sway = os.getenv('SWAY_DIR') or '~/.config/sway',
     waybar = os.getenv('WAYBAR_DIR') or '~/.config/waybar',
 }
@@ -95,7 +97,6 @@ local function sleep(seconds)
         end
     end
 end
-
 
 local function debug(values)
     if not dev_mode then
@@ -272,7 +273,7 @@ local function move_file_or_directory(path, new_path)
         end
 
         local should_continue = confirm({ '\n(' .. path_kind .. ') "' ..
-        path .. '" already exists. If you continue, its contents will be OVERWRITTEN.',
+        dest .. '" already exists. If you continue, its contents will be OVERWRITTEN.',
             'Are you sure you want to continue? (y/N)' })
 
         if not should_continue then
@@ -341,6 +342,7 @@ function sync()
     local target_list = '[' .. table.concat(targets, ', ') .. ']'
 
     debug('[Function] sync -> Targets set (targets: ' .. target_list .. ' )')
+    log(arg)
     log(nil, 'Targets: ' .. target_list)
 
     debug('[Function] sync -> Starting to copy files over')

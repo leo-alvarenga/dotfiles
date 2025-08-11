@@ -1,0 +1,6 @@
+timeout 300 '~/.config/scripts/lock.lua'
+timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+timeout 600 'systemctl suspend'
+timeout 1200 'systemctl suspend-then-hibernate'
+before-sleep '~/.bin/lock'
+after-resume 'swaymsg "output * power on"'
