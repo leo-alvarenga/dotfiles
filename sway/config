@@ -222,6 +222,15 @@ bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ t
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 
+# Screen lock
+exec systemd-inhibit --what=handle-lid-switch sleep infinity
+
+#lock before sleep
+exec swayidle -w
+
+# finally bind
+bindswitch --locked lid:on exec systemctl suspend
+
 # Special key to take a screenshot with grim
 # bindsym Print exec grim
 
@@ -235,7 +244,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    swaybar_command waybar
+    swaybar_command eww daemon; eww open statusbar
 
     colors {
         background $bg_main

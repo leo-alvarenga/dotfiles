@@ -1,5 +1,13 @@
 # Dotfiles (WIP)
 
+## Current setup
+
+- Distro: CachyOS
+- DM: SDDM
+- DE (Wayland protocol only):
+  1. Sway (and its stack) + Waybar
+  2. Plasma
+
 ## Dependencies (so far)
 
 - `ttf-nerd-fonts-symbols` (Nerd Fonts icons)
