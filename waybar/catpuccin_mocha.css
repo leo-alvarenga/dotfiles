@@ -1,0 +1,81 @@
+/* Base border color */
+@define-color border-main @fg-main;
+@define-color border-alt @fg-main;
+
+/* Background Colors */
+/* Main background - $base */
+@define-color bg-main #1e1e2e;
+
+/* Overlay background - $mantle */
+@define-color bg-alt #181825;
+
+/* Hover background - $crust */
+@define-color bg-hover #11111b;
+
+/* Alternate hover background - $surface1 */
+@define-color bg-hover-alt #45475a;
+
+/* Tooltip background (inherits main bg) */
+@define-color bg-tooltip @bg-main;
+
+/* Secondary background - $surface0 */
+@define-color bg-second #313244;
+
+/* Tertiary background - $surface2 */
+@define-color bg-third #585b70;
+
+/* Sway background (inherits main bg) */
+@define-color sway-bg @bg-main;
+
+/* Foreground and Text Colors */
+/* Main foreground - $text */
+@define-color fg-main #cdd6f4;
+
+/* Subtle text - $subtext1 */
+@define-color fg-subtle #bac2de;
+
+/* Muted text - $overlay1 */
+@define-color fg-muted #7f849c;
+
+/* Accent and Utility Colors */
+/* Main accent - $mauve */
+@define-color accent-main #cba6f7;
+
+/* Rosewater accent */
+@define-color accent-rosewater #f5e0dc;
+
+/* Flamingo accent */
+@define-color accent-flamingo #f2cdcd;
+
+/* Pink accent */
+@define-color accent-pink #f5c2e7;
+
+/* Red / error - $red */
+@define-color error #f38ba8;
+
+/* Maroon accent */
+@define-color accent-maroon #eba0ac;
+
+/* Peach accent */
+@define-color accent-peach #fab387;
+
+/* Yellow accent */
+@define-color accent-yellow #f9e2af;
+
+/* Green accent */
+@define-color accent-green #a6e3a1;
+
+/* Teal accent */
+@define-color accent-teal #94e2d5;
+
+/* Sky accent */
+@define-color accent-sky #89dceb;
+
+/* Sapphire accent */
+@define-color accent-sapphire #74c7ec;
+
+/* Blue accent */
+@define-color accent-blue #89b4fa;
+
+/* Lavender accent */
+@define-color accent-lavender #b4befe;

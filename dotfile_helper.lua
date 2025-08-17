@@ -26,6 +26,7 @@ options_and_flags = {
 
 available_targets = {
     'eww',
+    'pictures',
     'scripts',
     'sway',
     'swayidle',
@@ -45,11 +46,12 @@ log_file = io.open(log_file_name, 'a+')
 -- config dirs
 
 dest_dirs = {
-    eww = os.getenv('EWW_DIR') or '~/.config/eww',
-    scripts = os.getenv('SCRIPTS_DIR') or '~/.config/scripts',
-    sway = os.getenv('SWAY_DIR') or '~/.config/sway',
-    swayidle = os.getenv('SWAYIDLE_DIR') or '~/.config/swayidle',
-    waybar = os.getenv('WAYBAR_DIR') or '~/.config/waybar',
+    eww = os.getenv('EWW_DIR') or '~/.config',
+    pictures = os.getenv('PICTURES_DIR') or '~/.config',
+    scripts = os.getenv('SCRIPTS_DIR') or '~/.config',
+    sway = os.getenv('SWAY_DIR') or '~/.config',
+    swayidle = os.getenv('SWAYIDLE_DIR') or '~/.config',
+    waybar = os.getenv('WAYBAR_DIR') or '~/.config',
 }
 
 -- endregion
@@ -291,9 +293,6 @@ local function move_file_or_directory(path, new_path)
 
         if path_kind == 'Dir' then
             command_flags = '-r'
-            path = path .. '/'
-        else
-            dest = dest .. '/'
         end
     end
 

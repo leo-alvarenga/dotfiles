@@ -1,0 +1,26 @@
+# Colorscheme: Rose pine
+
+set $highlight_high #524f67
+set $highlight_med #403d52
+set $highlight_low #21202e
+set $iris #c4a7e7
+set $foam #9ccfd8
+set $pine #31748f
+set $rose #ebbcba
+set $gold #f6c177
+set $love #eb6f92
+set $text #e0def4
+set $subtle #908caa
+set $muted #6e6a86
+set $overlay #26233a
+set $surface #1f1d2e
+set $base #191724
+
+set $text_main      $text
+set $error          $love
+set $accent_main    $rose
+set $bg_main        $base
+set $bg_over        $surface
+set $bg_after       $overlay
+set $bg_subtle      $subtle
+set $bg_separator   $subtle

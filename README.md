@@ -1,22 +1,31 @@
 # Dotfiles (WIP)
 
 ## Current setup
-
-- Distro: CachyOS
-- DM: SDDM
-- DE (Wayland protocol only):
-  1. Sway (and its stack) + Waybar
-  2. Plasma
+- Distro: Arch Linux
+- DM: Ly (TUI)
+- WM (Compositor): Sway (and its stack) + Waybar
 
 ## Dependencies (so far)
 
-- `ttf-nerd-fonts-symbols` (Nerd Fonts icons)
+### Compilers and Interpreters
 - `lua`
-- `swayfx`
+- `go`
+- `rustc` - Via [`rustup`](https://www.rust-lang.org/learn/get-started)
+
+### Packages
+- `nerd-fonts` - Whole group
+- `brightnessctl`
+- `power-profiles-daemon`
+- `swayfx` - Via AUR or manual build
 - `swaybg`
-- `swaylock-effects`
+- `swaylock-effects` - Via AUR or manual build
 - `swayidle`
 - `waybar`
+- `eww` - Manually built
+- `ghostty`
+- `fuzzel`
+- `btop`
+- `tree`
 
 ## Dotfile helper
 

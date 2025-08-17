@@ -1,0 +1,59 @@
+/* Base border color */
+@define-color border-main @fg-main;
+@define-color border-alt @fg-main;
+
+/* Background Colors */
+
+/* $base */
+@define-color bg-main #191724;
+
+/* $surface */
+@define-color bg-alt #1f1d2e;
+
+/* $overlay */
+@define-color bg-hover #26233a;
+
+/* $highlight_med */
+@define-color bg-hover-alt #403d52;
+
+@define-color bg-tooltip @bg-main;
+
+/* $highlight_low */
+@define-color bg-second #21202e;
+
+/* $highlight_high */
+@define-color bg-third #524f67;
+
+@define-color sway-bg @bg-main;
+
+/* Foreground and Accent Colors */
+
+/* $text */
+@define-color fg-main #e0def4;
+
+/* $subtle */
+@define-color fg-subtle #908caa;
+
+/* $muted */
+@define-color fg-muted #6e6a86;
+
+
+/* $iris */
+@define-color accent-iris #c4a7e7;
+
+/* $foam */
+@define-color accent-foam #9ccfd8;
+
+/* $pine */
+@define-color accent-pine #31748f;
+
+/* $rose */
+@define-color accent-rose #ebbcba;
+
+/* $gold */
+@define-color accent-gold #f6c177;
+
+@define-color accent-main @accent-rose;
+
+/* $love */
+@define-color error #eb6f92;
