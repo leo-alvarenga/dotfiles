@@ -26,6 +26,7 @@ options_and_flags = {
 
 available_targets = {
     'eww',
+    'fuzzel',
     'pictures',
     'scripts',
     'sway',
@@ -45,13 +46,16 @@ log_file = io.open(log_file_name, 'a+')
 
 -- config dirs
 
+default_generic_config_path = '~/.config'
+
 dest_dirs = {
-    eww = os.getenv('EWW_DIR') or '~/.config',
-    pictures = os.getenv('PICTURES_DIR') or '~/.config',
-    scripts = os.getenv('SCRIPTS_DIR') or '~/.config',
-    sway = os.getenv('SWAY_DIR') or '~/.config',
-    swayidle = os.getenv('SWAYIDLE_DIR') or '~/.config',
-    waybar = os.getenv('WAYBAR_DIR') or '~/.config',
+    eww = os.getenv('EWW_DIR') or default_generic_config_path,
+    fuzzel = os.getenv('FUZZEL_DIR') or default_generic_config_path,
+    pictures = os.getenv('PICTURES_DIR') or default_generic_config_path,
+    scripts = os.getenv('SCRIPTS_DIR') or default_generic_config_path,
+    sway = os.getenv('SWAY_DIR') or default_generic_config_path,
+    swayidle = os.getenv('SWAYIDLE_DIR') or default_generic_config_path,
+    waybar = os.getenv('WAYBAR_DIR') or default_generic_config_path,
 }
 
 -- endregion
@@ -112,6 +116,8 @@ local function debug(values)
     inner_log(values, true)
 end
 
+--- Loads all global variables
+--- @return boolean
 local function load_vars()
     debug('[Function] load_vars -> Set variables')
 
@@ -257,21 +263,26 @@ local function confirm(message, callback)
     return true
 end
 
-local function move_file_or_directory(path, new_path)
+local function move_file_or_directory(path, new_path, scope)
     debug('[Function] move_file_or_directory -> Start (path: ' ..
         tostring(path) .. ', dest: ' .. tostring(new_path) .. ')')
 
     log('Syncing "' .. path .. '"...')
 
-    if type(path) ~= 'string' or type(new_path) ~= 'string' then
+    if type(path) ~= 'string' or type(new_path) ~= 'string' or type(scope) ~= 'string' then
         debug('[Function] move_file_or_directory -> path is not a string')
         return 1
     end
 
-    local command_flags = ''
+    local command_flags = '-r'
     local dest = new_path
-    local path_kind = is_file_or_dir(path)
+    local test_dest = dest
 
+    if test_dest == default_generic_config_path then
+        test_dest = test_dest .. '/' .. scope
+    end
+
+    local path_kind = is_file_or_dir(test_dest)
     debug('[Function] move_file_or_directory -> Path type is "' .. (path_kind or 'NULL') .. '"')
     if path_kind then
         debug('[Function] move_file_or_directory -> Asking for permission')
@@ -281,7 +292,7 @@ local function move_file_or_directory(path, new_path)
         end
 
         local should_continue = confirm({ '\n(' .. path_kind .. ') "' ..
-        dest .. '" already exists. If you continue, its contents will be OVERWRITTEN.',
+        test_dest .. '" already exists. If you continue, its contents will be OVERWRITTEN.',
             'Are you sure you want to continue? (y/N)' })
 
         if not should_continue then
@@ -289,10 +300,6 @@ local function move_file_or_directory(path, new_path)
             log('Skipping "' .. path .. "'\n")
 
             return 0
-        end
-
-        if path_kind == 'Dir' then
-            command_flags = '-r'
         end
     end
 
@@ -374,12 +381,12 @@ function sync()
 
     debug('[Function] sync -> Starting to copy files over')
     for _, domain in ipairs(targets) do
-        local dir = tostring(domain)
-        local new_dir = dest_dirs[dir]
+        local scope = tostring(domain)
+        local new_dir = dest_dirs[scope]
 
         if new_dir then
-            debug('[Function] sync -> Copying from domain "' .. dir .. '"')
-            move_file_or_directory(dev_dir .. '/' .. dir, new_dir)
+            debug('[Function] sync -> Copying from domain "' .. scope .. '"')
+            move_file_or_directory(dev_dir .. '/' .. scope, new_dir, scope)
         end
     end
 
