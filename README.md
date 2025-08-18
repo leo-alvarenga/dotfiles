@@ -30,6 +30,8 @@
 - `power-profiles-daemon`
 - `btop`
 - `tree`
+- `wl-clipboard`
+- `slurp`
 - `grim`
 - `chafa`
 

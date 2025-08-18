@@ -4,23 +4,36 @@ function get_filename() {
     echo $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')
 }
 
+function selection() {
+    grim -g "$(slurp)" $1
+}
+
 function all_outputs() {
-    echo grim $1
+    grim $1
 }
 
 function main() {
-    FILENAME=get_filename
-    OUTPUT=""
+    FILENAME=$(get_filename)
     
     case $1 in
+        all)
+            all_outputs $FILENAME
+        ;;
+        select)
+            selection $FILENAME
+        ;;
         *)
-            OUTPUT="$(all_outputs $FILENAME)"
+            echo "Missing args"
+            exit 1
         ;;
     esac
 
     case $2 in
         copy)
-            echo $OUTPUT | wl-copy
+            cat $FILENAME | wl-copy
+        ;;
+        copy_path)
+            echo $FILENAME | wl-copy
         ;;
         show)
             ghostty -e "chafa -f kitty $FILENAME"
@@ -31,4 +44,4 @@ function main() {
     esac
 }
 
-main $1
+main $1 $2
