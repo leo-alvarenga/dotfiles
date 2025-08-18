@@ -27,6 +27,7 @@ options_and_flags = {
 available_targets = {
     'eww',
     'fuzzel',
+    'ghostty',
     'pictures',
     'scripts',
     'sway',
@@ -51,6 +52,7 @@ default_generic_config_path = '~/.config'
 dest_dirs = {
     eww = os.getenv('EWW_DIR') or default_generic_config_path,
     fuzzel = os.getenv('FUZZEL_DIR') or default_generic_config_path,
+    ghostty = os.getenv('GHOSTTY_DIR') or default_generic_config_path,
     pictures = os.getenv('PICTURES_DIR') or default_generic_config_path,
     scripts = os.getenv('SCRIPTS_DIR') or default_generic_config_path,
     sway = os.getenv('SWAY_DIR') or default_generic_config_path,
