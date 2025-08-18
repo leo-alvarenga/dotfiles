@@ -13,6 +13,7 @@ set $right l
 
 set $term ghostty # Term
 set $menu fuzzel # Menu/App laucher
+set $print ~/.config/scripts/screenshot.sh
 
 # Appearance:
 set $bg ~/.config/pictures/rose_pine_maze.png
@@ -198,8 +199,8 @@ exec swayidle -w
 # finally bind
 # bindswitch --locked lid:on exec systemctl suspend
 
-# Special key to take a screenshot with grim
-# bindsym Print exec grim
+bindsym Print exec $print all copy
+bindsym Shift+Print exec $print select copy
 
 
 ### Status Bar
