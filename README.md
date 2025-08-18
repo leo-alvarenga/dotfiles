@@ -47,6 +47,9 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [x] Dotfile helper
 - [x] Add Swaylock config
 - [x] Add Swayidle config
-- [%] Improve Waybar config <- In progress
+- [ ] Improve Waybar config <- In progress
 - [ ] Bugfix issue with volume control keys
 - [ ] Solve "sticky" drag with mouse
+
+## Preview
+![Empty workspace](./docs/empty.png)
