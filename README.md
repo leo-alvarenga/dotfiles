@@ -31,6 +31,7 @@
 - `btop`
 - `tree`
 - `wl-clipboard`
+- `fastfetch`
 - `slurp`
 - `grim`
 - `chafa`
@@ -48,6 +49,7 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [x] Add Swaylock config
 - [x] Add Swayidle config
 - [ ] Improve Waybar config <- In progress
+- [ ] Config `fastfetch`
 - [ ] Bugfix issue with volume control keys
 - [ ] Solve "sticky" drag with mouse
 
