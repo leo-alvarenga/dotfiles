@@ -12,20 +12,26 @@
 - `go`
 - `rustc` - Via [`rustup`](https://www.rust-lang.org/learn/get-started)
 
-### Packages
+### Core
 - `nerd-fonts` - Whole group
-- `brightnessctl`
-- `power-profiles-daemon`
 - `swayfx` - Via AUR or manual build
 - `swaybg`
+- `swaync`
 - `swaylock-effects` - Via AUR or manual build
 - `swayidle`
 - `waybar`
 - `eww` - Manually built
 - `ghostty`
 - `fuzzel`
+
+### Utilities
+- `xdg-user-dirs`
+- `brightnessctl`
+- `power-profiles-daemon`
 - `btop`
 - `tree`
+- `grim`
+- `chafa`
 
 ## Dotfile helper
 
@@ -39,6 +45,6 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [x] Dotfile helper
 - [x] Add Swaylock config
 - [x] Add Swayidle config
+- [%] Improve Waybar config <- In progress
 - [ ] Bugfix issue with volume control keys
 - [ ] Solve "sticky" drag with mouse
-- [ ] Improve Waybar config
