@@ -13,6 +13,7 @@
 - `rustc` - Via [`rustup`](https://www.rust-lang.org/learn/get-started)
 
 ### Core
+- `pulseaudio`
 - `nerd-fonts` - Whole group
 - `swayfx` - Via AUR or manual build
 - `swaybg`
@@ -27,7 +28,10 @@
 ### Utilities
 - `xdg-user-dirs`
 - `brightnessctl`
+- `pamixer`
+- `pavucontrol`
 - `power-profiles-daemon`
+- `starship`
 - `btop`
 - `tree`
 - `wl-clipboard`
@@ -49,6 +53,7 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [x] Add Swaylock config
 - [x] Add Swayidle config
 - [ ] Improve Waybar config <- In progress
+    - ADD PULSEAUDIO
 - [ ] Config `fastfetch`
 - [ ] Bugfix issue with volume control keys
 - [ ] Solve "sticky" drag with mouse

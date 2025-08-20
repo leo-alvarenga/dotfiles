@@ -14,6 +14,12 @@ local function get_abs_script_path()
     return source
 end
 
+local function to_dev_dir_path(scope)
+    local dev_dir = string.gsub(string.gsub(get_abs_script_path(), '/' .. dotfile_helper_name, ''), '%./', '')
+
+    return dev_dir .. '/' .. scope
+end
+
 options_and_flags = {
     '-h',
     '--help',
@@ -30,6 +36,7 @@ available_targets = {
     'ghostty',
     'pictures',
     'scripts',
+    'starship',
     'sway',
     'swayidle',
     'waybar'
@@ -49,12 +56,25 @@ log_file = io.open(log_file_name, 'a+')
 
 default_generic_config_path = '~/.config'
 
+source_dirs = {
+    eww = to_dev_dir_path('eww'),
+    fuzzel = to_dev_dir_path('fuzzel'),
+    ghostty = to_dev_dir_path('ghostty'),
+    pictures = to_dev_dir_path('pictures'),
+    scripts = to_dev_dir_path('scripts'),
+    starship = to_dev_dir_path('starship.toml'),
+    sway = to_dev_dir_path('sway'),
+    swayidle = to_dev_dir_path('swayidle'),
+    waybar = to_dev_dir_path('waybar')
+}
+
 dest_dirs = {
     eww = os.getenv('EWW_DIR') or default_generic_config_path,
     fuzzel = os.getenv('FUZZEL_DIR') or default_generic_config_path,
     ghostty = os.getenv('GHOSTTY_DIR') or default_generic_config_path,
     pictures = os.getenv('PICTURES_DIR') or default_generic_config_path,
     scripts = os.getenv('SCRIPTS_DIR') or default_generic_config_path,
+    starship = os.getenv('STARSHIP_DIR') or default_generic_config_path .. '/starship.toml',
     sway = os.getenv('SWAY_DIR') or default_generic_config_path,
     swayidle = os.getenv('SWAYIDLE_DIR') or default_generic_config_path,
     waybar = os.getenv('WAYBAR_DIR') or default_generic_config_path,
@@ -276,8 +296,10 @@ local function move_file_or_directory(path, new_path, scope)
         return 1
     end
 
-    local command_flags = '-r'
+    local command_flags = ''
+
     local dest = new_path
+    local src_path = source_dirs[scope]
     local test_dest = dest
 
     if test_dest == default_generic_config_path then
@@ -305,7 +327,11 @@ local function move_file_or_directory(path, new_path, scope)
         end
     end
 
-    local command = table.concat({ 'cp', command_flags, path, dest }, ' ')
+    if not string.match(src_path, '%.') then
+        command_flags = '-r'
+    end
+
+    local command = table.concat({ 'cp', command_flags, src_path, dest }, ' ')
 
     debug('[Function] move_file_or_directory -> Moving files (path: ' .. path .. ', dest: ' .. dest .. ')')
     debug('[Function] move_file_or_directory -> Command: "' .. command .. '"')
@@ -372,7 +398,7 @@ function sync()
 
     log('Determining the root of this directory...')
     debug('[Function] sync -> Getting the root of this directory')
-    local dev_dir = string.gsub(get_abs_script_path(), '/' .. dotfile_helper_name, '')
+
 
     debug('[Function] sync -> Getting targets')
     local targets = get_targets()
@@ -388,7 +414,7 @@ function sync()
 
         if new_dir then
             debug('[Function] sync -> Copying from domain "' .. scope .. '"')
-            move_file_or_directory(dev_dir .. '/' .. scope, new_dir, scope)
+            move_file_or_directory(source_dirs[scope], new_dir, scope)
         end
     end
 
@@ -396,6 +422,7 @@ function sync()
         return val == 'scripts'
     end) ~= nil
 
+    local dev_dir = string.gsub(get_abs_script_path(), '/' .. dotfile_helper_name, '')
     chmod_scripts(update_scripts, dev_dir)
 
     debug('[Function] sync -> Finish')
