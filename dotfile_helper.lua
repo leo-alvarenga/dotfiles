@@ -307,6 +307,7 @@ local function move_file_or_directory(path, new_path, scope)
     end
 
     local path_kind = is_file_or_dir(test_dest)
+    local src_kind = is_file_or_dir(src_path)
     debug('[Function] move_file_or_directory -> Path type is "' .. (path_kind or 'NULL') .. '"')
     if path_kind then
         debug('[Function] move_file_or_directory -> Asking for permission')
@@ -327,7 +328,7 @@ local function move_file_or_directory(path, new_path, scope)
         end
     end
 
-    if not string.match(src_path, '%.') then
+    if src_kind == 'Dir' then
         command_flags = '-r'
     end
 
