@@ -1,6 +1,5 @@
 timeout 300 '~/.config/scripts/lock.sh'
-timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
-timeout 600 'systemctl suspend'
-timeout 1200 'systemctl suspend-then-hibernate'
+timeout 600 'swaymsg "output * power off"'
+timeout 720 'systemctl suspend'
 before-sleep '~/.config/scripts/suspend.sh'
 after-resume 'swaymsg "output * power on"'

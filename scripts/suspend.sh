@@ -1,4 +1,3 @@
 #!/bin/bash
 
-~/.config/scripts/lock.sh 
-systemctl suspend
+~/.config/scripts/lock.sh
