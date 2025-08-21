@@ -14,6 +14,8 @@ set $right l
 set $term ghostty # Term
 set $menu fuzzel # Menu/App laucher
 set $print ~/.config/scripts/screenshot.sh
+set $lock ~/.config/scripts/lock.sh
+set $volume_control ~/.config/scripts/volume_control.sh
 
 # Appearance:
 set $bg ~/.config/pictures/rose_pine_maze.png
@@ -46,6 +48,9 @@ shadows enable
 
 ### Idle configuration
 exec swayidle -w
+
+### Notification center
+exec swaync
 
 ### Input configuration
 
@@ -181,10 +186,13 @@ bindsym $mod+r mode "resize"
 ## Utilities:
 
 # Audio (PulseAudio)
-bindsym --locked XF86AudioMute exec swaynag -t warning -m 'You pressed Mute.' -B 'Yes, mute' 'pactl set-sink-volume \@DEFAULT_SINK@ -5%'
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+bindsym --locked XF86AudioMute exec $volume_control output mute
+bindsym --locked XF86AudioLowerVolume exec $volume_control output down
+bindsym --locked XF86AudioRaiseVolume exec $volume_control output up
+
+bindsym --locked XF86AudioLowerVolume+Shift exec $volume_control input down
+bindsym --locked XF86AudioRaiseVolume+Shift exec $volume_control input up
+bindsym --locked XF86AudioMicMute exec $volume_control input mute
 
 # Screen brightness
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
@@ -194,7 +202,7 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 # exec systemd-inhibit --what=handle-lid-switch sleep infinity
 
 #lock before sleep
-exec swayidle -w
+# exec swayidle -w
 
 # finally bind
 # bindswitch --locked lid:on exec systemctl suspend
