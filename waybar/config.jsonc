@@ -72,6 +72,30 @@
             "\uf2c8"
         ]
     },
+    "pulseaudio": {
+        "format": "{volume}% {icon}  {format_source}",
+        "format-source": "{volume}% \uf130",
+        "format-bluetooth": "{volume}% {icon} \udb80\udcb1",
+        "format-muted": "\udb81\udd81",
+        "format-source-muted": "\uf131",
+        "format-icons": {
+            "headphone": "\udb80\udecb",
+            "hands-free": "\udb86\ude42",
+            "headset": "\udb80\udece",
+            "phone": "\udb80\udff2",
+            "phone-muted": "\udb83\uddef",
+            "portable": "\udb80\uddbe",
+            "car": "\udb80\udd0b",
+            "default": [
+                "\udb81\udd7f",
+                "\udb81\udd80",
+                "\udb81\udd7e"
+            ]
+        },
+        "max-volume": 100,
+        "on-click": "pavucontrol",
+        "scroll-step": 1
+    },
     "backlight": {
         "format": "{percent}% {icon}",
         "format-icons": [
@@ -178,6 +202,7 @@
         "network",
         "power-profiles-daemon",
         "group/group-stats",
+        "pulseaudio",
         "backlight",
         "sway/language",
         "battery",

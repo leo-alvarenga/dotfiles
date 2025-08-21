@@ -133,6 +133,7 @@ button:hover {
 #network,
 #power-profiles-daemon,
 #language,
+#pulseaudio,
 #backlight,
 #battery,
 #clock {
@@ -142,6 +143,7 @@ button:hover {
     background-color: @bg-hover-alt;
 }
 
+#pulseaudio,
 #backlight,
 #battery,
 #network {
