@@ -77,6 +77,9 @@ bindsym $mod+Return exec $term
 # Kill focused window
 bindsym $mod+c kill
 
+# Lock
+bindsym $mod+p exec $lock
+
 # Start your launcher
 bindsym $mod+d exec $menu
 
@@ -93,6 +96,9 @@ bindsym $mod+$Alt+k exec swaymsg input type:keyboard xkb_switch_layout next
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 ## Movement:
+
+# Alt+Tab similar to full DEs
+bindsym $Alt+Tab focus next
 
 # Move your focus around
 bindsym $mod+$left focus left
