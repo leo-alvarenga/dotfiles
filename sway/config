@@ -50,7 +50,8 @@ shadows enable
 exec swayidle -w
 
 ### Notification center
-exec swaync
+exec swaync &
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 ### Input configuration
 

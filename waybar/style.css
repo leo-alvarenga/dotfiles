@@ -75,6 +75,11 @@ button:hover {
 
 /* ---------------------------- RIGHT ------------------------------*/
 
+.modules-left {
+    margin-left: 8px;
+}
+
+.modules-left,
 .modules-right {
     margin-top: 8px;
     margin-right: 8px;
@@ -136,7 +141,12 @@ button:hover {
 #pulseaudio,
 #backlight,
 #battery,
-#clock {
+#clock,
+#cpu,
+#memory,
+#temperature,
+#custom-launcher,
+#custom-nc {
     margin: 4px 0;
     padding: 0 8px;
     border-radius: 12px;
@@ -146,7 +156,11 @@ button:hover {
 #pulseaudio,
 #backlight,
 #battery,
-#network {
+#language,
+#network,
+#cpu,
+#memory,
+#custom-launcher {
     padding-right: 12px;
 }
 

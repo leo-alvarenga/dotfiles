@@ -3,6 +3,61 @@
     "height": 30,
     "spacing": 8,
     /* ------------------------------- LEFT -------------------------------*/
+    "custom/launcher": {
+        "format": "\uf303",
+        "tooltip-format": "Open/close the app launcher",
+        "on-click": "~/.config/scripts/launcher.sh"
+    },
+    "cpu": {
+        "format": "{usage}% \uf4bc",
+        "tooltip": true
+    },
+    "memory": {
+        "format": "{percentage}% \uefc5",
+        "tooltip-format": "Used: {used:0.1f}GiB - Available: {avail:0.1f}GiB - Total: {total:0.1f}GiB"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [
+            "\uf2cb",
+            "\uf2c9",
+            "\uf2c8"
+        ]
+    },
+    "pulseaudio": {
+        "format": "{volume}% {icon}  {format_source}",
+        "format-source": "{volume}% \uf130",
+        "format-bluetooth": "{volume}% \udb80\udcb1  {format_source}",
+        "format-muted": "Off \udb81\udd81  {format_source}",
+        "format-source-muted": "Off \uf131",
+        "format-icons": {
+            "headphone": "\udb80\udecb",
+            "hands-free": "\udb86\ude42",
+            "headset": "\udb80\udece",
+            "phone": "\udb80\udff2",
+            "phone-muted": "\udb83\uddef",
+            "portable": "\udb80\uddbe",
+            "default": [
+                "\udb81\udd7f",
+                "\udb81\udd80",
+                "\udb81\udd7e"
+            ]
+        },
+        "max-volume": 100,
+        "on-click": "pavucontrol",
+        "scroll-step": 1
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}",
+        "tooltip": true,
+        "format-icons": {
+            "performance": "\udb85\udc0b",
+            "balanced": "\udb81\uddd1",
+            "power-saver": "\udb80\udf2a"
+        }
+    },
     /* --------------------------------------------------------------------*/
     /* ------------------------------ CENTER ------------------------------*/
     "sway/workspaces": {
@@ -32,70 +87,6 @@
             "\udb82\udd28"
         ]
     },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}",
-        "tooltip": true,
-        "format-icons": {
-            "performance": "\udb85\udc0b",
-            "balanced": "\udb81\uddd1",
-            "power-saver": "\udb80\udf2a"
-        }
-    },
-    "group/group-stats": {
-        "orientation": "inherit",
-        "drawer": {
-            "children-class": "stats",
-            "transition-duration": 500,
-            "transition-left-to-right": true
-        },
-        "modules": [
-            "cpu",
-            "memory",
-            "temperature"
-        ]
-    },
-    "cpu": {
-        "format": "{usage}% \uf4bc",
-        "tooltip": true
-    },
-    "memory": {
-        "format": "{percentage}% \uefc5",
-        "tooltip-format": "Used: {used:0.1f}GiB - Available: {avail:0.1f}GiB - Total: {total:0.1f}GiB"
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": [
-            "\uf2cb",
-            "\uf2c9",
-            "\uf2c8"
-        ]
-    },
-    "pulseaudio": {
-        "format": "{volume}% {icon}  {format_source}",
-        "format-source": "{volume}% \uf130",
-        "format-bluetooth": "{volume}% {icon} \udb80\udcb1",
-        "format-muted": "\udb81\udd81",
-        "format-source-muted": "\uf131",
-        "format-icons": {
-            "headphone": "\udb80\udecb",
-            "hands-free": "\udb86\ude42",
-            "headset": "\udb80\udece",
-            "phone": "\udb80\udff2",
-            "phone-muted": "\udb83\uddef",
-            "portable": "\udb80\uddbe",
-            "car": "\udb80\udd0b",
-            "default": [
-                "\udb81\udd7f",
-                "\udb81\udd80",
-                "\udb81\udd7e"
-            ]
-        },
-        "max-volume": 100,
-        "on-click": "pavucontrol",
-        "scroll-step": 1
-    },
     "backlight": {
         "format": "{percent}% {icon}",
         "format-icons": [
@@ -105,8 +96,8 @@
         ]
     },
     "sway/language": {
-        "format": "{short}",
-        "tooltip-format": "{long}",
+        "format": "{short} \uf11c",
+        "tooltip-format": "{long} [Click to change]",
         "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     },
     "battery": {
@@ -152,6 +143,11 @@
             }
         }
     },
+    "custom/nc": {
+        "exec": "~/.config/scripts/notifications.sh count",
+        "format": "\uf49a <small>{text}</small>",
+        "interval": 5
+    },
     "group/group-power": {
         "orientation": "inherit",
         "drawer": {
@@ -193,20 +189,25 @@
     /* --------------------------------------------------------------------*/
     /* ------------------------------ LAYOUT ------------------------------*/
     "modules-left": [
-        "sway/workspaces",
-        "sway/mode"
+        "custom/launcher",
+        "cpu",
+        "memory",
+        "temperature",
+        "pulseaudio",
+        "power-profiles-daemon"
     ],
-    "modules-center": [],
+    "modules-center": [
+        "sway/mode",
+        "sway/workspaces"
+    ],
     "modules-right": [
         "tray",
         "network",
-        "power-profiles-daemon",
-        "group/group-stats",
-        "pulseaudio",
         "backlight",
         "sway/language",
         "battery",
         "clock",
+        "custom/nc",
         "group/group-power"
     ]
     /* --------------------------------------------------------------------*/
