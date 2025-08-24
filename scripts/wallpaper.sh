@@ -13,4 +13,4 @@ if [ $? -ne 0 ] ; then
     swww-daemon --format xrgb &
 fi
 
-sww img $BG_PATH
+swww img $BG_PATH

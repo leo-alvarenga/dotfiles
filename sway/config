@@ -25,7 +25,7 @@ set $lock ~/.config/scripts/lock.sh
 set $volume_control ~/.config/scripts/volume_control.sh
 
 # Appearance:
-set $bg ~/.config/pictures/rose_pine_maze.png
+set $bg ~/.config/pictures/rose_pine_stars.png
 
 # Sets wallpaper in all screens (uses swaybg internally)
 exec $wallpaper $bg
