@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 function get_filename() {
-    echo $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')
+    echo $(xdg-user-dir PICTURES)/$(date +'screenshot_%s_grim.png')
 }
 
 function selection() {
