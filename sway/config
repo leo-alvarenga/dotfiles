@@ -11,8 +11,15 @@ set $down j
 set $up k
 set $right l
 
+# Programs
 set $term ghostty # Term
 set $menu fuzzel # Menu/App laucher
+
+set $notification_center swaync
+set $notification_center_panel swaync-client -t -sw
+
+# Scripts
+set $wallpaper ~/.config/scripts/wallpaper.sh
 set $print ~/.config/scripts/screenshot.sh
 set $lock ~/.config/scripts/lock.sh
 set $volume_control ~/.config/scripts/volume_control.sh
@@ -21,7 +28,7 @@ set $volume_control ~/.config/scripts/volume_control.sh
 set $bg ~/.config/pictures/rose_pine_maze.png
 
 # Sets wallpaper in all screens (uses swaybg internally)
-output * bg $bg fill
+exec $wallpaper $bg
 
 default_border pixel 2
 
@@ -50,8 +57,8 @@ shadows enable
 exec swayidle -w
 
 ### Notification center
-exec swaync &
-bindsym $mod+Shift+n exec swaync-client -t -sw
+exec $notification_center &
+bindsym $mod+Shift+n exec $notification_center_panel 
 
 ### Input configuration
 
@@ -64,6 +71,8 @@ input type:keyboard {
 input type:touchpad {
     dwt enabled
     tap enabled
+    drag enabled
+    drag_lock disabled
     natural_scroll enabled
     middle_emulation enabled
 }
@@ -171,10 +180,10 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $mod+$left resize shrink width 10px
+    bindsym $mod+$down resize grow height 10px
+    bindsym $mod+$up resize shrink height 10px
+    bindsym $mod+$right resize grow width 10px
 
     # Ditto, with arrow keys
     bindsym Left resize shrink width 10px

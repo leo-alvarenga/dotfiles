@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 INPUT_VOLUME=$(pamixer --get-volume)
 OUTPUT_VOLUME=$(pamixer --get-volume)
 

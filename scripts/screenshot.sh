@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function get_filename() {
     echo $(xdg-user-dir PICTURES)/$(date +'%s_grim.png')

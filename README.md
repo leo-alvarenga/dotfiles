@@ -16,7 +16,7 @@
 - `pulseaudio`
 - `nerd-fonts` - Whole group
 - `swayfx` - Via AUR or manual build
-- `swaybg`
+- `swww`
 - `swaync`
 - `swaylock-effects` - Via AUR or manual build
 - `swayidle`
