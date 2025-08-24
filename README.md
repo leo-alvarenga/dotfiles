@@ -55,6 +55,8 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [x] Improve Waybar config
 - [x] Bugfix issue with volume control keys
 - [x] Solve "sticky" drag with mouse
+- [ ] Reorganize this repo
+- [ ] Rethink how theme switching should work
 - [ ] Add independent menus
     - [ ] Power menu
 - [ ] Config `fastfetch`
