@@ -1,6 +1,6 @@
 # Dotfiles (WIP)
 
-## Current setup
+## Current setup ([Preview](#preview))
 - Distro: Arch Linux
 - DM: Ly (TUI)
 - WM (Compositor): Sway (and its stack) + Waybar
