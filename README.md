@@ -1,11 +1,12 @@
 # Dotfiles (WIP)
 
 ## Current setup ([Preview](#preview))
-- Distro: Arch Linux
-- DM: Ly (TUI)
+- Distro: Void Linux
+- DM: N/d (for now) 
 - WM (Compositor): Sway (and its stack) + Waybar
 
 ## Dependencies (so far)
+Please note that the package names used here are the ones found in the Void Linux package registry. Doing the same setup in other distros WILL require attention and care when installing the packages listed bellow.
 
 ### Compilers and Interpreters
 - `lua`
@@ -13,14 +14,25 @@
 - `rustc` - Via [`rustup`](https://www.rust-lang.org/learn/get-started)
 
 ### Core
+- `git`
+- `cmake`
+- `wget`
+- `curl`
+- `dbus`
+- `elogind`
+- `mesa`
+- `mesa-intel-dri`
+- `mesa-vulkan-intel`
 - `pulseaudio`
-- `nerd-fonts` - Whole group
-- `swayfx` - Via AUR or manual build
+- `dejavu-fonts-ttf`
+- `font-awesome`
+- `font-awesome6`
+- `swayfx`
 - `swww`
-- `swaync`
+- `SwayNotificationCenter`
 - `swaylock-effects` - Via AUR or manual build
 - `swayidle`
-- `waybar`
+- `Waybar`
 - `eww` - Manually built
 - `ghostty`
 - `fuzzel`
@@ -31,7 +43,7 @@
 - `pamixer`
 - `pavucontrol`
 - `power-profiles-daemon`
-- `starship`
+- `starship` - Via [starship.rs](https://starship.rs/)
 - `btop`
 - `tree`
 - `wl-clipboard`
@@ -55,7 +67,8 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [x] Improve Waybar config
 - [x] Bugfix issue with volume control keys
 - [x] Solve "sticky" drag with mouse
-- [ ] Reorganize this repo
+- [x] Reorganize this repo
+- [ ] Deprecate `dotfile_helper`
 - [ ] Rethink how theme switching should work
 - [ ] Add independent menus
     - [ ] Power menu

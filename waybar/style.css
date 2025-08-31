@@ -3,7 +3,7 @@
 @import "rose_pine.css";
 
 * {
-    font-family: FiraCode, Roboto, Helvetica, Arial, sans-serif;
+    font-family: "Noto sans", "DejaVu sans", "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
     font-size: 12px;
 }
 

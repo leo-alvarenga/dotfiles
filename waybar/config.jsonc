@@ -4,16 +4,16 @@
     "spacing": 8,
     /* ------------------------------- LEFT -------------------------------*/
     "custom/launcher": {
-        "format": "\uf303",
+        "format": "",
         "tooltip-format": "Open/close the app launcher",
         "on-click": "~/.config/scripts/launcher.sh"
     },
     "cpu": {
-        "format": "{usage}% \uf4bc",
+        "format": "{usage}% ",
         "tooltip": true
     },
     "memory": {
-        "format": "{percentage}% \uefc5",
+        "format": "{percentage}% ",
         "tooltip-format": "Used: {used:0.1f}GiB - Available: {avail:0.1f}GiB - Total: {total:0.1f}GiB"
     },
     "temperature": {
@@ -26,22 +26,22 @@
         ]
     },
     "pulseaudio": {
-        "format": "{volume}% {icon}  {format_source}",
-        "format-source": "{volume}% \udb80\udf6c",
-        "format-bluetooth": "{volume}% \udb80\udcb1  {format_source}",
-        "format-muted": "Off \udb81\udd81  {format_source}",
-        "format-source-muted": "Off \udb80\udf6d",
+        "format": "{volume}% {icon}   {format_source}",
+        "format-source": "{volume}% ",
+        "format-bluetooth": "{volume}%  {format_source}",
+        "format-muted": "Off   {format_source}",
+        "format-source-muted": "Off ",
         "format-icons": {
-            "headphone": "\udb80\udecb",
-            "hands-free": "\udb86\ude42",
-            "headset": "\udb80\udece",
-            "phone": "\udb80\udff2",
-            "phone-muted": "\udb83\uddef",
-            "portable": "\udb80\uddbe",
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
             "default": [
-                "\udb81\udd7f",
-                "\udb81\udd80",
-                "\udb81\udd7e"
+                "",
+                "",
+                ""
             ]
         },
         "max-volume": 100,
@@ -53,9 +53,9 @@
         "tooltip-format": "Power profile: {profile}",
         "tooltip": true,
         "format-icons": {
-            "performance": "\udb85\udc0b",
-            "balanced": "\udb81\uddd1",
-            "power-saver": "\udb80\udf2a"
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
         }
     },
     /* --------------------------------------------------------------------*/
@@ -66,7 +66,7 @@
         "format": "{name}"
     },
     "sway/mode": {
-        "format": "{} \uf06a "
+        "format": "{}  "
     },
     /* --------------------------------------------------------------------*/
     /* ------------------------------ RIGHT -------------------------------*/
@@ -75,24 +75,16 @@
     },
     "network": {
         "format-wifi": "{icon}",
-        "format-ethernet": "\udb80\ude00",
+        "format-ethernet": "",
         "tooltip-format": "{essid} ({ipaddr}/{cidr}) connected via {ifname} ({signalStrength}%)",
-        "format-linked": "\udb85\udd46",
+        "format-linked": "",
         "format-disconnected": "Disconnected ⚠",
-        "format-icons": [
-            "\udb82\udd2f",
-            "\udb82\udd1f",
-            "\udb82\udd22",
-            "\udb82\udd25",
-            "\udb82\udd28"
-        ]
+        "format-icons": [""]
     },
     "backlight": {
         "format": "{percent}% {icon}",
         "format-icons": [
-            "\udb80\udcde",
-            "\udb80\udcdf",
-            "\udb80\udce0"
+           "" 
         ]
     },
     "sway/language": {
@@ -107,28 +99,22 @@
         },
         "format": "{capacity}% {icon}",
         "format-full": "{capacity}% {icon}",
-        "format-critical": "{capacity}% \udb84\udccd",
-        "format-charging": "{capacity}% \udb80\udc85",
-        "format-plugged": "{capacity}% \udb80\udc84",
-        "tooltip-format": "\udb86\udde5 {timeTo} - \uf0e7 {power}W - \udb84\ude11 {health}%",
+        "format-critical": "{capacity}% ",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "tooltip-format": "  {timeTo}  -   {power}W  -    {health}%",
         "format-icons": [
-            "\udb80\udc83",
-            "\udb80\udc7a",
-            "\udb80\udc7b",
-            "\udb80\udc7c",
-            "\udb80\udc7d",
-            "\udb80\udc7e",
-            "\udb80\udc7f",
-            "\udb80\udc80",
-            "\udb80\udc81",
-            "\udb80\udc82",
-            "\udb80\udc79"
+            "",
+            "",
+            "",
+            "",
+            ""
         ]
     },
     "clock": {
-        "format": "{:%H:%M} \uf017 ",
+        "format": "{:%H:%M}   ",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
-        "format-alt": "{:%d/%m/%Y} \uf073 ",
+        "format-alt": "{:%d/%m/%Y}   ",
         "actions": {
             "on-click-right": "mode",
             "on-scroll-up": "shift_up",
@@ -166,30 +152,30 @@
         ]
     },
     "custom/power-menu": {
-        "format": "\udb82\ude48",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "Open Power menu"
     },
     "custom/power": {
-        "format": "\uf011",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "Power off",
         "on-click": "shutdown now"
     },
     "custom/quit": {
-        "format": "\udb80\udf43",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "Exit session",
         "on-click": "swaymsg exit"
     },
     "custom/lock": {
-        "format": "\uf023",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "Lock",
         "on-click": "~/.config/scripts/lock.sh"
     },
     "custom/reboot": {
-        "format": "\uf021",
+        "format": "",
         "tooltip": true,
         "tooltip-format": "Reboot",
         "on-click": "reboot"
