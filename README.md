@@ -15,6 +15,8 @@ Please note that the package names used here are the ones found in the Void Linu
 
 ### Core
 - `git`
+- `make`
+- `gcc`
 - `cmake`
 - `wget`
 - `curl`
