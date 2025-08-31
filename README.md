@@ -2,7 +2,7 @@
 
 ## Current setup ([Preview](#preview))
 - Distro: Void Linux
-- DM: N/d (for now) 
+- DM: `lidm` 
 - WM (Compositor): Sway (and its stack) + Waybar
 
 ## Dependencies (so far)
@@ -20,6 +20,7 @@ Please note that the package names used here are the ones found in the Void Linu
 - `cmake`
 - `wget`
 - `curl`
+- `pam-devel`
 - `dbus`
 - `elogind`
 - `mesa`
