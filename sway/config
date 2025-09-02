@@ -2,7 +2,6 @@
 
 # ModKey: Logo key
 set $mod Mod4
-
 set $Alt Mod1
 
 # Directions: Vim-like
@@ -12,8 +11,8 @@ set $up k
 set $right l
 
 # Programs
-set $term ghostty # Term
-set $menu fuzzel # Menu/App laucher
+set $term ghostty
+set $menu fuzzel
 
 set $notification_center swaync
 set $notification_center_panel swaync-client -t -sw
@@ -24,25 +23,20 @@ set $print ~/.config/scripts/screenshot.sh
 set $lock ~/.config/scripts/lock.sh
 set $volume_control ~/.config/scripts/volume_control.sh
 
-# Appearance:
-set $bg ~/.config/pictures/rose_pine_stars.png
-
-# Sets wallpaper in all screens (uses swaybg internally)
+# Sets wallpaper in all screens
 exec $wallpaper $bg
 
 default_border pixel 2
 
-# Gaps (S2):
+# Gaps
 gaps inner 8
 
-# Im not a psycho, just no
 focus_follows_mouse no
 
-# Load Rose pine theme
-include ~/.config/sway/rose_pine
+# Load theme
+include ~/.config/sway/themes/gruvbox_dark
 
 # Window styles
-# class                 border        bground     text         indicator       child_border
 client.focused          $accent_main  $bg_main    $text_main   $accent_main    $accent_main
 client.focused_inactive $bg_after     $bg_main    $text_main   $accent_main    $bg_after
 client.unfocused        $bg_after     $bg_main    $text_main   $accent_main    $bg_after
@@ -50,7 +44,7 @@ client.urgent           $error        $bg_main    $text_main   $error          $
 client.placeholder      $text_main    $text_main  $text_main   $text_main      $text_main
 client.background       $bg_main
 
-corner_radius 8
+corner_radius $radius
 shadows enable
 
 ### Idle configuration
@@ -58,16 +52,12 @@ exec swayidle -w
 
 ### Notification center
 exec $notification_center &
-bindsym $mod+Shift+n exec $notification_center_panel 
+bindsym $mod+Shift+n exec $notification_center_panel
 
 ### Input configuration
-
-# Generic keyboard:
 input type:keyboard {
     xkb_layout "us,br"
 }
-
-# Generic trackpad/touchpad:
 input type:touchpad {
     dwt enabled
     tap enabled
@@ -79,52 +69,30 @@ input type:touchpad {
 
 ### Key bindings
 
-## App shortcuts
-# Start a terminal
+# App shortcuts
 bindsym $mod+Return exec $term
-
-# Kill focused window
 bindsym $mod+c kill
-
-# Lock
 bindsym $mod+p exec $lock
-
-# Start your launcher
 bindsym $mod+d exec $menu
-
-# Set floating behavior; Normal: Mod+MouseLeft -> Drag window | Mod+MouseRight -> Resize window
 floating_modifier $mod normal
-
-# Reload the configuration file
 bindsym $mod+Shift+r reload
-
-# Change keyboard layout
 bindsym $mod+$Alt+k exec swaymsg input type:keyboard xkb_switch_layout next
-
-# Logout wayland (Exiting from Sway in the process)
+bindsym $mod+$Alt+p exec swaymsg "set $mod $Alt"
+bindsym $mod+$Alt+o exec swaymsg "set $mod Ctrl"
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-## Movement:
-
-# Alt+Tab similar to full DEs
+## Movement
 bindsym $Alt+Tab focus next
-
-# Move your focus around
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-
-# Move the focused window with the same, but add Shift
 bindsym $mod+Shift+$left move left
 bindsym $mod+Shift+$down move down
 bindsym $mod+Shift+$up move up
 bindsym $mod+Shift+$right move right
 
-
-## Workspaces:
-
-# Switch to workspace
+## Workspaces
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
 bindsym $mod+3 workspace number 3
@@ -135,8 +103,6 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
-
-# Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
 bindsym $mod+Shift+3 move container to workspace number 3
@@ -148,129 +114,64 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-## Layout:
-
-# Split focuse container horizontally
+## Layout
 bindsym $mod+b splith
-
-#  "      "       "      vertically
 bindsym $mod+v splitv
-
-# Change layout
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-
-# Go fullscreen with the focused window (if any)
 bindsym $mod+f fullscreen
-
-# Toggle the current focus between tiling and floating mode
 bindsym $mod+Shift+space floating toggle
-
-# Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle
-
-# Move focus to the parent container
 bindsym $mod+a focus parent
 
-# Resizing containers:
-#
 mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
     bindsym $mod+$left resize shrink width 10px
     bindsym $mod+$down resize grow height 10px
     bindsym $mod+$up resize shrink height 10px
     bindsym $mod+$right resize grow width 10px
-
-    # Ditto, with arrow keys
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
     bindsym Right resize grow width 10px
-
-    # Return to default mode
     bindsym $mod+r mode "default"
     bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
-
-## Utilities:
-
-# Audio (PulseAudio)
+## Utilities
 bindsym --locked XF86AudioMute exec $volume_control output mute
 bindsym --locked XF86AudioLowerVolume exec $volume_control output down
 bindsym --locked XF86AudioRaiseVolume exec $volume_control output up
-
 bindsym --locked XF86AudioLowerVolume+Shift exec $volume_control input down
 bindsym --locked XF86AudioRaiseVolume+Shift exec $volume_control input up
 bindsym --locked XF86AudioMicMute exec $volume_control input mute
-
-# Screen brightness
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-
-# Screen lock
-# exec systemd-inhibit --what=handle-lid-switch sleep infinity
-
-#lock before sleep
-# exec swayidle -w
-
-# finally bind
-# bindswitch --locked lid:on exec systemctl suspend
-
 bindsym Print exec $print all copy
 bindsym Ctrl+Print exec $print all copy-path
 bindsym Shift+Print exec $print select copy
 bindsym Ctrl+Shift+Print exec $print select copy
 
-
 ### Status Bar
-
 bar {
-    # Default bar; Kept here for historical porposes:
-    # position top
-    # status_command while date +'%Y-%m-%d %X'; do sleep 1; done
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    # swaybar_command eww daemon; eww open statusbar
     swaybar_command waybar
-
     colors {
-        background $bg_main
-        separator  $bg_separator
-        statusline $accent_main
+        background         $bg_main
+        separator          $bg_separator
+        statusline         $accent_main
 
         focused_workspace  $bg_over  $bg_after  $accent_main
         active_workspace   $bg_main  $bg_after  $text_main
-
-        urgent_workspace   $error        $bg_after   $error
-        binding_mode       $error        $bg_after   $error
-        inactive_workspace $bg_main      $bg_over    $bg_subtle
+        urgent_workspace   $error    $bg_after  $error
+        binding_mode       $error    $bg_after  $error
+        inactive_workspace $bg_main  $bg_over  $bg_subtle
     }
 }
 
-############################
-# I can see why this feature might come in handy, so I just used the default config
-# tho I dont see myself ever using this
-
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
-
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
-
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
-
-#############################
+### Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
 
 include /etc/sway/config.d/*
+

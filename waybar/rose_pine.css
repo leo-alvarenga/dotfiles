@@ -1,59 +1,56 @@
-/* Base border color */
-@define-color border-main @fg-main;
-@define-color border-alt @fg-main;
+/* Rose Pine — Theme Contract Implementation
+   This file exposes a uniform set of variables consumed by style.css.
+   Change only this file (or theme.current.css import) to swap themes. */
 
-/* Background Colors */
-
+/* -------------------- Backgrounds -------------------- */
 /* $base */
-@define-color bg-main #191724;
-
+@define-color bg-main   #191724;
 /* $surface */
-@define-color bg-alt #1f1d2e;
-
+@define-color bg-alt    #1f1d2e;
 /* $overlay */
-@define-color bg-hover #26233a;
-
+@define-color bg-hover  #26233a;
 /* $highlight_med */
 @define-color bg-hover-alt #403d52;
-
+/* Tooltip inherits main by default */
 @define-color bg-tooltip @bg-main;
-
 /* $highlight_low */
 @define-color bg-second #21202e;
-
 /* $highlight_high */
-@define-color bg-third #524f67;
+@define-color bg-third  #524f67;
+/* Sway background (inherit main) */
+@define-color sway-bg   @bg-main;
 
-@define-color sway-bg @bg-main;
-
-/* Foreground and Accent Colors */
-
+/* -------------------- Foregrounds -------------------- */
 /* $text */
-@define-color fg-main #e0def4;
-
+@define-color fg-main   #e0def4;
 /* $subtle */
 @define-color fg-subtle #908caa;
-
 /* $muted */
-@define-color fg-muted #6e6a86;
+@define-color fg-muted  #6e6a86;
+/* Disabled/deemphasized text */
+@define-color fg-disabled #555169;
+/* Text to use on top of solid accent backgrounds */
+@define-color fg-on-accent #191724;
 
+/* Borders */
+@define-color border-main @fg-muted;
+@define-color border-alt  @fg-muted;
 
-/* $iris */
-@define-color accent-iris #c4a7e7;
+/* -------------------- Raw Accents -------------------- */
+/* $rose  */ @define-color rp-rose   #ebbcba;
+/* $gold  */ @define-color rp-gold   #f6c177;
+/* $pine  */ @define-color rp-pine   #31748f;
+/* $foam  */ @define-color rp-foam   #9ccfd8;
+/* $iris  */ @define-color rp-iris   #c4a7e7;
+/* $love  */ @define-color rp-love   #eb6f92;
 
-/* $foam */
-@define-color accent-foam #9ccfd8;
+/* -------------------- Contract Accents -------------------- */
+@define-color accent-main       @rp-rose;   /* primary */
+@define-color accent-secondary  @rp-iris;   /* secondary */
+@define-color accent-info       @rp-foam;   /* informational */
+@define-color accent-success    @rp-pine;   /* success */
+@define-color accent-warning    @rp-gold;   /* warnings */
+@define-color accent-urgent     @rp-love;   /* urgent/error */
 
-/* $pine */
-@define-color accent-pine #31748f;
-
-/* $rose */
-@define-color accent-rose #ebbcba;
-
-/* $gold */
-@define-color accent-gold #f6c177;
-
-@define-color accent-main @accent-rose;
-
-/* $love */
-@define-color error #eb6f92;
+/* Back-compat alias */
+@define-color error @accent-urgent;

@@ -1,0 +1,41 @@
+# Colorscheme: Gruvbox Dark
+
+# Base colors
+set $dark0_hard   #1d2021
+set $dark0       #282828
+set $dark0_soft  #32302f
+set $dark1       #3c3836
+set $dark2       #504945
+set $dark3       #665c54
+set $dark4       #7c6f64
+set $gray        #928374
+set $light0_hard #f9f5d7
+set $light0      #fbf1c7
+set $light0_soft #f2e5bc
+set $light1      #ebdbb2
+set $light2      #d5c4a1
+set $light3      #bdae93
+set $light4      #a89984
+
+# Accent colors
+set $red         #fb4934
+set $green       #b8bb26
+set $yellow      #fabd2f
+set $blue        #83a598
+set $purple      #d3869b
+set $aqua        #8ec07c
+set $orange      #d65d0e
+
+# Mapped to sway variables
+set $text_main    $light1
+set $error        $red
+set $accent_main  $orange
+set $bg_main      $dark0
+set $bg_over      $dark1
+set $bg_after     $dark2
+set $bg_subtle    $dark3
+set $bg_separator $dark4
+
+set $bg ~/.config/pictures/rose_pine_stars.png
+set $radius 4
+

@@ -1,0 +1,54 @@
+/* Gruvbox Dark — Theme Contract Implementation */
+
+/* -------------------- Backgrounds -------------------- */
+/* bg0 */
+@define-color bg-main      #282828;
+/* bg0_h */
+@define-color bg-alt       #32302f;
+/* bg0_s */
+@define-color bg-hover     #3c3836;
+/* bg1 */
+@define-color bg-hover-alt #504945;
+/* Tooltip inherits main */
+@define-color bg-tooltip   @bg-main;
+/* bg2 */
+@define-color bg-second    #665c54;
+/* bg3 */
+@define-color bg-third     #7c6f64;
+/* Sway background */
+@define-color sway-bg      @bg-main;
+
+/* -------------------- Foregrounds -------------------- */
+/* fg0 */
+@define-color fg-main    #ebdbb2;
+/* fg1 */
+@define-color fg-subtle  #d5c4a1;
+/* fg2 */
+@define-color fg-muted   #bdae93;
+/* disabled (gruvbox gray) */
+@define-color fg-disabled #928374;
+/* text on accent */
+@define-color fg-on-accent #1d2021;
+
+/* Borders */
+@define-color border-main @fg-muted;
+@define-color border-alt  @fg-muted;
+
+/* -------------------- Raw Accents -------------------- */
+@define-color gb-red     #cc241d;
+@define-color gb-yellow  #d79921;
+@define-color gb-green   #98971a;
+@define-color gb-blue    #458588;
+@define-color gb-purple  #b16286;
+@define-color gb-orange  #d65d0e;
+
+/* -------------------- Contract Accents -------------------- */
+@define-color accent-main       @gb-orange;
+@define-color accent-secondary  @gb-purple;
+@define-color accent-info       @gb-blue;
+@define-color accent-success    @gb-green;
+@define-color accent-warning    @gb-yellow;
+@define-color accent-urgent     @gb-red;
+
+/* Back-compat alias */
+@define-color error @accent-urgent;

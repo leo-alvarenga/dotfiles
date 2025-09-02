@@ -4,7 +4,7 @@
     "spacing": 8,
     /* ------------------------------- LEFT -------------------------------*/
     "custom/launcher": {
-        "format": "",
+        "format": "",
         "tooltip-format": "Open/close the app launcher",
         "on-click": "~/.config/scripts/launcher.sh"
     },
@@ -138,7 +138,7 @@
     "custom/power": {
         "format": "",
         "tooltip": true,
-        "tooltip-format": "Open Power menu",
+        "tooltip-format": "Open power menu",
         "on-click": "wlogout"
     },
     /* --------------------------------------------------------------------*/
@@ -167,3 +167,4 @@
     ]
     /* --------------------------------------------------------------------*/
 }
+
