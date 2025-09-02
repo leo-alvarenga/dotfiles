@@ -8,4 +8,4 @@ if [[ -z $MENU_PID ]]; then
     exit 0
 fi
 
-killall $MENU
+kill $MENU_PID

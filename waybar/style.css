@@ -4,7 +4,7 @@
 
 * {
     font-family: "Noto sans", "DejaVu sans", "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 /* -------------------------------- BAR ---------------------------------*/
@@ -73,7 +73,6 @@ button:hover {
     border: 2px solid @accent-main;
 }
 
-/* ---------------------------- RIGHT ------------------------------*/
 
 .modules-left {
     margin-left: 8px;
@@ -89,16 +88,12 @@ button:hover {
     border: 2px solid @accent-main;
 }
 
-#group-stats,
-#group-power {
+#group-stats
+ {
     margin: 4px 0;
     padding: 0 8px;
     border-radius: 12px;
     background-color: @bg-hover-alt;
-}
-
-#group-power {
-    padding: 0 4px;
 }
 
 #cpu,
@@ -107,31 +102,15 @@ button:hover {
     padding: 0 8px;
 }
 
-#custom-power-menu,
-#custom-power,
-#custom-reboot,
-#custom-lock,
-#custom-quit {
+#custom-power
+{
     padding: 0 8px;
-    padding-right: 12px;
     margin: 4px 0;
+    border-radius: 12px;
     background-color: @bg-hover-alt;
 }
 
-#custom-lock,
-#custom-quit {
-    margin-right: 8px;
-}
-
-#custom-quit {
-    margin-left: 8px;
-}
-
-#custom-power-menu:hover,
-#custom-power:hover,
-#custom-reboot:hover,
-#custom-lock:hover,
-#custom-quit:hover {
+#custom-power:hover {
     border-radius: 12px;
     background-color: @bg-third;
 }

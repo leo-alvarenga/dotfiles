@@ -4,7 +4,7 @@
     "spacing": 8,
     /* ------------------------------- LEFT -------------------------------*/
     "custom/launcher": {
-        "format": "",
+        "format": "",
         "tooltip-format": "Open/close the app launcher",
         "on-click": "~/.config/scripts/launcher.sh"
     },
@@ -135,50 +135,11 @@
         "interval": 5,
         "on-click": "swaync-client -t -sw"
     },
-    "group/group-power": {
-        "orientation": "inherit",
-        "drawer": {
-            "click-to-reveal": true,
-            "transition-duration": 500,
-            "children-class": "not-power",
-            "transition-left-to-right": true
-        },
-        "modules": [
-            "custom/power-menu", // First element is the "group leader" and won't ever be hidden
-            "custom/power",
-            "custom/quit",
-            "custom/lock",
-            "custom/reboot"
-        ]
-    },
-    "custom/power-menu": {
-        "format": "",
-        "tooltip": true,
-        "tooltip-format": "Open Power menu"
-    },
     "custom/power": {
         "format": "",
         "tooltip": true,
-        "tooltip-format": "Power off",
-        "on-click": "shutdown now"
-    },
-    "custom/quit": {
-        "format": "",
-        "tooltip": true,
-        "tooltip-format": "Exit session",
-        "on-click": "swaymsg exit"
-    },
-    "custom/lock": {
-        "format": "",
-        "tooltip": true,
-        "tooltip-format": "Lock",
-        "on-click": "~/.config/scripts/lock.sh"
-    },
-    "custom/reboot": {
-        "format": "",
-        "tooltip": true,
-        "tooltip-format": "Reboot",
-        "on-click": "reboot"
+        "tooltip-format": "Open Power menu",
+        "on-click": "wlogout"
     },
     /* --------------------------------------------------------------------*/
     /* ------------------------------ LAYOUT ------------------------------*/
@@ -202,7 +163,7 @@
         "battery",
         "clock",
         "custom/nc",
-        "group/group-power"
+        "custom/power"
     ]
     /* --------------------------------------------------------------------*/
 }

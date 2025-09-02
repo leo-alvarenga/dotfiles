@@ -46,11 +46,12 @@ require("paq") ({
     --
 
     -- Theme
-    { "rose-pine/neovim" }, 
+    { "ellisonleao/gruvbox.nvim" }, 
     --
 })
 
-vim.cmd("colorscheme rose-pine")
+vim.o.background = "dark"
+vim.cmd("colorscheme gruvbox")
 require("plugins.nvim-tree")
 
 require("plugins.lualine")

@@ -33,10 +33,10 @@ Please note that the package names used here are the ones found in the Void Linu
 - `swayfx`
 - `swww`
 - `SwayNotificationCenter`
-- `swaylock-effects` - Via AUR or manual build
+- `swaylock-effects` - Manual build
+- `wlogout`
 - `swayidle`
 - `Waybar`
-- `eww` - Manually built
 - `ghostty`
 - `fuzzel`
 
