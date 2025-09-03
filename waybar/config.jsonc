@@ -79,7 +79,8 @@
         "tooltip-format": "{essid} ({ipaddr}/{cidr}) connected via {ifname} ({signalStrength}%)",
         "format-linked": "",
         "format-disconnected": "Disconnected ⚠",
-        "format-icons": [""]
+        "format-icons": [""],
+        "on-click": "~/.config/scripts/wireless_gui.sh"
     },
     "backlight": {
         "format": "{percent}% {icon}",

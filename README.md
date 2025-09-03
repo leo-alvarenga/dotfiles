@@ -2,7 +2,7 @@
 
 ## Current setup ([Preview](#preview))
 - Distro: Void Linux
-- DM: `lidm` 
+- DM: None 
 - WM (Compositor): Sway (and its stack) + Waybar
 
 ## Dependencies (so far)
@@ -22,6 +22,7 @@ Please note that the package names used here are the ones found in the Void Linu
 - `curl`
 - `pam-devel`
 - `dbus`
+- `iwd`
 - `elogind`
 - `mesa`
 - `mesa-intel-dri`
@@ -34,11 +35,8 @@ Please note that the package names used here are the ones found in the Void Linu
 - `swww`
 - `SwayNotificationCenter`
 - `swaylock-effects` - Manual build
-- `wlogout`
 - `swayidle`
 - `Waybar`
-- `ghostty`
-- `fuzzel`
 
 ### Utilities
 - `xdg-user-dirs`
@@ -54,6 +52,10 @@ Please note that the package names used here are the ones found in the Void Linu
 - `slurp`
 - `grim`
 - `chafa`
+- `wlogout`
+- `iwmenu`
+- `ghostty`
+- `fuzzel`
 
 ## Dotfile helper
 
@@ -78,4 +80,5 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [ ] Config `fastfetch`
 
 ## Preview
-![Empty workspace](./docs/empty.png)
+![Fetch rose-pine](./docs/rose_pine_empty.png)
+![Neovim rose-pine](./docs/rose_pine_neovim.png)

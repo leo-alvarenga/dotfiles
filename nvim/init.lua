@@ -47,6 +47,7 @@ require("paq") ({
 
     -- Theme
     { "ellisonleao/gruvbox.nvim" }, 
+    { "rose-pine/neovim" }
     --
 })
 

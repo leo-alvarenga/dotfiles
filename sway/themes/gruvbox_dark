@@ -36,6 +36,6 @@ set $bg_after     $dark2
 set $bg_subtle    $dark3
 set $bg_separator $dark4
 
-set $bg ~/.config/pictures/rose_pine_stars.png
+set $bg ~/.config/pictures/gruvbox_dark_cybergirl.png
 set $radius 4
 

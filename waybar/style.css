@@ -37,14 +37,14 @@ button:hover {
     margin-top: 8px;
     margin-left: 8px;
     padding: 0px 8px;
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: @bg-main;
     border: 2px solid @accent-main;
 }
 
 #workspaces button {
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     margin: 4px 8px;
     padding: 0 8px;
     transition: all;
@@ -71,7 +71,7 @@ button:hover {
     margin-top: 8px;
     padding: 0px 8px;
     font-weight: bold;
-    border-radius: 12px;
+    border-radius: 8px;
     color: @fg-main;
     background-color: @bg-main;
     border: 2px solid @accent-main;
@@ -88,7 +88,7 @@ button:hover {
     margin-top: 8px;
     margin-right: 8px;
     padding: 0px 8px;
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: @bg-main;
     border: 2px solid @accent-main;
 }
@@ -96,7 +96,7 @@ button:hover {
 #group-stats {
     margin: 4px 0;
     padding: 0 8px;
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: @bg-hover-alt;
 }
 
@@ -109,7 +109,7 @@ button:hover {
 #custom-power {
     padding: 0 8px;
     margin: 4px 0;
-    border-radius: 12px;
+    border-radius: 8px;
     background-color: @bg-hover-alt;
 }
 
@@ -132,7 +132,7 @@ button:hover {
 #custom-nc {
     margin: 4px 0;
     padding: 0 8px;
-    border-radius: 12px;
+    border-radius: 8px;
     transition: all;
     transition-duration: 500ms;
     background-color: @bg-hover-alt;
@@ -152,17 +152,6 @@ button:hover {
 #custom-launcher:hover,
 #custom-nc:hover {
     background-color: @bg-third;
-}
-
-#pulseaudio,
-#backlight,
-#battery,
-#language,
-#network,
-#cpu,
-#memory,
-#custom-launcher {
-    padding-right: 12px;
 }
 
 #power-profiles-daemon.performance {
