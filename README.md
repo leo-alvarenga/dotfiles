@@ -80,5 +80,12 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [ ] Config `fastfetch`
 
 ## Preview
+
+### Rose pine
 ![Fetch rose-pine](./docs/rose_pine_empty.png)
 ![Neovim rose-pine](./docs/rose_pine_neovim.png)
+
+### Gruvbox dark
+![Empty gruvbox dark](./docs/gruvbox_dark_empty.png)
+![Fetch gruvbox dark](./docs/gruvbox_dark_fetch.png)
+![Neovim gruvbox dark](./docs/gruvbox_dark_neovim.png)
