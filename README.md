@@ -8,7 +8,7 @@
 ### Motivation
 My current goal with this setup is to configure a minimal, yet beautiful and customizable Graphical environment with as few dependencies as possible without resorting Gentoo and other similarly *de-bloatable* distros.
 
-**Hot take**: Yes, Arch and Arch-based distro tend to bring more dependencies (even in more minimal setups) unless the user starts relying mostly on manual builds (which defeats the purpose of this project).
+**Hot take**: Yes, Arch and Arch-based distro tend to bring more dependencies (even in more minimal setups) unless the user starts relying mostly on manual builds (which defeats the purpose of this project). Also, I really like Void and its `xbps` package manager
 
 ## Dependencies (so far)
 Please note that the package names used here are the ones found in the Void Linux package registry unless explictly marked as otherwise. Doing the same setup in other distros WILL require attention and care when installing the packages listed bellow.
