@@ -141,6 +141,8 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
     - [x] Power menu
     - [ ] Customize Power menu <
 - [x] Rethink how theme switching should work
+- [ ] Compile and adjust `swaylock-effects`
+    - [ ] Study the possibility of contibuting to Void package repo with its build template
 - [ ] Abstract and automate theme switching with scripts
 - [ ] Deprecate `dotfile_helper`
 - [ ] Config `fastfetch`
