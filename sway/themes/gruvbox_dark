@@ -37,5 +37,5 @@ set $bg_subtle    $dark3
 set $bg_separator $dark4
 
 set $bg ~/.config/pictures/gruvbox_dark_cybergirl.png
-set $radius 4
+set $radius 2 
 

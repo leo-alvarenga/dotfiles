@@ -25,54 +25,55 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-window#waybar.empty #window {
-    opacity: 0;
-}
-
 /* -------------------------------- LEFT --------------------------------*/
 
 button:hover {
     border: none;
-    outline: none;
     box-shadow: none;
     background: inherit;
 }
 
 #workspaces {
-    padding: 0;
-    margin: 0;
+    margin-top: 8px;
+    margin-left: 8px;
+    padding: 0px 8px;
+    border-radius: 8px;
+    background-color: @bg-main;
+    border: 2px solid @accent-main;
 }
 
 #workspaces button {
-    padding: 0;
-
+    border: none;
+    border-radius: 8px;
+    margin: 4px 8px;
+    padding: 0 8px;
     transition: all;
     transition-duration: .5s;
 
     color: @fg-main;
-    border: none;
 }
 
 #workspaces button:hover {
-    color: @accent-main;
+    background-color: @bg-third;
 }
 
-#workspaces button.focused,
-#workspaces button.visible {
-    background-color: transparent;
-    color: @accent-main;
-}
-
-#workspaces button.empty {
-    color: @accent-main;
+#workspaces button.focused {
+    padding: 0 16px;
+    background-color: @fg-muted;
 }
 
 #workspaces button.urgent {
-    color: @accent-main;
+    background-color: @accent-urgent;
 }
 
 #mode {
+    margin-top: 8px;
+    padding: 0px 8px;
     font-weight: bold;
+    border-radius: 8px;
+    color: @fg-main;
+    background-color: @bg-main;
+    border: 2px solid @accent-main;
 }
 
 /* ---------------------------- RIGHT ------------------------------*/
@@ -82,68 +83,79 @@ button:hover {
 }
 
 .modules-left,
-#window,
 .modules-right {
-    padding: 0 8px;
     margin-top: 8px;
     margin-right: 8px;
-    border-radius: 4px;
+    padding: 0px 8px;
+    border-radius: 8px;
     background-color: @bg-main;
     border: 2px solid @accent-main;
 }
 
-#custom-separator {
-    padding: 0;
-    color: @accent-main;
-    font-size: 12px;
+#group-stats {
+    margin: 4px 0;
+    padding: 0 8px;
+    border-radius: 8px;
 }
 
-#custom-openbracket,
-#custom-closebracket,
-#backlight,
-#battery,
 #cpu,
 #memory,
+#temperature {
+    padding: 0 8px;
+}
+
+#custom-power {
+    padding: 0 8px;
+    margin: 4px 0;
+    border-radius: 8px;
+}
+
+#custom-power:hover {
+    background-color: @bg-third;
+}
+
 #tray,
 #network,
 #power-profiles-daemon,
 #language,
 #pulseaudio,
+#backlight,
+#battery,
 #clock,
+#cpu,
+#memory,
+#temperature,
 #custom-launcher,
-#custom-nc,
-#custom-power,
-#mode {
+#custom-nc {
     margin: 4px 0;
-    padding: 0 4px;
-    border-radius: 2px;
+    padding: 0 8px;
+    border-radius: 8px;
     transition: all;
     transition-duration: 500ms;
 }
 
-#mode:hover,
-#cpu:hover,
-#memory:hover,
-#backlight:hover,
-#battery:hover,
 #tray:hover,
 #network:hover,
 #power-profiles-daemon:hover,
 #language:hover,
 #pulseaudio:hover,
+#backlight:hover,
+#battery:hover,
 #clock:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
 #custom-launcher:hover,
-#custom-nc:hover,
-#custom-power:hover {
+#custom-nc:hover {
     background-color: @bg-third;
 }
 
 #power-profiles-daemon.performance {
-    background-color: @accent-urgent;  /* was @error */
+    color: @accent-urgent;  /* was @error */
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: @accent-success;    /* was @accent-foam */
+    color: @accent-info;    /* was @accent-foam */
 }
 
 @keyframes highlight {

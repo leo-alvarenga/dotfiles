@@ -1,45 +1,36 @@
 // -*- mode: jsonc -*-
 {
-    "height": 24,
-    "spacing": 4,
-    "custom/separator": {
-        "format": "|",
-        "tooltip": false
-    },
-    "custom/openbracket": {
-        "format": "[",
-        "tooltip": false
-    },
-    "custom/closebracket": {
-        "format": "]",
-        "tooltip": false
-    },
+    "height": 30,
+    "spacing": 8,
     /* ------------------------------- LEFT -------------------------------*/
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{value}"
-    },
     "custom/launcher": {
         "format": "",
         "tooltip-format": "Open/close the app launcher",
         "on-click": "~/.config/scripts/launcher.sh"
     },
     "cpu": {
-        "format": "   {usage}%",
+        "format": "{usage}% ",
         "tooltip": true
     },
     "memory": {
-        "format": "   {percentage}%",
+        "format": "{percentage}% ",
         "tooltip-format": "Used: {used:0.1f}GiB - Available: {avail:0.1f}GiB - Total: {total:0.1f}GiB"
     },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C {icon}",
+        "format-icons": [
+            "\uf2cb",
+            "\uf2c9",
+            "\uf2c8"
+        ]
+    },
     "pulseaudio": {
-        "tooltip-format": "{desc} [Click to configure]",
-        "format": "{icon}  {volume}%   {format_source}",
-        "format-source": "   {volume}%",
-        "format-bluetooth": "  {volume}% {format_source}",
-        "format-muted": "   Off  {format_source}",
-        "format-source-muted": "   Off",
+        "format": "{volume}% {icon}   {format_source}",
+        "format-source": "{volume}% ",
+        "format-bluetooth": "{volume}%  {format_source}",
+        "format-muted": "Off   {format_source}",
+        "format-source-muted": "Off ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -69,15 +60,13 @@
     },
     /* --------------------------------------------------------------------*/
     /* ------------------------------ CENTER ------------------------------*/
-    
-    "sway/window": {
-        "format": "{}",
-        "max-length": 50,
-        "all-outputs" : true
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "format": "{name}"
     },
     "sway/mode": {
-        "format": "",
-        "tooltip": true
+        "format": "{}  "
     },
     /* --------------------------------------------------------------------*/
     /* ------------------------------ RIGHT -------------------------------*/
@@ -94,10 +83,13 @@
         "on-click": "~/.config/scripts/wireless_gui.sh"
     },
     "backlight": {
-        "format": "   {percent}%"
+        "format": "{percent}% {icon}",
+        "format-icons": [
+           "" 
+        ]
     },
     "sway/language": {
-        "format": "\uf11c   {short}",
+        "format": "{short} \uf11c",
         "tooltip-format": "{long} [Click to change]",
         "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     },
@@ -106,11 +98,11 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}   {capacity}%",
-        "format-full": "{icon}   {capacity}%",
-        "format-critical": "   {capacity}%",
-        "format-charging": "   {capacity}%",
-        "format-plugged": "   {capacity}%",
+        "format": "{capacity}% {icon}",
+        "format-full": "{capacity}% {icon}",
+        "format-critical": "{capacity}% ",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
         "tooltip-format": "  {timeTo}  -   {power}W  -    {health}%",
         "format-icons": [
             "",
@@ -121,9 +113,9 @@
         ]
     },
     "clock": {
-        "format": "   {:%H:%M}",
+        "format": "{:%H:%M}   ",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
-        "format-alt": "   {:%d/%m/%Y}",
+        "format-alt": "{:%d/%m/%Y}   ",
         "actions": {
             "on-click-right": "mode",
             "on-scroll-up": "shift_up",
@@ -153,42 +145,25 @@
     /* --------------------------------------------------------------------*/
     /* ------------------------------ LAYOUT ------------------------------*/
     "modules-left": [
-        "sway/workspaces",
-        "custom/separator",
-        
+        "custom/launcher",
         "cpu",
-        "custom/separator",
-
         "memory",
-        "custom/separator",
-
+        "temperature",
         "pulseaudio",
-        "custom/separator",
-
-        "power-profiles-daemon",
-        "sway/mode"
+        "power-profiles-daemon"
     ],
     "modules-center": [
-        "sway/window"
+        "sway/mode",
+        "sway/workspaces"
     ],
     "modules-right": [
         "tray",
         "network",
-
-        "custom/separator",
-        "sway/language",
-
-        "custom/separator",
         "backlight",
-
-        "custom/separator",
+        "sway/language",
         "battery",
-
-        "custom/separator",
         "clock",
         "custom/nc",
-
-        "custom/separator",
         "custom/power"
     ]
     /* --------------------------------------------------------------------*/

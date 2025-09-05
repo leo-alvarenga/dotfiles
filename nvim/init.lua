@@ -1,3 +1,10 @@
+local themes = {
+    rose_pine = "rose-pine/neovim",
+    gruvbox_dark = "gruvbox"
+}
+
+local current_theme = themes.gruvbox_dark
+
 require("options")
 
 require("paq") ({
@@ -51,12 +58,14 @@ require("paq") ({
     --
 })
 
-vim.o.background = "dark"
-vim.cmd("colorscheme gruvbox")
 require("plugins.nvim-tree")
 
 require("plugins.lualine")
 require("plugins.which-key")
 
 require("options.keymap")
+
+vim.o.background = "dark"
+
+vim.cmd("colorscheme " .. current_theme)
 
