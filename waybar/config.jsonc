@@ -3,7 +3,7 @@
     "height": 24,
     "spacing": 4,
     "custom/separator": {
-        "format": "|",
+        "format": "│",
         "tooltip": false
     },
     "custom/openbracket": {
@@ -89,9 +89,21 @@
         "format-ethernet": "",
         "tooltip-format": "{essid} ({ipaddr}/{cidr}) connected via {ifname} ({signalStrength}%)",
         "format-linked": "",
-        "format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "   Disconnected",
+        "format-disabled": "⚠   Off",
         "format-icons": [""],
-        "on-click": "~/.config/scripts/wireless_gui.sh"
+        "on-click": "bash ~/.config/scripts/wireless_gui.sh"
+    },
+    "bluetooth": {
+       "format-disabled": "",
+       "format-on": "",
+       "format-off": "",
+       "format-connected": "",
+       "tooltip-format-off": "Off",
+       "tooltip-format-disabled": "Disabled",
+       "tooltip-format": "{controller_alias}\t{controller_address}",
+       "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
     },
     "backlight": {
         "format": "   {percent}%"
@@ -173,7 +185,13 @@
     ],
     "modules-right": [
         "tray",
+
+
+        
         "network",
+        "custom/separator",
+
+        "bluetooth",
 
         "custom/separator",
         "sway/language",

@@ -2,5 +2,6 @@ dotfile_helper.log
 pulse/
 gtk*/
 glib*/
+btop*
 pavucontrol*
 

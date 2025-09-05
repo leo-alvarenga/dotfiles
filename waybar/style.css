@@ -44,7 +44,7 @@ button:hover {
 }
 
 #workspaces button {
-    padding: 0;
+    padding: 0 4px;
 
     transition: all;
     transition-duration: .5s;
@@ -98,6 +98,26 @@ button:hover {
     font-size: 12px;
 }
 
+#bluetooth {
+    font-size: 12px;
+}
+
+#bluetooth.disabled {
+    background-color: @accent-urgent;
+}
+
+#bluetooth.off {
+    background-color: @accent-warning;
+}
+
+#bluetooth.on {
+    background-color: @bg-third;
+}
+
+#bluetooth.connected {
+    background-color: @accent-success;
+}
+
 #custom-openbracket,
 #custom-closebracket,
 #backlight,
@@ -105,6 +125,7 @@ button:hover {
 #cpu,
 #memory,
 #tray,
+#bluetooth,
 #network,
 #power-profiles-daemon,
 #language,
@@ -128,6 +149,7 @@ button:hover {
 #battery:hover,
 #tray:hover,
 #network:hover,
+#bluetooth:hover,
 #power-profiles-daemon:hover,
 #language:hover,
 #pulseaudio:hover,

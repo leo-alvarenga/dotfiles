@@ -48,7 +48,7 @@ corner_radius $radius
 shadows enable
 
 ### Idle configuration
-exec swayidle -w
+# exec swayidle -w
 
 ### Notification center
 exec $notification_center &

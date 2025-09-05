@@ -2,7 +2,7 @@
 
 ## Current setup ([Preview](#preview))
 - Distro: Void Linux
-- DM: None 
+- DM: `lidm`
 - WM (Compositor): Sway (and its stack) + Waybar
 
 ### Motivation
@@ -15,14 +15,14 @@ Please note that the package names used here are the ones found in the Void Linu
 
 ### Compilers and Interpreters
 - `lua`
+- `gcc`
+- `make`
+- `cmake`
 - `go`
 - `rustc` - Via [`rustup`](https://www.rust-lang.org/learn/get-started)
 
 ### Core
 - `git`
-- `make`
-- `gcc`
-- `cmake`
 - `wget`
 - `curl`
 
@@ -36,6 +36,9 @@ Please note that the package names used here are the ones found in the Void Linu
     - Required by `swaylock-effects`
 
 ### Services
+- `bluez`
+    - Bluetooth management
+    - In Void Linux, this package already includes `bluez-utils` and, by extension, `bluetoothctl`
 - `dbus`
 - `iwd`
 - `elogind`
@@ -43,6 +46,8 @@ Please note that the package names used here are the ones found in the Void Linu
 - `pulseaudio`
     - Audio device abstraction
 - `power-profiles-daemon`
+    - Daemon for managing power consumption profiles
+    - Options and availability may vary depending on Kernel config, version and Hardware specifications
 
 ### Fonts
 - `dejavu-fonts-ttf`
@@ -50,6 +55,8 @@ Please note that the package names used here are the ones found in the Void Linu
 - `font-awesome6`
 
 ### Graphical environment/session
+- `lidm`
+    - TUI based Display manager
 - `swayfx`
     - Backbone of the GE
     - Fork of the original
@@ -90,6 +97,8 @@ Please note that the package names used here are the ones found in the Void Linu
     - Process and performance TUI monitor
 - `tree`
     - Utility to print directories and files hierarchicaly in a human-readable way
+- `bat`
+    - `cat`-like utility to print to stdout text with out-of-the-box syntax highlighting and pagination with vim-motions (for long files)
 
 ### Utilities
 - `fastfetch`
