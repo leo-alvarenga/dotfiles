@@ -92,7 +92,7 @@
         "format-disconnected": "   Disconnected",
         "format-disabled": "⚠   Off",
         "format-icons": [""],
-        "on-click": "bash ~/.config/scripts/wireless_gui.sh"
+        "on-click": "/home/caesar/.config/scripts/wireless_gui.sh"
     },
     "bluetooth": {
        "format-disabled": "",

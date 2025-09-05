@@ -153,9 +153,13 @@ bindsym Ctrl+Print exec $print all copy-path
 bindsym Shift+Print exec $print select copy
 bindsym Ctrl+Shift+Print exec $print select copy
 
+exec_always pkill waybar; exec waybar
+
+
 ### Status Bar
 bar {
-    swaybar_command waybar
+    swaybar_command exit 0
+
     colors {
         background         $bg_main
         separator          $bg_separator
