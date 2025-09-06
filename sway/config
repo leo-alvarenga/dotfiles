@@ -34,7 +34,7 @@ gaps inner 8
 focus_follows_mouse no
 
 # Load theme
-include /home/caesar/.config/sway/themes/rose_pine
+include /home/caesar/.config/sway/themes/gruvbox_dark
 
 # Window styles
 client.focused          $accent_main  $bg_main    $text_main   $accent_main    $accent_main

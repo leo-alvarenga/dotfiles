@@ -1,56 +1,55 @@
-/* Rose Pine — Theme Contract Implementation
-   This file exposes a uniform set of variables consumed by style.css.
-   Change only this file (or theme.current.css import) to swap themes. */
+/* Gruvbox Dark — Theme Contract Implementation */
 
 /* -------------------- Backgrounds -------------------- */
-/* $base */
-@define-color bg-main   #191724;
-/* $surface */
-@define-color bg-alt    #1f1d2e;
-/* $overlay */
-@define-color bg-hover  #26233a;
-/* $highlight_med */
-@define-color bg-hover-alt #403d52;
-/* Tooltip inherits main by default */
-@define-color bg-tooltip @bg-main;
-/* $highlight_low */
-@define-color bg-second #21202e;
-/* $highlight_high */
-@define-color bg-third  #524f67;
-/* Sway background (inherit main) */
-@define-color sway-bg   @bg-main;
+/* bg0 */
+@define-color bg-main      #282828;
+/* bg0_h */
+@define-color bg-alt       #32302f;
+/* bg0_s */
+@define-color bg-hover     #3c3836;
+/* bg1 */
+@define-color bg-hover-alt #504945;
+/* Tooltip inherits main */
+@define-color bg-tooltip   @bg-main;
+/* bg2 */
+@define-color bg-second    #665c54;
+/* bg3 */
+@define-color bg-third     #7c6f64;
+/* Sway background */
+@define-color sway-bg      @bg-main;
 
 /* -------------------- Foregrounds -------------------- */
-/* $text */
-@define-color fg-main   #e0def4;
-/* $subtle */
-@define-color fg-subtle #908caa;
-/* $muted */
-@define-color fg-muted  #6e6a86;
-/* Disabled/deemphasized text */
-@define-color fg-disabled #555169;
-/* Text to use on top of solid accent backgrounds */
-@define-color fg-on-accent #191724;
+/* fg0 */
+@define-color fg-main    #ebdbb2;
+/* fg1 */
+@define-color fg-subtle  #d5c4a1;
+/* fg2 */
+@define-color fg-muted   #bdae93;
+/* disabled (gruvbox gray) */
+@define-color fg-disabled #928374;
+/* text on accent */
+@define-color fg-on-accent #1d2021;
 
 /* Borders */
 @define-color border-main @fg-muted;
 @define-color border-alt  @fg-muted;
 
 /* -------------------- Raw Accents -------------------- */
-/* $rose  */ @define-color rp-rose   #ebbcba;
-/* $gold  */ @define-color rp-gold   #f6c177;
-/* $pine  */ @define-color rp-pine   #31748f;
-/* $foam  */ @define-color rp-foam   #9ccfd8;
-/* $iris  */ @define-color rp-iris   #c4a7e7;
-/* $love  */ @define-color rp-love   #eb6f92;
+@define-color gb-red     #cc241d;
+@define-color gb-yellow  #d79921;
+@define-color gb-green   #98971a;
+@define-color gb-blue    #458588;
+@define-color gb-purple  #b16286;
+@define-color gb-orange  #d65d0e;
 
 /* -------------------- Contract Accents -------------------- */
-@define-color accent-main       @rp-rose;   /* primary */
-@define-color accent-secondary  @rp-iris;   /* secondary */
-@define-color accent-info       @rp-foam;   /* informational */
-@define-color accent-success    @rp-pine;   /* success */
-@define-color accent-warning    @rp-gold;   /* warnings */
-@define-color accent-urgent     @rp-love;   /* urgent/error */
+@define-color accent-main       @gb-orange;
+@define-color accent-secondary  @gb-purple;
+@define-color accent-info       @gb-blue;
+@define-color accent-success    @gb-green;
+@define-color accent-warning    @gb-yellow;
+@define-color accent-urgent     @gb-red;
 
 /* Back-compat alias */
 @define-color error @accent-urgent;
+
