@@ -137,13 +137,13 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [x] Bugfix issue with volume control keys
 - [x] Solve "sticky" drag with mouse
 - [x] Reorganize this repo
+- [x] Rethink how theme switching should work
+- [x] Abstract and automate theme switching with scripts
 - [x] Add independent menus
     - [x] Power menu
     - [ ] Customize Power menu <
-- [x] Rethink how theme switching should work
 - [ ] Compile and adjust `swaylock-effects`
     - [ ] Study the possibility of contibuting to Void package repo with its build template
-- [ ] Abstract and automate theme switching with scripts
 - [ ] Deprecate `dotfile_helper`
 - [ ] Config `fastfetch`
 
