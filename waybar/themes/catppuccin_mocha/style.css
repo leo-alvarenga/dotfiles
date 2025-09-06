@@ -1,10 +1,6 @@
 /* ------------------------------ GLOBALS -------------------------------*/
 
-/*
-  Theme indirection: this imports whichever theme your script points to.
-  Swap the import inside theme.current.css to hot-swap themes without touching this file.
-*/
-@import "theme.current.css";
+@import "theme.css";
 
 * {
     font-family: "Noto sans", "DejaVu sans", "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;

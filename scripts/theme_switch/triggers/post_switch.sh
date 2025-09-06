@@ -1,0 +1,4 @@
+
+# Reload sway
+swaymsg reload
+

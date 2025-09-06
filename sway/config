@@ -34,7 +34,7 @@ gaps inner 8
 focus_follows_mouse no
 
 # Load theme
-include ~/.config/sway/themes/gruvbox_dark
+include /home/caesar/.config/sway/themes/rose_pine
 
 # Window styles
 client.focused          $accent_main  $bg_main    $text_main   $accent_main    $accent_main
@@ -153,12 +153,9 @@ bindsym Ctrl+Print exec $print all copy-path
 bindsym Shift+Print exec $print select copy
 bindsym Ctrl+Shift+Print exec $print select copy
 
-exec_always pkill waybar; exec waybar
-
-
 ### Status Bar
 bar {
-    swaybar_command exit 0
+    swaybar_command waybar
 
     colors {
         background         $bg_main
