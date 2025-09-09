@@ -1,14 +1,12 @@
 # Dotfiles (WIP)
 
 ## Current setup ([Preview](#preview))
-- Distro: Void Linux
-- DM: `lidm`
+- Distro: Arch Linux
+- DM: `Ly`
 - WM (Compositor): Sway (and its stack) + Waybar
 
 ### Motivation
-My current goal with this setup is to configure a minimal, yet beautiful and customizable Graphical environment with as few dependencies as possible without resorting Gentoo and other similarly *de-bloatable* distros.
-
-**Hot take**: Yes, Arch and Arch-based distro tend to bring more dependencies (even in more minimal setups) unless the user starts relying mostly on manual builds (which defeats the purpose of this project). Also, I really like Void and its `xbps` package manager
+My current goal with this setup is to configure a minimal, yet beautiful and customizable Graphical environment with as few dependencies as possible without resorting Gentoo.
 
 ## Dependencies (so far)
 Please note that the package names used here are the ones found in the Void Linux package registry unless explictly marked as otherwise. Doing the same setup in other distros WILL require attention and care when installing the packages listed bellow.
@@ -28,21 +26,12 @@ Please note that the package names used here are the ones found in the Void Linu
 
 ### Drivers
 - `mesa`
-- `mesa-intel-dri`
-- `mesa-vulkan-intel`
-
-### Libs
-- `pam-devel`
-    - Required by `swaylock-effects`
 
 ### Services
 - `bluez`
     - Bluetooth management
     - In Void Linux, this package already includes `bluez-utils` and, by extension, `bluetoothctl`
-- `dbus`
 - `iwd`
-- `elogind`
-    - Session and seat management
 - `pulseaudio`
     - Audio device abstraction
 - `power-profiles-daemon`
@@ -51,26 +40,26 @@ Please note that the package names used here are the ones found in the Void Linu
 
 ### Fonts
 - `dejavu-fonts-ttf`
-- `font-awesome`
-- `font-awesome6`
+- `otf-font-awesome`
 
 ### Graphical environment/session
-- `lidm`
+- `ly`
     - TUI based Display manager
 - `swayfx`
+    - **Installed via AUR**
     - Backbone of the GE
     - Fork of the original
 - `swww`
     - Wallpaper management daemon
-- `SwayNotificationCenter`
+- `swaync`
     - Notification center
     - Also provides a GTK+3 based GUI
 - `swaylock-effects`
-    - **Manually built**
+    - **Installed via AUR**
     - Lock screen for the current session
 - `swayidle`
     - Idle state manager
-- `Waybar`
+- `waybar`
     - Status bar
 
 ### Config management (CLI, TUI or GUI based)
@@ -142,8 +131,10 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [x] Add independent menus
     - [x] Power menu
     - [ ] Customize Power menu <
-- [ ] Compile and adjust `swaylock-effects`
-    - [ ] Study the possibility of contibuting to Void package repo with its build template
+- [ ] Move away from Sway in favor of Hyper utils
+    - [ ] Replace Sway with Hyprland
+    - [ ] Replace `swayidle` with `hypridle`
+    - [ ] Replace `swaylock` with `hyprlock`
 - [ ] Deprecate `dotfile_helper`
 - [ ] Config `fastfetch`
 

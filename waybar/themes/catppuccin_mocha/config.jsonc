@@ -140,7 +140,7 @@
         "format": "",
         "tooltip": true,
         "tooltip-format": "Open power menu",
-        "on-click": "wlogout"
+        "on-click": "~/.config/scripts/power_menu.sh"
     },
     /* --------------------------------------------------------------------*/
     /* ------------------------------ LAYOUT ------------------------------*/

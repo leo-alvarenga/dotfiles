@@ -1,14 +1,14 @@
 {
-    "label" : "lock",
-    "action" : "loginctl lock-session",
-    "text" : "Lock",
-    "keybind" : "l"
+    "label" : "cancel",
+    "action" : "killall wlogout",
+    "text" : "Cancel",
+    "keybind" : "c"
 }
 {
-    "label" : "hibernate",
-    "action" : "loginctl hibernate",
-    "text" : "Hibernate",
-    "keybind" : "h"
+    "label" : "lock",
+    "action" : "systemctl lock-session",
+    "text" : "Lock",
+    "keybind" : "l"
 }
 {
     "label" : "logout",
@@ -18,19 +18,19 @@
 }
 {
     "label" : "shutdown",
-    "action" : "loginctl poweroff",
+    "action" : "poweroff",
     "text" : "Shutdown",
     "keybind" : "s"
 }
 {
     "label" : "suspend",
-    "action" : "loginctl suspend",
+    "action" : "suspend",
     "text" : "Suspend",
     "keybind" : "u"
 }
 {
     "label" : "reboot",
-    "action" : "loginctl reboot",
+    "action" : "reboot",
     "text" : "Reboot",
     "keybind" : "r"
 }

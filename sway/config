@@ -18,13 +18,13 @@ set $notification_center swaync
 set $notification_center_panel swaync-client -t -sw
 
 # Scripts
-set $wallpaper ~/.config/scripts/wallpaper.sh
+set $wallpaper_setter ~/.config/scripts/wallpaper_manager/wallpaper.sh
 set $print ~/.config/scripts/screenshot.sh
 set $lock ~/.config/scripts/lock.sh
 set $volume_control ~/.config/scripts/volume_control.sh
 
 # Sets wallpaper in all screens
-exec $wallpaper $bg
+exec $wallpaper_setter $bg
 
 default_border pixel 2
 
