@@ -6,4 +6,6 @@ btop*
 pavucontrol*
 xfce4*
 Thunar*
-
+broot/
+dconf/
+procps/

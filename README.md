@@ -132,7 +132,7 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
     - [x] Power menu
     - [ ] Customize Power menu <
 - [ ] Move away from Sway in favor of Hyper utils
-    - [ ] Replace Sway with Hyprland
+    - [x] Replace Sway with Hyprland
     - [ ] Replace `swayidle` with `hypridle`
     - [ ] Replace `swaylock` with `hyprlock`
 - [ ] Deprecate `dotfile_helper`

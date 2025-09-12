@@ -15,10 +15,10 @@
         "tooltip": false
     },
     /* ------------------------------- LEFT -------------------------------*/
-    "sway/workspaces": {
+    "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "format": "{value}"
+        "format": "{name}"
     },
     "custom/launcher": {
         "format": "",
@@ -35,11 +35,11 @@
     },
     "pulseaudio": {
         "tooltip-format": "{desc} [Click to configure]",
-        "format": "{icon}  {volume}%   {format_source}",
-        "format-source": "   {volume}%",
-        "format-bluetooth": "  {volume}% {format_source}",
-        "format-muted": "   Off  {format_source}",
-        "format-source-muted": "   Off",
+        "format": "{icon}  {volume}%    {format_source}",
+        "format-source": "<span foreground='#cba6f7' size='8pt'>|</span>       {volume}%",
+        "format-bluetooth": "  {volume}%    {format_source}",
+        "format-muted": "   Off     {format_source}",
+        "format-source-muted": "<span foreground='#cba6f7' size='8pt'>|</span>        Off ",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
@@ -70,12 +70,12 @@
     /* --------------------------------------------------------------------*/
     /* ------------------------------ CENTER ------------------------------*/
     
-    "sway/window": {
+    "hyprland/window": {
         "format": "{}",
         "max-length": 50,
         "all-outputs" : true
     },
-    "sway/mode": {
+    "hyprland/mode": {
         "format": "",
         "tooltip": true
     },
@@ -108,10 +108,10 @@
     "backlight": {
         "format": "   {percent}%"
     },
-    "sway/language": {
+    "hyprland/language": {
         "format": "\uf11c   {short}",
         "tooltip-format": "{long} [Click to change]",
-        "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+        "on-click": "hyprlandmsg input type:keyboard xkb_switch_layout next"
     },
     "battery": {
         "states": {
@@ -154,7 +154,7 @@
         "exec": "~/.config/scripts/notifications.sh count",
         "format": "\uf49a <small>{text}</small>",
         "interval": 5,
-        "on-click": "swaync-client -t -sw"
+        "on-click": "hyprlandnc-client -t -sw"
     },
     "custom/power": {
         "format": "",
@@ -165,7 +165,7 @@
     /* --------------------------------------------------------------------*/
     /* ------------------------------ LAYOUT ------------------------------*/
     "modules-left": [
-        "sway/workspaces",
+        "hyprland/workspaces",
         "custom/separator",
         
         "cpu",
@@ -178,10 +178,10 @@
         "custom/separator",
 
         "power-profiles-daemon",
-        "sway/mode"
+        "hyprland/mode"
     ],
     "modules-center": [
-        "sway/window"
+        "hyprland/window"
     ],
     "modules-right": [
         "tray",
@@ -194,7 +194,7 @@
         "bluetooth",
 
         "custom/separator",
-        "sway/language",
+        "hyprland/language",
 
         "custom/separator",
         "backlight",

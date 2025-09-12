@@ -10,11 +10,11 @@
 /* -------------------------------- BAR ---------------------------------*/
 
 window#waybar {
-    background-color: transparent;
+    background-color: @bg-main;
     transition: all;
     transition-duration: .5s;
-    margin: 8px 4px;
     color: @fg-main;
+    border-bottom: 1px solid @accent-main;
 }
 
 window#waybar.hidden {
@@ -47,6 +47,7 @@ button:hover {
 
     color: @fg-main;
     border: none;
+    border-radius: 0;
 }
 
 #workspaces button:hover {
@@ -57,6 +58,7 @@ button:hover {
 #workspaces button.visible {
     background-color: transparent;
     color: @accent-main;
+    border-top: 1px solid @accent-main
 }
 
 #workspaces button.empty {
@@ -64,7 +66,7 @@ button:hover {
 }
 
 #workspaces button.urgent {
-    color: @accent-main;
+    color: @accent-urgent;
 }
 
 #mode {
@@ -73,24 +75,10 @@ button:hover {
 
 /* ---------------------------- RIGHT ------------------------------*/
 
-.modules-left {
-    margin-left: 8px;
-}
-
-.modules-left,
-#window,
-.modules-right {
-    padding: 0 8px;
-    margin-top: 8px;
-    margin-right: 8px;
-    border-radius: 4px;
-    background-color: @bg-main;
-    border: 2px solid @accent-main;
-}
-
 #custom-separator {
     padding: 0;
     color: @accent-main;
+    margin: 0 4px;
     font-size: 12px;
 }
 
@@ -99,6 +87,7 @@ button:hover {
 }
 
 #bluetooth.disabled {
+    color: @bg-main;
     background-color: @accent-urgent;
 }
 
@@ -107,11 +96,18 @@ button:hover {
 }
 
 #bluetooth.on {
-    background-color: @bg-third;
+    background-color: @selection_background;
 }
 
 #bluetooth.connected {
     background-color: @accent-success;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 0 8px;
+    padding: 2px 0;
 }
 
 #custom-openbracket,
@@ -133,7 +129,7 @@ button:hover {
 #mode {
     margin: 4px 0;
     padding: 0 4px;
-    border-radius: 2px;
+    border-radius: 4px;
     transition: all;
     transition-duration: 500ms;
 }
@@ -153,20 +149,23 @@ button:hover {
 #custom-launcher:hover,
 #custom-nc:hover,
 #custom-power:hover {
-    background-color: @bg-third;
+    color: @foreground;
+    background-color: @selection_background;
 }
 
 #power-profiles-daemon.performance {
-    background-color: @accent-urgent;  /* was @error */
+    color: @bg-main;
+    background-color: @accent-urgent;
 }
 
 #power-profiles-daemon.power-saver {
-    background-color: @accent-success;    /* was @accent-foam */
+    color: @bg-main;
+    background-color: @accent-success;
 }
 
 @keyframes highlight {
     to {
-        background-color: @bg-third;
+        background-color: @selection_background;
     }
 }
 
