@@ -57,6 +57,11 @@
         "on-click": "pavucontrol",
         "scroll-step": 1
     },
+    "hyprland/submap": {
+        "format": "",
+        "max-length": 8,
+        "always-on": true
+    },
     "power-profiles-daemon": {
         "format": "{icon}",
         "tooltip-format": "Power profile: {profile}",
@@ -175,6 +180,9 @@
         "custom/separator",
 
         "pulseaudio",
+        "custom/separator",
+    
+        "hyprland/submap", 
         "custom/separator",
 
         "power-profiles-daemon",

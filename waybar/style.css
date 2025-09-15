@@ -120,6 +120,7 @@ button:hover {
 #bluetooth,
 #network,
 #power-profiles-daemon,
+#submap,
 #language,
 #pulseaudio,
 #clock,
@@ -143,6 +144,7 @@ button:hover {
 #network:hover,
 #bluetooth:hover,
 #power-profiles-daemon:hover,
+#submap:hover,
 #language:hover,
 #pulseaudio:hover,
 #clock:hover,
@@ -153,7 +155,8 @@ button:hover {
     background-color: @selection_background;
 }
 
-#power-profiles-daemon.performance {
+#power-profiles-daemon.performance,
+#submap.resize {
     color: @bg-main;
     background-color: @accent-urgent;
 }
