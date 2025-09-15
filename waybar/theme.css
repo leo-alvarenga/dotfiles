@@ -26,8 +26,10 @@
 @define-color base #1e1e2e;
 @define-color mantle #181825;
 @define-color crust #11111b;
+@define-color crust-bar rgba(17, 17, 27, 0.6);
 
 @define-color bg-main @crust;
+@define-color bg-bar @crust-bar;
 @define-color bg-third @base;
 @define-color fg-main @text;
 @define-color accent-main @mauve;

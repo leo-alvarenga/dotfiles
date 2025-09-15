@@ -11,13 +11,14 @@ My current goal with this setup is to configure a minimal, yet beautiful and cus
 ## Dependencies (so far)
 Please note that the package names used here are the ones found in the Void Linux package registry unless explictly marked as otherwise. Doing the same setup in other distros WILL require attention and care when installing the packages listed bellow.
 
-### Compilers and Interpreters
+### Compilers, Interpreters and Runtimes
 - `lua`
 - `gcc`
 - `make`
 - `cmake`
 - `go`
 - `rustc` - Via [`rustup`](https://www.rust-lang.org/learn/get-started)
+- `nodejs`
 
 ### Core
 - `git`
@@ -88,6 +89,10 @@ Please note that the package names used here are the ones found in the Void Linu
     - Utility to print directories and files hierarchicaly in a human-readable way
 - `bat`
     - `cat`-like utility to print to stdout text with out-of-the-box syntax highlighting and pagination with vim-motions (for long files)
+- `ripgrep`
+    - For recurcevly searching directories for a regex pattern
+- `fd-find`
+    - Simpler and faster alternative to `find`
 
 ### Utilities
 - `fastfetch`

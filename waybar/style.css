@@ -10,7 +10,7 @@
 /* -------------------------------- BAR ---------------------------------*/
 
 window#waybar {
-    background-color: @bg-main;
+    background-color: @bg-bar;
     transition: all;
     transition-duration: .5s;
     color: @fg-main;
@@ -149,7 +149,7 @@ button:hover {
 #custom-launcher:hover,
 #custom-nc:hover,
 #custom-power:hover {
-    color: @foreground;
+    color: @accent-main;
     background-color: @selection_background;
 }
 
