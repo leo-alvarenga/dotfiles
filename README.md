@@ -46,19 +46,15 @@ Please note that the package names used here are the ones found in the Void Linu
 ### Graphical environment/session
 - `ly`
     - TUI based Display manager
-- `swayfx`
-    - **Installed via AUR**
+- `hyprland`
     - Backbone of the GE
-    - Fork of the original
 - `swww`
     - Wallpaper management daemon
-- `swaync`
+- `dunst`
     - Notification center
-    - Also provides a GTK+3 based GUI
-- `swaylock-effects`
-    - **Installed via AUR**
+- `hyprlock`
     - Lock screen for the current session
-- `swayidle`
+- `hypridle`
     - Idle state manager
 - `waybar`
     - Status bar
@@ -97,10 +93,11 @@ Please note that the package names used here are the ones found in the Void Linu
 ### Utilities
 - `fastfetch`
     - Customizable system info fetcher
-- `slurp`
-    - Utility to visually select a region on a screen in Wayland compositors
 - `grim`
     - Versatile CLI based screencapturing tool
+- `flameshot`
+    - Screecapturing tool
+    - Consumes `grim` internally to capture screenshot
 - `wlogout`
     - Customizable GTK+3 based power menu
 - `fuzzel`
@@ -133,23 +130,16 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 - [x] Reorganize this repo
 - [x] Rethink how theme switching should work
 - [x] Abstract and automate theme switching with scripts
+- [x] Move away from Sway in favor of Hyper utils
+    - [x] Replace Sway with Hyprland
+    - [x] Replace `swayidle` with `hypridle`
+    - [x] Replace `swaylock` with `hyprlock`
 - [x] Add independent menus
     - [x] Power menu
     - [ ] Customize Power menu <
-- [ ] Move away from Sway in favor of Hyper utils
-    - [x] Replace Sway with Hyprland
-    - [ ] Replace `swayidle` with `hypridle`
-    - [ ] Replace `swaylock` with `hyprlock`
 - [ ] Deprecate `dotfile_helper`
 - [ ] Config `fastfetch`
 
 ## Preview
 
-### Rose pine
-![Fetch rose-pine](./docs/rose_pine_empty.png)
-![Neovim rose-pine](./docs/rose_pine_neovim.png)
-
-### Gruvbox dark
-![Empty gruvbox dark](./docs/gruvbox_dark_empty.png)
-![Fetch gruvbox dark](./docs/gruvbox_dark_fetch.png)
-![Neovim gruvbox dark](./docs/gruvbox_dark_neovim.png)
+TODO: add preview of current iteration

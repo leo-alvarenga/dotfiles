@@ -155,12 +155,6 @@
             }
         }
     },
-    "custom/nc": {
-        "exec": "~/.config/scripts/notifications.sh count",
-        "format": "\uf49a <small>{text}</small>",
-        "interval": 5,
-        "on-click": "hyprlandnc-client -t -sw"
-    },
     "custom/power": {
         "format": "",
         "tooltip": true,
@@ -193,9 +187,8 @@
     ],
     "modules-right": [
         "tray",
+        "custom/separator",
 
-
-        
         "network",
         "custom/separator",
 
@@ -212,7 +205,6 @@
 
         "custom/separator",
         "clock",
-        "custom/nc",
 
         "custom/separator",
         "custom/power"
