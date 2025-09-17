@@ -6,7 +6,7 @@
 }
 {
     "label" : "lock",
-    "action" : "systemctl lock-session",
+    "action" : "~/.config/scripts/lock.sh",
     "text" : "Lock",
     "keybind" : "l"
 }
