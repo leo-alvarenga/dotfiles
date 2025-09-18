@@ -98,7 +98,7 @@ Please note that the package names used here are the ones found in the Void Linu
 - `flameshot`
     - Screecapturing tool
     - Consumes `grim` internally to capture screenshot
-- `wlogout`
+- `nwg-bar`
     - Customizable GTK+3 based power menu
 - `fuzzel`
     - GTK+3 based GUI launcher
@@ -107,7 +107,7 @@ Please note that the package names used here are the ones found in the Void Linu
     - Manually built
     - Simple `iwd` wrapper to manage wireless connections in a GUI
     - Requires launcher that provides a `stdin` mode
-- `neovim`
+- `helix`
     - Code editor of choice
 - `ghostty`
     - Feature-rich, performant and customizable shell emulator
