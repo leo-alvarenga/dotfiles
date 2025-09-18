@@ -7,6 +7,6 @@ pavucontrol*
 xfce4*
 Thunar*
 broot/
-dconf/
+dconf/*
 procps/
 menus/*

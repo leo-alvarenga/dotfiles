@@ -68,7 +68,7 @@ THEME=$1
 MODE=$2
 INTERVAL_OR_WALLPAPER=$3
 
-WALLPAPER_DIR=$HOME/.config/pictures
+WALLPAPER_DIR=$HOME/.config/pictures/wallpapers
 
 main $0
 

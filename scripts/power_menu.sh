@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 
-PREVIOUS_PID=$(pidof wlogout)
+POWER_MENU=nwg-bar
+PREVIOUS_PID=$(pidof $POWER_MENU)
 
 if [[ ! -z $PREVIOUS_PID ]]; then
     kill $PREVIOUS_PID
     exit 0
 fi
 
-wlogout
+$POWER_MENU
 

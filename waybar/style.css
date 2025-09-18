@@ -1,6 +1,6 @@
 /* ------------------------------ GLOBALS -------------------------------*/
 
-@import "theme.css";
+@import "../catppuccin-mocha.theme.css";
 
 * {
     font-family: "Noto sans", "DejaVu sans", "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
