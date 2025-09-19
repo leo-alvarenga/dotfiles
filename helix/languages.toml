@@ -1,0 +1,133 @@
+# Language support:
+# Language server + Auto-formatters 
+
+# Astro.js
+
+[language-server.astro-ls]
+command = "astro-ls"
+args = ["--stdio"]
+config = {typescript = {tsdk = "/Users/user/.bun/install/global/node_modules/typescript/lib"}, environment = "node"}
+
+[[language]]
+name = "astro"
+auto-format = true
+language-servers = [ "astro-ls" ]
+
+# Bash
+ 
+[[language]]
+name = "bash"
+auto-format = true
+language-servers = [ "bash-language-server" ]
+
+# CSS 
+
+[[language]]
+name = "css"
+scope = "source.css"
+injection-regex = "css"
+file-types = ["css"]
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = [ "vscode-css-language-server" ]
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "css"
+source = { git = "https://github.com/tree-sitter/tree-sitter-css", rev = "6e327db434fec0ee90f006697782e43ec855adf5" }
+
+
+# SCSS
+
+[[language]]
+name = "scss"
+scope = "source.scss"
+injection-regex = "scss"
+file-types = ["scss"]
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = [ "vscode-css-language-server" ]
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "scss"
+source = { git = "https://github.com/serenadeai/tree-sitter-scss", rev = "c478c6868648eff49eb04a4df90d703dc45b312a" }
+
+
+# HTML
+
+[[language]]
+name = "html"
+scope = "text.html.basic"
+injection-regex = "html"
+file-types = ["html", "htm", "shtml", "xhtml", "xht", "jsp", "asp", "aspx", "jshtm", "volt", "rhtml", "cshtml"]
+block-comment-tokens = { start = "<!--", end = "-->" }
+language-servers = [ "vscode-html-language-server"]
+auto-format = true
+indent = { tab-width = 2, unit = "  " }
+
+[[grammar]]
+name = "html"
+source = { git = "https://github.com/tree-sitter/tree-sitter-html", rev = "cbb91a0ff3621245e890d1c50cc811bffb77a26b" }
+
+
+# JavaScript
+
+[[language]]
+name = "javascript"
+scope = "source.js"
+injection-regex = "(js|javascript)"
+language-id = "javascript"
+file-types = ["js", "mjs", "cjs", "rules", "es6", "pac", { glob = ".node_repl_history" }, { glob = "jakefile" }]
+shebangs = ["node"]
+roots = [ "package.json", "jsconfig.json" ]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = [ "typescript-language-server" ]
+indent = { tab-width = 2, unit = "  " }
+
+
+# TypeScript
+
+[[language]]
+name = "typescript"
+scope = "source.ts"
+injection-regex = "(ts|typescript)"
+language-id = "typescript"
+file-types = ["ts", "mts", "cts"]
+shebangs = ["deno", "bun", "ts-node"]
+roots = [ "package.json", "tsconfig.json" ]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = [ "typescript-language-server" ]
+indent = { tab-width = 2, unit = "  " }
+
+
+# YAML
+
+[[language]]
+name = "yaml"
+scope = "source.yaml"
+file-types = [
+  "yml",
+  "yaml",
+  { glob = ".prettierrc" },
+  { glob = ".clangd" },
+  { glob = ".clang-format" },
+  { glob = ".clang-tidy" },
+  { glob = ".gem/credentials" },
+  { glob = ".kube/config" },
+  { glob = ".kube/kuberc" },
+  "sublime-syntax"
+]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+language-servers = [ "yaml-language-server", "ansible-language-server" ]
+injection-regex = "yml|yaml"
+formatter = { command = "yamlfmt", args = ['-'] }
+auto-format = true
+
+[[grammar]]
+name = "yaml"
+source = { git = "https://github.com/ikatyang/tree-sitter-yaml", rev = "0e36bed171768908f331ff7dff9d956bae016efb" }
+

@@ -1,7 +1,7 @@
 [
   {
     "label": "Lock",
-    "exec": "~/.config/scripts/lock.sh",
+    "exec": "bash -c \"$HOME/.config/scripts/lock.sh\" &; disown",
     "icon": "/usr/share/nwg-bar/images/system-lock-screen.svg"
   },
   {

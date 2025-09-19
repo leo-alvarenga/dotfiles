@@ -1,13 +1,15 @@
 theme = "catppuccin_mocha"
 
 [editor]
-bufferline = "always"
 true-color = true
-rulers = [80]
 line-number = "relative"
+mouse = false
+rulers = [80]
+shell = ["zsh", "-c"]
+bufferline = "always"
 
 [keys.normal]
-C-h = [":buffer-previous"]
 C-l = [":buffer-next"]
+C-h = [":buffer-previous"]
 C-x = [":buffer-close"]
 
