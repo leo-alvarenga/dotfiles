@@ -1,214 +1,202 @@
 // -*- mode: jsonc -*-
 {
-    "height": 24,
-    "spacing": 4,
-    "custom/separator": {
-        "format": "│",
-        "tooltip": false
+  "height": 32,
+  "spacing": 4,
+  "custom/separator": {
+    "format": "│",
+    "tooltip": false
+  },
+  "custom/openbracket": {
+    "format": "[",
+    "tooltip": false
+  },
+  "custom/closebracket": {
+    "format": "]",
+    "tooltip": false
+  },
+  /* ------------------------------- LEFT -------------------------------*/
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name}"
+  },
+  "custom/launcher": {
+    "format": "",
+    "tooltip-format": "Open/close the app launcher",
+    "on-click": "~/.config/scripts/launcher.sh"
+  },
+  "cpu": {
+    "format": "   {usage}%",
+    "tooltip": true
+  },
+  "memory": {
+    "format": "   {percentage}%",
+    "tooltip-format": "Used: {used:0.1f}GiB - Available: {avail:0.1f}GiB - Total: {total:0.1f}GiB"
+  },
+  "pulseaudio": {
+    "tooltip-format": "{desc} [Click to configure]",
+    "format": "{icon}  {volume}%    {format_source}",
+    "format-source": "<span foreground='#cba6f7' size='8pt'>|</span>       {volume}%",
+    "format-bluetooth": "  {volume}%    {format_source}",
+    "format-muted": "   Off     {format_source}",
+    "format-source-muted": "<span foreground='#cba6f7' size='8pt'>|</span>        Off ",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "phone-muted": "",
+      "portable": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
     },
-    "custom/openbracket": {
-        "format": "[",
-        "tooltip": false
-    },
-    "custom/closebracket": {
-        "format": "]",
-        "tooltip": false
-    },
-    /* ------------------------------- LEFT -------------------------------*/
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{name}"
-    },
-    "custom/launcher": {
-        "format": "",
-        "tooltip-format": "Open/close the app launcher",
-        "on-click": "~/.config/scripts/launcher.sh"
-    },
-    "cpu": {
-        "format": "   {usage}%",
-        "tooltip": true
-    },
-    "memory": {
-        "format": "   {percentage}%",
-        "tooltip-format": "Used: {used:0.1f}GiB - Available: {avail:0.1f}GiB - Total: {total:0.1f}GiB"
-    },
-    "pulseaudio": {
-        "tooltip-format": "{desc} [Click to configure]",
-        "format": "{icon}  {volume}%    {format_source}",
-        "format-source": "<span foreground='#cba6f7' size='8pt'>|</span>       {volume}%",
-        "format-bluetooth": "  {volume}%    {format_source}",
-        "format-muted": "   Off     {format_source}",
-        "format-source-muted": "<span foreground='#cba6f7' size='8pt'>|</span>        Off ",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "phone-muted": "",
-            "portable": "",
-            "default": [
-                "",
-                "",
-                ""
-            ]
-        },
-        "max-volume": 100,
-        "on-click": "pavucontrol",
-        "scroll-step": 1
-    },
-    "hyprland/submap": {
-        "format": "",
-        "max-length": 8,
-        "always-on": true
-    },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}",
-        "tooltip": true,
-        "format-icons": {
-            "performance": "",
-            "balanced": "",
-            "power-saver": ""
-        }
-    },
-    /* --------------------------------------------------------------------*/
-    /* ------------------------------ CENTER ------------------------------*/
-    
-    "hyprland/window": {
-        "format": "{}",
-        "max-length": 50,
-        "all-outputs" : true
-    },
-    "hyprland/mode": {
-        "format": "",
-        "tooltip": true
-    },
-    /* --------------------------------------------------------------------*/
-    /* ------------------------------ RIGHT -------------------------------*/
-    "tray": {
-        "spacing": 10
-    },
-    "network": {
-        "format-wifi": "{icon}",
-        "format-ethernet": "",
-        "tooltip-format": "{essid} ({ipaddr}/{cidr}) connected via {ifname} ({signalStrength}%)",
-        "format-linked": "",
-        "format-disconnected": "   Disconnected",
-        "format-disabled": "⚠   Off",
-        "format-icons": [""],
-        "on-click": "/home/caesar/.config/scripts/wireless_gui.sh"
-    },
-    "bluetooth": {
-       "format-disabled": "",
-       "format-on": "",
-       "format-off": "",
-       "format-connected": "",
-       "tooltip-format-off": "Off",
-       "tooltip-format-disabled": "Disabled",
-       "tooltip-format": "{controller_alias}\t{controller_address}",
-       "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-       "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
-    },
-    "backlight": {
-        "format": "   {percent}%"
-    },
-    "hyprland/language": {
-        "format": "\uf11c   {short}",
-        "tooltip-format": "{long} [Click to change]",
-        "on-click": "hyprlandmsg input type:keyboard xkb_switch_layout next"
-    },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}   {capacity}%",
-        "format-full": "{icon}   {capacity}%",
-        "format-critical": "   {capacity}%",
-        "format-charging": "   {capacity}%",
-        "format-plugged": "   {capacity}%",
-        "tooltip-format": "  {timeTo}  -   {power}W  -    {health}%",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    "clock": {
-        "format": "   {:%H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
-        "format-alt": "   {:%d/%m/%Y}",
-        "actions": {
-            "on-click-right": "mode",
-            "on-scroll-up": "shift_up",
-            "on-scroll-down": "shift_down"
-        },
-        "calendar": {
-            "mode-mon-col": 3,
-            "mode": "month",
-            "format": {
-                "days": "<span style=\"italic\">{}</span>",
-                "today": "<b><u>{}</u></b>"
-            }
-        }
-    },
-    "custom/power": {
-        "format": "",
-        "tooltip": true,
-        "tooltip-format": "Open power menu",
-        "on-click": "~/.config/scripts/power_menu.sh"
-    },
-    /* --------------------------------------------------------------------*/
-    /* ------------------------------ LAYOUT ------------------------------*/
-    "modules-left": [
-        "hyprland/workspaces",
-        "custom/separator",
-        
-        "cpu",
-        "custom/separator",
-
-        "memory",
-        "custom/separator",
-
-        "pulseaudio",
-        "custom/separator",
-    
-        "hyprland/submap", 
-        "custom/separator",
-
-        "power-profiles-daemon",
-        "hyprland/mode"
+    "max-volume": 100,
+    "on-click": "pavucontrol",
+    "scroll-step": 1
+  },
+  "hyprland/submap": {
+    "format": "",
+    "max-length": 8,
+    "always-on": true
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "",
+      "balanced": "",
+      "power-saver": ""
+    }
+  },
+  /* --------------------------------------------------------------------*/
+  /* ------------------------------ CENTER ------------------------------*/
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 50,
+    "all-outputs": true
+  },
+  "hyprland/mode": {
+    "format": "",
+    "tooltip": true
+  },
+  /* --------------------------------------------------------------------*/
+  /* ------------------------------ RIGHT -------------------------------*/
+  "tray": {
+    "spacing": 10
+  },
+  "network": {
+    "format-wifi": "{icon}",
+    "format-ethernet": "",
+    "tooltip-format": "{essid} ({ipaddr}/{cidr}) connected via {ifname} ({signalStrength}%)",
+    "format-linked": "",
+    "format-disconnected": "   Disconnected",
+    "format-disabled": "⚠   Off",
+    "format-icons": [
+      ""
     ],
-    "modules-center": [
-        "hyprland/window"
-    ],
-    "modules-right": [
-        "tray",
-        "custom/separator",
-
-        "network",
-        "custom/separator",
-
-        "bluetooth",
-
-        "custom/separator",
-        "hyprland/language",
-
-        "custom/separator",
-        "backlight",
-
-        "custom/separator",
-        "battery",
-
-        "custom/separator",
-        "clock",
-
-        "custom/separator",
-        "custom/power"
+    "on-click": "/home/caesar/.config/scripts/wireless_gui.sh"
+  },
+  "bluetooth": {
+    "format-disabled": "",
+    "format-on": "",
+    "format-off": "",
+    "format-connected": "",
+    "tooltip-format-off": "Off",
+    "tooltip-format-disabled": "Disabled",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  "backlight": {
+    "format": "   {percent}%"
+  },
+  "hyprland/language": {
+    "format": "\uf11c   {short}",
+    "tooltip-format": "{long} [Click to change]",
+    "on-click": "hyprlandmsg input type:keyboard xkb_switch_layout next"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}   {capacity}%",
+    "format-full": "{icon}   {capacity}%",
+    "format-critical": "   {capacity}%",
+    "format-charging": "   {capacity}%",
+    "format-plugged": "   {capacity}%",
+    "tooltip-format": "  {timeTo}  -   {power}W  -    {health}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
     ]
-    /* --------------------------------------------------------------------*/
+  },
+  "clock": {
+    "format": "   {:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+    "format-alt": "   {:%d/%m/%Y}",
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    },
+    "calendar": {
+      "mode-mon-col": 3,
+      "mode": "month",
+      "format": {
+        "days": "<span style=\"italic\">{}</span>",
+        "today": "<b><u>{}</u></b>"
+      }
+    }
+  },
+  "custom/power": {
+    "format": "",
+    "tooltip": true,
+    "tooltip-format": "Open power menu",
+    "on-click": "~/.config/scripts/power_menu.sh"
+  },
+  /* --------------------------------------------------------------------*/
+  /* ------------------------------ LAYOUT ------------------------------*/
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/separator",
+    "cpu",
+    "custom/separator",
+    "memory",
+    "custom/separator",
+    "pulseaudio",
+    "custom/separator",
+    "hyprland/submap",
+    "custom/separator",
+    "power-profiles-daemon",
+    "hyprland/mode"
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "tray",
+    "custom/separator",
+    "network",
+    "custom/separator",
+    "bluetooth",
+    "custom/separator",
+    "hyprland/language",
+    "custom/separator",
+    "backlight",
+    "custom/separator",
+    "battery",
+    "custom/separator",
+    "clock",
+    "custom/separator",
+    "custom/power"
+  ]
+  /* --------------------------------------------------------------------*/
 }
-

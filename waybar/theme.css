@@ -26,7 +26,7 @@
 @define-color base #1e1e2e;
 @define-color mantle #181825;
 @define-color crust #11111b;
-@define-color crust-bar rgba(17, 17, 27, 0.6);
+@define-color crust-bar rgba(17, 17, 27, 1.0);
 
 @define-color bg-main @crust;
 @define-color bg-bar @crust-bar;
@@ -36,4 +36,3 @@
 @define-color accent-urgent @red;
 @define-color accent-warning @orange;
 @define-color accent-success @green;
-

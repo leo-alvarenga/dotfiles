@@ -3,111 +3,118 @@
 @import "../catppuccin-mocha.theme.css";
 
 * {
-    font-family: "Noto sans", "DejaVu sans", "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
-    font-size: 10px;
+  font-family: "Noto sans", "DejaVu sans", "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
+  font-size: 10px;
 }
 
 /* -------------------------------- BAR ---------------------------------*/
 
+window>box {
+  background-color: @bg-bar;
+  transition: all;
+  transition-duration: .5s;
+  color: @fg-main;
+  margin: 8px 8px 0 8px;
+  border: 1px solid @bg-main;
+  border-radius: 8px;
+}
+
 window#waybar {
-    background-color: @bg-bar;
-    transition: all;
-    transition-duration: .5s;
-    color: @fg-main;
-    border-bottom: 1px solid @accent-main;
+  background-color: transparent;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
 window#waybar.empty #window {
-    opacity: 0;
+  opacity: 0;
 }
 
 /* -------------------------------- LEFT --------------------------------*/
 
 button:hover {
-    border: none;
-    outline: none;
-    box-shadow: none;
-    background: inherit;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: inherit;
 }
 
 #workspaces {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 #workspaces button {
-    padding: 0 4px;
+  padding: 0 4px;
 
-    transition: all;
-    transition-duration: .5s;
+  transition: all;
+  transition-duration: .5s;
 
-    color: @fg-main;
-    border: none;
-    border-radius: 0;
+  color: @fg-main;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid transparent;
 }
 
 #workspaces button:hover {
-    color: @accent-main;
+  color: @accent-main;
 }
 
 #workspaces button.focused,
 #workspaces button.visible {
-    background-color: transparent;
-    color: @accent-main;
-    border-top: 1px solid @accent-main
+  background-color: transparent;
+  color: @accent-main;
+  border-bottom-color: @accent-main;
 }
 
 #workspaces button.empty {
-    color: @accent-main;
+  color: @accent-main;
 }
 
 #workspaces button.urgent {
-    color: @accent-urgent;
+  color: @accent-urgent;
 }
 
 #mode {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /* ---------------------------- RIGHT ------------------------------*/
 
 #custom-separator {
-    padding: 0;
-    color: @accent-main;
-    margin: 0 4px;
-    font-size: 12px;
+  padding: 0;
+  color: @accent-main;
+  margin: 0 4px;
+  font-size: 12px;
 }
 
 #bluetooth {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 #bluetooth.disabled {
-    color: @bg-main;
-    background-color: @accent-urgent;
+  color: @bg-main;
+  background-color: @accent-urgent;
 }
 
 #bluetooth.off {
-    background-color: @accent-warning;
+  background-color: @accent-warning;
 }
 
 #bluetooth.on {
-    background-color: @selection_background;
+  background-color: @selection_background;
 }
 
 #bluetooth.connected {
-    background-color: @accent-success;
+  background-color: @accent-success;
 }
 
 .modules-left,
 .modules-center,
 .modules-right {
-    margin: 0 8px;
-    padding: 2px 0;
+  margin: 0 8px;
+  padding: 2px 0;
 }
 
 #custom-openbracket,
@@ -128,11 +135,11 @@ button:hover {
 #custom-nc,
 #custom-power,
 #mode {
-    margin: 4px 0;
-    padding: 0 4px;
-    border-radius: 4px;
-    transition: all;
-    transition-duration: 500ms;
+  margin: 4px 0;
+  padding: 0 4px;
+  border-radius: 4px;
+  transition: all;
+  transition-duration: 500ms;
 }
 
 #mode:hover,
@@ -151,48 +158,49 @@ button:hover {
 #custom-launcher:hover,
 #custom-nc:hover,
 #custom-power:hover {
-    color: @accent-main;
-    background-color: @selection_background;
+  color: @accent-main;
+  background-color: @selection_background;
 }
 
 #power-profiles-daemon.performance,
 #submap.resize {
-    color: @bg-main;
-    background-color: @accent-urgent;
+  color: @bg-main;
+  background-color: @accent-urgent;
 }
 
 #power-profiles-daemon.power-saver {
-    color: @bg-main;
-    background-color: @accent-success;
+  color: @bg-main;
+  background-color: @accent-success;
 }
 
 @keyframes highlight {
-    to {
-        background-color: @selection_background;
-    }
+  to {
+    background-color: @selection_background;
+  }
 }
 
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #tray>.passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray>.needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @accent-urgent; /* was @error */
+  -gtk-icon-effect: highlight;
+  background-color: @accent-urgent;
+  /* was @error */
 }
