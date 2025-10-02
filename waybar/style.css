@@ -51,10 +51,10 @@ button:hover {
   transition: all;
   transition-duration: .5s;
 
-  color: @fg-main;
+  color: @subtext0;
   border: none;
-  border-radius: 0;
-  border-bottom: 1px solid transparent;
+  border-radius: 0px;
+  border-top: 1px solid transparent;
 }
 
 #workspaces button:hover {
@@ -65,7 +65,7 @@ button:hover {
 #workspaces button.visible {
   background-color: transparent;
   color: @accent-main;
-  border-bottom-color: @accent-main;
+  border-top-color: @accent-main;
 }
 
 #workspaces button.empty {

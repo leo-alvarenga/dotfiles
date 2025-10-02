@@ -3,13 +3,20 @@
 ## Current setup ([Preview](#preview))
 - Distro: Arch Linux
 - DM: `Ly`
-- WM (Compositor): Sway (and its stack) + Waybar
+- WM (Compositor): Wayland (and its stack) + Waybar
 
 ### Motivation
-My current goal with this setup is to configure a minimal, yet beautiful and customizable Graphical environment with as few dependencies as possible without resorting Gentoo.
+My current goal with this setup is to configure a minimal, beautiful, customizable Graphical environment with a heavy focus on my workflow as a Frontend Developer and DevOps enthusiast.
+
+## Automated setup
+To use the automated setup, follow the steps bellow:
+1. Install Arch linux
+2. Clone this repository
+3. Navigate to the newly cloned repo
+4. Execute the `./setup/post_install.sh` script, following its steps and providing it with any info asked about me
 
 ## Dependencies (so far)
-Please note that the package names used here are the ones found in the Void Linux package registry unless explictly marked as otherwise. Doing the same setup in other distros WILL require attention and care when installing the packages listed bellow.
+Please note that the package names used here are the ones found in the Arch Linux package registry unless explictly marked as otherwise. Doing the same setup in other distros WILL require attention and care when installing the packages listed bellow.
 
 ### Compilers, Interpreters and Runtimes
 - `lua`
@@ -18,7 +25,7 @@ Please note that the package names used here are the ones found in the Void Linu
 - `cmake`
 - `go`
 - `rustc` - Via [`rustup`](https://www.rust-lang.org/learn/get-started)
-- `nodejs`
+- `nodejs` - Via [`nvm`](https://github.com/nvm-sh/nvm)
 
 ### Core
 - `git`
@@ -136,10 +143,12 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
     - [x] Replace `swaylock` with `hyprlock`
 - [x] Add independent menus
     - [x] Power menu
-    - [ ] Customize Power menu <
-- [ ] Deprecate `dotfile_helper`
+    - [x] Customize Power menu
+- [x] Deprecate `dotfile_helper`
 - [ ] Config `fastfetch`
 
 ## Preview
 
-TODO: add preview of current iteration
+[!image1](./docs/catppuccin_hyper1.png)
+[!image2](./docs/catppuccin_hyper2.png)
+
