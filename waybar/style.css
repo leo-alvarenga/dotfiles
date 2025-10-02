@@ -53,7 +53,7 @@ button:hover {
 
   color: @subtext0;
   border: none;
-  border-radius: 0px;
+  border-radius: 4px;
   border-top: 1px solid transparent;
 }
 
@@ -63,9 +63,7 @@ button:hover {
 
 #workspaces button.focused,
 #workspaces button.visible {
-  background-color: transparent;
-  color: @accent-main;
-  border-top-color: @accent-main;
+  background-color: @surface0;
 }
 
 #workspaces button.empty {
