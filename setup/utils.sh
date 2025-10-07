@@ -90,7 +90,7 @@ str_fmt() {
         return
     fi
     
-   str_log "$(get_ansi_fmt "$2" "1")" 
+   str_log "$(get_ansi_fmt "$2" "$1")" 
 }
 
 str_log_fatal() {

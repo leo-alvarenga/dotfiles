@@ -1,8 +1,11 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+
+SHOULD_SETUP_P10K="${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+
+if [[ -r $SHOULD_SETUP_P10K  ]]; then
+  source "$SHOULD_SETUP_P10K"
 fi
 
 # Root user cache location
@@ -94,8 +97,18 @@ alias ls='ls --color'
 alias z='zoxide'
 alias c='clear'
 alias hx='helix'
+alias ed='$EDITOR'
 alias cfg='cd $HOME/.config && $EDITOR .'
-alias branch='git branch | grep "*" | cut -d " " -f2'
+
+# Git aliases
+alias gbranch='git branch | grep "*" | cut -d " " -f2'
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit -m'
+alias gpush='git push'
+alias gpushnew='gpush -u origin $(gbranch)'
+alias gpull='git pull'
+
 
 bindkey -v
 

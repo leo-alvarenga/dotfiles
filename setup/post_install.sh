@@ -7,7 +7,7 @@ source "$(dirname ${BASH_SOURCE[0]})/utils.sh"
 declare -A LABELS=()
 
 SEPARATOR=' '
-DEFAULT_FMT="bold blue"
+DEFAULT_FMT="blue"
 DOTFILES_REPO="https://github.com/leo-alvarenga/dotfiles"
 
 ## Early exit
@@ -26,9 +26,13 @@ install_deps() {
   sudo pacman -S --needed --noconfirm $@ > /dev/null 2>&1
 }
 
+log_step() {
+  str_fmt "Installing ${LABELS[$1]}" "$DEFAULT_FMT"
+}
+
 install_rust() {
   if ! cargo --version &> /dev/null; then
-    str_fmt "\n\n\nInstalling Rustc and Cargo..." "$DEFAULT_FMT"
+    str_fmt "Installing Rustc and Cargo..." "$DEFAULT_FMT"
     sleep 1
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   fi
@@ -36,10 +40,13 @@ install_rust() {
 
 install_nvm() {
   if ! nvm --version &> /dev/null; then
-    str_fmt "\n\n\nInstalling Nodejs via NVM..." "$DEFAULT_FMT"
+    str_fmt "Installing Nodejs via NVM..." "$DEFAULT_FMT"
     sleep 1
-    curl -so- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+    curl -so- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash > /dev/null 2>&1
   fi
+
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
   local zprofile="$HOME/.zprofile"
   local zshrc="$HOME/.zshrc"
@@ -53,7 +60,7 @@ install_nvm() {
   fi
 
   if nvm --version &> /dev/null; then
-    str_fmt "\n\nInstalling and setting up Node.js LTS..." "$DEFAULT_FMT"
+    str_fmt "Installing and setting up Node.js LTS..." "$DEFAULT_FMT"
     sleep 1
     nvm install --lts
     nvm use --lts
@@ -61,23 +68,19 @@ install_nvm() {
 }
 
 install_lang_servers() {
-  str_fmt "\n\n\nInstalling language servers and formatters dependant on Node.js ..." "$DEFAULT_FMT"
+  str_fmt "Installing language servers and formatters dependant on Node.js ..." "$DEFAULT_FMT"
   
   if ! npm --version &> /dev/null; then
     log_fatal "Could not install! Missing npm!"
     exit 1
   fi
 
-  local server_and_formatters=(@astrojs/language-server typescript-language-server vscode-langservers-extracted bash-language-servers yaml-language-server prettier)
+  local server_and_formatters=(@astrojs/language-server typescript-language-server vscode-langservers-extracted bash-language-server yaml-language-server prettier)
   
   npm i -g ${server_and_formatters[@]} > /dev/null 2>&1
 }
 
 install_dependencies() {
-  log_step() {
-    str_fmt "Installing ${LABELS[$1]}" "$DEFAULT_FMT"
-  }
-
   # Lower level deps
   local BASIC_DEPS=(curl wget git zsh man xdg-user-dirs which)
   local SHELL_UTILS=(bat less tree btop)
@@ -94,36 +97,40 @@ install_dependencies() {
   install_deps "${SHELL_UTILS[@]}"
 
   str_fmt "Setting up zsh as default shell..." "$DEFAULT_FMT"
-  sudo chsh -s /usr/bin/zsh
+  chsh -s $(chsh --list-shells | grep zsh | sed -n '1p')
 
   ############################################################################
 
-  # Services
-  local SERVICES=(bluez iwd pulseaudio power-profiles-daemon)
+  if [[ -z $WSL_MODE ]]; then
+    # Services
+    local SERVICES=(bluez iwd pulseaudio power-profiles-daemon)
 
-  LABELS[SERVICES]="services"
+    LABELS[SERVICES]="services"
 
-  log_step "SERVICES"
-  install_deps "${SERVICES[@]}"
+    log_step "SERVICES"
+    install_deps "${SERVICES[@]}"
 
-  ############################################################################
+    ############################################################################
 
-  # Graphical env deps
-  local GRAPHICAL_ENV=(ly hyprland swww dunst hyprlock hypridle waybar wl-clipboard chafa grim flameshot nwg-bar fuzzel ghostty)
-  local FONTS=(ttf-dejavu otf-font-awesome)
+    if [[ -z $MINIMAL_MODE ]]; then
+      # Graphical env deps
+      local GRAPHICAL_ENV=(ly hyprland swww dunst hyprlock hypridle waybar wl-clipboard chafa grim flameshot nwg-bar fuzzel ghostty)
+      local FONTS=(ttf-dejavu otf-font-awesome)
 
-  LABELS[GRAPHICAL_ENV]="graphical environment deps"
-  LABELS[FONTS]="fonts"
+      LABELS[GRAPHICAL_ENV]="graphical environment deps"
+      LABELS[FONTS]="fonts"
 
-  log_step "GRAPHICAL_ENV"
-  install_deps "${GRAPHICAL_ENV[@]}"
+      log_step "GRAPHICAL_ENV"
+      install_deps "${GRAPHICAL_ENV[@]}"
 
-  log_step "FONTS"
-  install_deps "${FONTS[@]}"
+      log_step "FONTS"
+      install_deps "${FONTS[@]}"
   
-  str_fmt "Enabling Ly as the greeter..." "bold blue"
-  sudo systemctl disable getty@tty2.service
-  sudo systemctl enable ly
+      str_fmt "Enabling Ly as the greeter..." "bold blue"
+      sudo systemctl disable getty@tty2.service
+      sudo systemctl enable ly
+    fi
+  fi
 
   ############################################################################
 
@@ -134,7 +141,7 @@ install_dependencies() {
 
   LABELS[COMPILERS_AND_INTERPRETERS]="compilers and interpreters"
   LABELS[CODE_EDITOR_DEPS]="code editor dependencies"
-  LABELS[CODE_EDITOR]="code editors"
+  LABELS[CODE_EDITORS]="code editors"
   
   log_step "COMPILERS_AND_INTERPRETERS"
   install_deps "${COMPILERS_AND_INTERPRETERS[@]}"
@@ -160,24 +167,23 @@ install_dependencies() {
 }
 
 setup_doas() {
-  log_step "\n\nSetting up doas..."
+  str_fmt "Setting up doas..." "$DEFAULT_FMT"
   sleep 1
 
-  
   install_deps doas
 
-  log_step "Creating doas.conf"
+  str_fmt "Creating doas.conf" "$DEFAULT_FMT"
   echo "permit persist setenv {PATH=/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin} :wheel" | sudo tee /etc/doas.conf > /dev/null
   sleep 0.2
 
   # Ensuring root owns the file and nobody else can edit it
-  log_step "Changing doas.conf permissions"
+  str_fmt "Changing doas.conf permissions" "$DEFAULT_FMT"
   sudo chown -c root:root /etc/doas.conf
   sudo chmod -c 0400 /etc/doas.conf
 }
 
-setup_dotfile() {
-  log_step "\n\nSetting up .config files..."
+setup_dotfiles() {
+  str_fmt "Setting up .config files..." "$DEFAULT_FMT"
   sleep 1
 
   if [[ -d "$HOME/.config" ]]; then
@@ -185,23 +191,31 @@ setup_dotfile() {
   fi
   
   cd $HOME
-  git clone "$DOTFILES_REPO" "$HOME/.config" > /dev/null
+  git clone "$DOTFILES_REPO" "$HOME/.config" > /dev/null 2>&1
 
-  ln -s "$HOME/.config/.zshrc" "$HOME/.zshrc"
-  ln -s "$HOME/.config/.zshenv" "$HOME/.zshenv"
-  ln -s "$HOME/.config/.profile" "$HOME/.profile"
-  ln -s "$HOME/.config/.zprofile" "$HOME/.zprofile"
-  ln -s "$HOME/.config/.p10k.zsh" "$HOME/.p10k.zsh"
+  local files=(.zshenv .profile .zprofile .p10k.zsh .zshrc)
+
+  for file in ${files[@]}; do
+    ln -f "$HOME/.config/$file" "$HOME/$file" > /dev/null 2>&1
+  done
 }
 
 post_setup() {
   reset
 
-  log_step "All good! Ready to roll!\n\n"
+  str_fmt "All good! Ready to roll!\n\n" "$DEFAULT_FMT"
 }
 
+# This had to be added here; Script would be break in WSL otherwise
+if [[ -f "$HOME/.zshrc" ]]; then
+  rm "$HOME/.zshrc"
+fi
 
-install_dependencies
-setup_doas
-setup_dotfile
+# When using this script with SYNC_MODE=true, only update local ~/.config and other dotfiles
+if [[ -z $SYNC_MODE || $SYNC_MODE != true ]]; then
+  install_dependencies
+  setup_doas
+fi
+
+setup_dotfiles
 
