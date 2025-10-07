@@ -201,21 +201,19 @@ setup_dotfiles() {
 }
 
 post_setup() {
-  reset
-
   str_fmt "All good! Ready to roll!\n\n" "$DEFAULT_FMT"
 }
 
-# This had to be added here; Script would be break in WSL otherwise
+# This had to be added here; Script would break in WSL otherwise
 if [[ -f "$HOME/.zshrc" ]]; then
   rm "$HOME/.zshrc"
 fi
 
-# When using this script with SYNC_MODE=true, only update local ~/.config and other dotfiles
+# When using this script with SYNC_MODE=true, only update ~/.config and other dotfiles
 if [[ -z $SYNC_MODE || $SYNC_MODE != true ]]; then
   install_dependencies
   setup_doas
 fi
 
 setup_dotfiles
-
+post_setup
