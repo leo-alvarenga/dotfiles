@@ -26,6 +26,10 @@ install_deps() {
   sudo pacman -S --needed --noconfirm $@ > /dev/null 2>&1
 }
 
+uninstall_with_doas() {
+  doas pacman -Rcns --noconfirm $@ > /dev/null 2>&1
+}
+
 log_step() {
   str_fmt "Installing ${LABELS[$1]}" "$DEFAULT_FMT"
 }
@@ -180,6 +184,10 @@ setup_doas() {
   str_fmt "Changing doas.conf permissions" "$DEFAULT_FMT"
   sudo chown -c root:root /etc/doas.conf
   sudo chmod -c 0400 /etc/doas.conf
+
+  if [[ ! -z $REMOVE_SUDO && $REMOVE_SUDO == true ]]; then
+    uninstall_with_doas sudo
+  fi
 }
 
 setup_dotfiles() {
@@ -204,6 +212,21 @@ post_setup() {
   str_fmt "All good! Ready to roll!\n\n" "$DEFAULT_FMT"
 }
 
+if [[ $1 == '-h' || $1 == '--help' ]]; then
+  str_fmt "$(str_fmt "Post install setup script" "blue")\n\n" "bold"
+
+  str_fmt "Help (-h or --help) is the only option available" "$DEFAULT_FMT"
+  str_fmt "To modify the default behavior, use the following ENV vars instead:" "$DEFAULT_FMT"
+  
+  str_fmt "\n\n\t- WLS_MODE - When true, only basic and low level\n\t dependencies are installed; Dotfiles are still symlinked" "$DEFAULT_FMT"
+  str_fmt "\n\t- MINIMAL_MODE - When true, all dependencies are\n\t installed except for those related to a graphical environmet setup;\n\t Dotfiles are still symlinked" "$DEFAULT_FMT"
+  str_fmt "\n\t- SYNC_MODE - When true, no dependencies are installed,\n\t meaning the only change done is the symlinking of the dotfiles" "$DEFAULT_FMT"
+  str_fmt "\n\t- USE_DOAS - When true, doas is installed and setup to\n\t be used; WILL BE OVERWRITTEN BY THE PREVIOUS VARIABLES" "$DEFAULT_FMT"
+  str_fmt "\n\t- REMOVE_SUDO - When true and USE_DOAS is also true,\n\t uninstall sudo completly; WILL BE OVERWRITTEN BY THE PREVIOUS VARIABLES" "$DEFAULT_FMT"
+ 
+  exit 0
+fi
+
 # This had to be added here; Script would break in WSL otherwise
 if [[ -f "$HOME/.zshrc" ]]; then
   rm "$HOME/.zshrc"
@@ -212,7 +235,11 @@ fi
 # When using this script with SYNC_MODE=true, only update ~/.config and other dotfiles
 if [[ -z $SYNC_MODE || $SYNC_MODE != true ]]; then
   install_dependencies
-  setup_doas
+
+  # Var is present and true
+  if [[ ! -z $USE_DOAS && $USE_DOAS == true ]]; then
+    setup_doas
+  fi
 fi
 
 setup_dotfiles
