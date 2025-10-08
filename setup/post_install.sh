@@ -194,10 +194,6 @@ setup_dotfiles() {
   str_fmt "Setting up .config files..." "$DEFAULT_FMT"
   sleep 1
 
-  if [[ -d "$HOME/.config" ]]; then
-    rm -rf "$HOME/.config"
-  fi
-  
   cd $HOME
   git clone "$DOTFILES_REPO" "$HOME/.config" > /dev/null 2>&1
 

@@ -11,7 +11,7 @@ My current goal with this setup is to configure a minimal, beautiful, and custom
 ## Automated setup
 To use the automated setup, follow the steps bellow:
 1. Install Arch Linux or any distro based on it that has `pacman` as its package manager
-2. Clone this repository wherever you'd like (preferrebly anywhere **but** $HOME/.config to avoid overwrites on local repository)
+2. Clone this repository wherever you'd like (preferrebly in $HOME/.config)
 3. Navigate to the newly cloned repo
 4. Execute the `./setup/post_install.sh` script, following its steps and providing it with any info asked about me
 
