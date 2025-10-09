@@ -28,7 +28,11 @@ image {
 button {
 	padding-left: 10px;
 	padding-right: 10px;
-	margin: 5px
+	margin: 5px;
+	font-weight: normal;
+	color: #ffffff;
+	font-size: 14px;
+	font-family: "Noto sans", "DejaVu sans", "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
 }
 
 button:hover {
