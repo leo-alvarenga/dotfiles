@@ -84,6 +84,23 @@ install_lang_servers() {
   npm i -g ${server_and_formatters[@]} > /dev/null 2>&1
 }
 
+install_tmux() {
+  install_deps tmux
+}
+
+setup_tmux() {
+  if ! tmux -c exit &> /dev/null; then
+    install_tmux
+  fi
+
+  local tpm_dir="$HOME/.tmux/plugins/tpm"
+  if [[ -d "$tpm_dir" ]]; then
+    rm -rf "$tpm_dir" > /dev/null 2>&1
+  fi
+
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm > /dev/null 2>&1
+}
+
 install_dependencies() {
   # Lower level deps
   local BASIC_DEPS=(curl wget git zsh man xdg-user-dirs which)
@@ -95,10 +112,11 @@ install_dependencies() {
   log_step "BASIC_DEPS"
   install_deps "${BASIC_DEPS[@]}"
 
-  xdg-user-dirs-update
+  xdg-user-dirs-update --force
 
   log_step "SHELL_UTILS"
   install_deps "${SHELL_UTILS[@]}"
+  setup_tmux
 
   str_fmt "Setting up zsh as default shell..." "$DEFAULT_FMT"
   chsh -s $(chsh --list-shells | grep zsh | sed -n '1p')
@@ -195,7 +213,6 @@ setup_dotfiles() {
   sleep 1
 
   cd $HOME
-  git clone "$DOTFILES_REPO" "$HOME/.config" > /dev/null 2>&1
 
   local files=(.zshenv .profile .zprofile .p10k.zsh .zshrc)
 

@@ -13,4 +13,8 @@ menus/*
 BraveSoftware/*
 mimeapps.list
 go/*
+astro/*
+.mozilla/*
+**/user-dirs.*
+tmux/plugins/
 

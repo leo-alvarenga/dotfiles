@@ -12,4 +12,5 @@ bufferline = "always"
 C-l = [":buffer-next"]
 C-h = [":buffer-previous"]
 C-x = [":buffer-close"]
+C-n = [":new"]
 
