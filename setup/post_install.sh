@@ -79,7 +79,7 @@ install_lang_servers() {
     exit 1
   fi
 
-  local server_and_formatters=(@astrojs/language-server typescript-language-server vscode-langservers-extracted bash-language-server yaml-language-server prettier)
+  local server_and_formatters=(@astrojs/language-server typescript-language-server vscode-langservers-extracted bash-language-server yaml-language-server prettier neovim)
   
   npm i -g ${server_and_formatters[@]} > /dev/null 2>&1
 }
@@ -104,7 +104,7 @@ setup_tmux() {
 install_dependencies() {
   # Lower level deps
   local BASIC_DEPS=(curl wget git zsh man xdg-user-dirs which)
-  local SHELL_UTILS=(bat less tree btop)
+  local SHELL_UTILS=(bat less tree btop fd ripgrep)
 
   LABELS[BASIC_DEPS]="basic dependencies"
   LABELS[SHELL_UTILS]="shell utilities"
@@ -157,9 +157,9 @@ install_dependencies() {
   ############################################################################
 
   # Deps for my dev env
-  local COMPILERS_AND_INTERPRETERS=(lua gcc make cmake go)
-  local CODE_EDITOR_DEPS=(fzf zoxide)
-  local CODE_EDITORS=(vim helix)
+  local COMPILERS_AND_INTERPRETERS=(lua luarocks python gcc make cmake go)
+  local CODE_EDITOR_DEPS=(fzf zoxide fd ripgrep)
+  local CODE_EDITORS=(vim helix neovim)
 
   LABELS[COMPILERS_AND_INTERPRETERS]="compilers and interpreters"
   LABELS[CODE_EDITOR_DEPS]="code editor dependencies"
