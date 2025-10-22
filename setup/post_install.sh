@@ -159,7 +159,7 @@ install_dependencies() {
   # Deps for my dev env
   local COMPILERS_AND_INTERPRETERS=(lua luarocks python gcc make cmake go)
   local CODE_EDITOR_DEPS=(fzf zoxide fd ripgrep unzip gzip)
-  local CODE_EDITORS=(vim helix neovim)
+  local CODE_EDITORS=(neovim)
 
   LABELS[COMPILERS_AND_INTERPRETERS]="compilers and interpreters"
   LABELS[CODE_EDITOR_DEPS]="code editor dependencies"
@@ -176,7 +176,7 @@ install_dependencies() {
 
   install_rust
   install_nvm
-  install_lang_servers
+  # install_lang_servers
   
   ############################################################################
   
