@@ -12,7 +12,7 @@ window {
 /* Inner bar container, surrounds buttons */
 #inner-box {
 	background-color: @crust-menu;
-	border-radius: 4px;
+	border-radius: 8px;
 	/* border: 1px solid @accent-main; */
 	padding: 4px;
 	margin: 4px

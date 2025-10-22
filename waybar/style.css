@@ -160,9 +160,15 @@ button:hover {
   background-color: @selection_background;
 }
 
+#network,
+#power-profiles-daemon {
+  padding-right: 8px;
+}
+
 #power-profiles-daemon.performance,
 #submap.resize {
   color: @bg-main;
+  padding-right: 4px;
   background-color: @accent-urgent;
 }
 
