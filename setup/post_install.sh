@@ -158,7 +158,7 @@ install_dependencies() {
 
   # Deps for my dev env
   local COMPILERS_AND_INTERPRETERS=(lua luarocks python gcc make cmake go)
-  local CODE_EDITOR_DEPS=(fzf zoxide fd ripgrep)
+  local CODE_EDITOR_DEPS=(fzf zoxide fd ripgrep unzip gzip)
   local CODE_EDITORS=(vim helix neovim)
 
   LABELS[COMPILERS_AND_INTERPRETERS]="compilers and interpreters"

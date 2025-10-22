@@ -1,63 +1,62 @@
 return {
-	'nvim-treesitter/nvim-treesitter',
-	branch = 'master',
+	"nvim-treesitter/nvim-treesitter",
+	branch = "master",
 	lazy = false,
-	build = ':TSUpdate',
-	config = function ()
-		local configs = require('nvim-treesitter.configs')
+	build = ":TSUpdate",
+	config = function()
+		local configs = require("nvim-treesitter.configs")
 
 		configs.setup({
 			ensure_installed = {
 				-- Basics
-				'c',
-				'lua',
-				'vim',
-				'vimdoc',
-				'query',
-				'csv',
-				'json',
-				'json5',
+				"c",
+				"lua",
+				"vim",
+				"vimdoc",
+				"query",
+				"csv",
+				"json",
+				"json5",
 
 				-- Scripting
-				'bash',
+				"bash",
 
 				-- Configs
-				'hyprlang',
-				'ini',
-				'rasi',
+				"hyprlang",
+				"ini",
+				"rasi",
 
 				-- Git
-				'git_config',
-				'git_rebase',
-				'gitattributes',
-				'gitignore',
+				"git_config",
+				"git_rebase",
+				"gitattributes",
+				"gitignore",
 
 				-- Languages
-				'go',
-				'gomod',
-				'gosum',
+				"go",
+				"gomod",
+				"gosum",
 
 				-- Web
-				'javascript',
-				'jsdoc',
-				'typescript',
-				'typespec',
-				'html',
-				'css',
-				'scss',
-				'sql',
-				'svelte',
-				'tsx',
+				"javascript",
+				"jsdoc",
+				"typescript",
+				"typespec",
+				"html",
+				"css",
+				"scss",
+				"sql",
+				"svelte",
+				"tsx",
 
 				-- Infra/DevOps
-				'nginx',
-				'terraform',
-				'toml',
-				'yaml',
+				"nginx",
+				"terraform",
+				"toml",
+				"yaml",
 
-
-				'markdown',
-				'markdown_inline'
+				"markdown",
+				"markdown_inline",
 			},
 
 			sync_install = false,
@@ -67,11 +66,11 @@ return {
 			ignore_install = {},
 
 			highlight = {
-				enable = true
+				enable = true,
 			},
 
 			indent = {
-				enabled = true
+				enabled = true,
 			},
 
 			incremental_selection = {
@@ -79,12 +78,12 @@ return {
 
 				keymaps = {
 					-- To disable any of the following keymaps, use false; Otherwise, use a valid Key values
-					init_selection = '<Enter>', -- In Visual mode, how to enter incremental selection
-					node_incremental = '<Enter>',
+					init_selection = "<Enter>", -- In Visual mode, how to enter incremental selection
+					node_incremental = "<Enter>",
 					scope_incremental = false,
-					node_decremental = '<Backspace>'
-				}
-			}
+					node_decremental = "<Backspace>",
+				},
+			},
 		})
-	end
+	end,
 }

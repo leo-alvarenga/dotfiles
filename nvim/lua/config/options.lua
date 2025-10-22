@@ -2,9 +2,9 @@
 
 local tabwidth = 4
 
-local tabchar = '» '
-local trailingspacechar = '·' 
-local nbspchar = '␣'
+local tabchar = "» "
+local trailingspacechar = "·"
+local nbspchar = "␣"
 
 -- Options
 
