@@ -114,7 +114,7 @@ Please note that the package names used here are the ones found in the Arch Linu
     - Manually built
     - Simple `iwd` wrapper to manage wireless connections in a GUI
     - Requires launcher that provides a `stdin` mode
-- `helix`
+- `neovim`
     - Code editor of choice
 - `ghostty`
     - Feature-rich, performant and customizable shell emulator

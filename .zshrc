@@ -96,7 +96,6 @@ EDITOR=helix
 alias ls='ls --color'
 alias z='zoxide'
 alias c='clear'
-alias hx='helix'
 alias ed='$EDITOR'
 alias cfg='cd $HOME/.config && $EDITOR .'
 

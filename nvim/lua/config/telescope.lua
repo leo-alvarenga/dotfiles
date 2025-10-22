@@ -24,17 +24,23 @@ telescope.setup({
 local function set_telescope_mappings()
 	local builtin = require("telescope.builtin")
 
-	vim.keymap.set("n", "<leader>f", builtin.fd, {
-		desc = "Telescope - Find files",
-	})
+	vim.keymap.set("n", "<leader>f", 
+		function ()
+			builtin.fd({ hidden = true })
+		end,
+		{ desc = "Telescope - Find files" }
+	)
 
 	vim.keymap.set("n", "<leader>g", builtin.git_files, {
 		desc = "Telescope - Git files",
 	})
 
-	vim.keymap.set("n", "<leader>F", builtin.live_grep, {
-		desc = "Telescope - Live grep",
-	})
+	vim.keymap.set("n", "<leader>F", 
+		function ()
+			builtin.live_grep({ hidden = true })
+		end,
+		{ desc = "Telescope - Live grep" }
+	)
 
 	vim.keymap.set("n", "<leader>c", builtin.buffers, {
 		desc = "Telescope - Buffers",
