@@ -28,7 +28,7 @@ map("x", ">", ">gv")
 -- Twilight keymaps
 -------------------------------------------------
 
-map("n", "<leader>l", ":Twilight<CR>", "Toggle Twilight dim")
+map("n", "<C-e>", ":Twilight<CR>", "Toggle Twilight dim")
 
 -------------------------------------------------
 -- Formatting and Diagnostics
