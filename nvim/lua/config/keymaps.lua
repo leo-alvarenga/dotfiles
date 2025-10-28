@@ -31,6 +31,12 @@ map("x", ">", ">gv")
 map("n", "<C-e>", ":Twilight<CR>", "Toggle Twilight dim")
 
 -------------------------------------------------
+-- Oil keymaps
+-------------------------------------------------
+
+map("n", "<leader>e", ":Oil<CR>", "Explore current directory using Oil")
+
+-------------------------------------------------
 -- Formatting and Diagnostics
 -------------------------------------------------
 

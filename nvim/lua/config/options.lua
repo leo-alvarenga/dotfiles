@@ -1,3 +1,9 @@
+-- Leader options
+
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+
 -- Control variables
 
 local tabwidth = 4
