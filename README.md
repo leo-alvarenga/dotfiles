@@ -126,26 +126,12 @@ Run `lua dotfile_helper.lua --help` to learn how to use it.
 
 ## Roadmap
 
-- [x] Bare-bones Sway config
-- [x] Bare-bones Waybar config
-- [x] Dotfile helper
-- [x] Add Swaylock config
-- [x] Add Swayidle config
-- [x] Improve Waybar config
-- [x] Bugfix issue with volume control keys
-- [x] Solve "sticky" drag with mouse
-- [x] Reorganize this repo
-- [x] Rethink how theme switching should work
-- [x] Abstract and automate theme switching with scripts
-- [x] Move away from Sway in favor of Hyper utils
-    - [x] Replace Sway with Hyprland
-    - [x] Replace `swayidle` with `hypridle`
-    - [x] Replace `swaylock` with `hyprlock`
-- [x] Add independent menus
-    - [x] Power menu
-    - [x] Customize Power menu
-- [x] Deprecate `dotfile_helper`
 - [ ] Config `fastfetch`
+- [ ] Improve repo documentation
+- [ ] Add new Previews
+- [ ] Review Neovim config
+- [ ] Review Tmux config
+- [ ] Review setup scripts
 
 ## Preview
 
