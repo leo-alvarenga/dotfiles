@@ -1,7 +1,6 @@
 local utils = require("config.utils")
 
 -- LSP lists
-
 local language_servers = {
 	basics = {
 		"bashls",
