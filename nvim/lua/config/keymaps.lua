@@ -83,6 +83,7 @@ end
 -----------------
 function keymaps.setup_telescope()
 	local telescope = require("telescope")
+	local workspaces = require("config.workspaces")
 
 	local telescope_theme = "dropdown"
 
@@ -121,6 +122,7 @@ function keymaps.setup_telescope()
 	map("", "<leader>C", builtin.help_tags, "Telescope - help tags")
 	map("", "<leader>w", ":" .. utils.constants.telescope.workspaces .. "<CR>", "Telescope - Workspaces")
 
+	map("", "<leader>W", workspaces.manage_workspaces, "Telescope - Manage workspaces")
 
 	telescope.load_extension("workspaces")
 end
@@ -137,4 +139,3 @@ end
 -------------------------------------------------
 
 return keymaps
-

@@ -2,7 +2,7 @@ return {
 	"natecraddock/workspaces.nvim",
 	opts = {
 		hooks = {
-			open = { "Telescope find_files" },
+			open = { require("config.workspaces").on_open },
 		},
 	},
 }
