@@ -14,6 +14,8 @@ local nbspchar = "␣"
 
 -- Options
 
+vim.opt.termguicolors = true
+
 vim.opt.expandtab = true -- Convert tabs to spaces
 vim.opt.shiftwidth = tabwidth -- Amount to indent with << and >>
 vim.opt.tabstop = tabwidth -- How many spaces are shown per Tab

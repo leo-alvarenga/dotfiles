@@ -1,12 +1,21 @@
 local utils = require("config.utils")
 local map = utils.map
+local keymaps = {}
 -------------------------------------------------
 
 -------------------------------------------------
 -- Basics and Helix related keymappings
-local function setup_basics()
+function keymaps.setup_basics()
+	map("", "u", ":undo<CR>", "Undo")
+	map("", "U", ":redo<CR>", "Redo")
+
 	-- Open new buffer
-	map("n", "<C-n>", ":enew<CR>", "Open new empty Buffer")
+	map("", "<C-n>", ":enew<CR>", "Open new empty Buffer")
+
+	map("", "<leader>h", ":bprevious<cr>", "Go to previous Buffer")
+	map("", "<leader>l", ":bnext<cr>", "Go to next Buffer")
+
+	map("", "<C-x>", utils.close_current_buffer, "Close current Buffer (go to Dashboard if it's the last one)")
 
 	-- Ensuring selection is kept after indentation
 
@@ -20,16 +29,13 @@ local function setup_basics()
 	--  Motions inspired by Helix :D
 
 	-- Going to start of the line with 'gh'
-	map("n", "gh", "0")
-	map("x", "gh", "0")
+	map("", "gh", "0")
 
 	-- Going to end of the line with 'gl'
-	map("n", "gl", "$")
-	map("x", "gl", "$")
+	map("", "gl", "$")
 
 	-- Going to end of the file with 'ge'
-	map("n", "ge", "G")
-	map("x", "ge", "G")
+	map("", "ge", "G")
 
 	---------------------
 	-- Selections
@@ -46,31 +52,29 @@ end
 
 -------------------------------------------------
 -- Formatting and Diagnostics
-local function setup_fmt()
-	map("n", "<C-s>", function()
-		require("conform").format()
-	end, "Format file (if possible)")
+function keymaps.setup_fmt()
+	map({ "", "i" }, "<C-s>", utils.format_file, "Format file (if possible)")
 end
 -------------------------------------------------
 
 -------------------------------------------------
 -- Oil keymaps
-local function setup_oil()
-	map("n", "<leader>e", ":Oil<CR>", "Explore current directory using Oil")
+function keymaps.setup_oil()
+	map("", "<leader>e", ":Oil<CR>", "Explore current directory using Oil")
 end
 -------------------------------------------------
 
 -------------------------------------------------
 -- Twilight keymaps
-local function setup_twilight()
-	map("n", "<C-e>", ":Twilight<CR>", "Toggle Twilight dim")
+function keymaps.setup_twilight()
+	map("", "<C-e>", ":Twilight<CR>", "Toggle Twilight dim")
 end
 -------------------------------------------------
 
 -----------------
 -- Telescope
 -----------------
-local function setup_telescope()
+function keymaps.setup_telescope()
 	local telescope = require("telescope")
 
 	local telescope_theme = "dropdown"
@@ -96,29 +100,27 @@ local function setup_telescope()
 		builtin.fd({ hidden = true })
 	end, "Telescope - Find files")
 
-	map("n", "<leader>g", builtin.git_files, "Telescope - Git files")
+	map("", "<leader>g", builtin.git_files, "Telescope - Git files")
 
-	map("n", "<leader>F", function()
+	map("", "<leader>F", function()
 		builtin.live_grep({ hidden = true })
 	end, "Telescope - Live grep")
 
-	map("n", "<leader>c", builtin.buffers, "Telescope - Buffers")
+	map("", "<leader>c", builtin.buffers, "Telescope - Buffers")
 
-	map("n", "<leader>C", builtin.help_tags, "Telescope - help tags")
+	map("", "<leader>C", builtin.help_tags, "Telescope - help tags")
 end
 -------------------------------------------------
 
 -------------------------------------------------
--- Main setup 
-local function setup_keymaps()
-	setup_basics()
-	setup_fmt()
-	setup_oil()
-	setup_twilight()
+-- Main setup
+function keymaps.setup_keymaps()
+	keymaps.setup_basics()
+	keymaps.setup_fmt()
+	keymaps.setup_oil()
+	keymaps.setup_twilight()
 end
 -------------------------------------------------
 
-return {
-	setup_keymaps = setup_keymaps,
-	setup_telescope = setup_telescope,
-}
+return keymaps
+

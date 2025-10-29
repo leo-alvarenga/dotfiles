@@ -1,36 +1,51 @@
 local utils = require("config.utils")
 
 local function config()
+	local icon = {
+		" ",
+		"⣴⣾⣿⣿⣿⣿⣷⣦",
+		"⣿⣿⣿⣿⣿⣿⣿⣿",
+		"⡟⠛⠽⣿⣿⠯⠛⢻",
+		"⣧⣀⣀⡾⢷⣀⣀⣼",
+		" ⡏⢽⢴⡦⡯⢹",
+		" ⠙⢮⣙⣋⡵⠋",
+		"⠉⠉", -- Yes, this line has to stay crooked
+	}
+
+	local banner = {
+		" ",
+		"  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓ ",
+		"  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒ ",
+		" ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░ ",
+		" ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██  ",
+		" ▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒ ",
+		" ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░ ",
+		" ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░ ",
+		"    ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░    ",
+		"          ░    ░  ░    ░ ░        ░   ░         ░    ",
+		"                                 ░                   ",
+		" ",
+	}
+
+	local quote = utils.get_random_quote()
+
+	local header = utils.table_join({
+		icon,
+		banner,
+		quote,
+		{
+			" ",
+			" ",
+			" ",
+		},
+	})
+
 	require("dashboard").setup({
 		theme = "doom",
 		disable_move = true,
 
 		config = {
-			header = {
-				" ",
-				"⣴⣾⣿⣿⣿⣿⣷⣦",
-				"⣿⣿⣿⣿⣿⣿⣿⣿",
-				"⡟⠛⠽⣿⣿⠯⠛⢻",
-				"⣧⣀⣀⡾⢷⣀⣀⣼",
-				" ⡏⢽⢴⡦⡯⢹",
-				" ⠙⢮⣙⣋⡵⠋",
-				"⠉⠉", -- Yes, this line has to stay crooked
-				" ",
-				"  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓ ",
-				"  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒ ",
-				" ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░ ",
-				" ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██  ",
-				" ▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒ ",
-				" ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░ ",
-				" ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░ ",
-				"    ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░    ",
-				"          ░    ░  ░    ░ ░        ░   ░         ░    ",
-				"                                 ░                   ",
-				" ",
-				utils.get_random_quote(),
-				" ",
-			},
-
+			header = header,
 			center = {
 				{
 					icon = " ",
@@ -39,7 +54,7 @@ local function config()
 					key = "e",
 					key_hl = "group",
 					key_format = "SPC %s",
-					action = ":Oil",
+					action = ":" .. utils.constants.oil_cmd,
 				},
 				{
 					icon = " ",
@@ -48,7 +63,7 @@ local function config()
 					key = "f",
 					key_hl = "group",
 					key_format = "SPC %s",
-					action = ":Oil",
+					action = ":" .. utils.constants.telescope.find_files_cmd,
 				},
 				{
 					icon = " ",
@@ -57,7 +72,7 @@ local function config()
 					key = "F",
 					key_hl = "group",
 					key_format = "SPC %s",
-					action = ":Oil",
+					action = ":" .. utils.constants.telescope.live_grep_cmd,
 				},
 			},
 

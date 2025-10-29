@@ -1,6 +1,17 @@
 -- Utils
 
-local function table_join(tables)
+local utils = {}
+
+utils.constants = {
+	dashboard_cmd = "Dashboard",
+	oil_cmd = "Oil",
+	telescope = {
+		find_files_cmd = "Telescope find_files",
+		live_grep_cmd = "Telescope live_grep",
+	},
+}
+
+function utils.table_join(tables)
 	local result = {}
 
 	for _, t in ipairs(tables) do
@@ -13,7 +24,7 @@ local function table_join(tables)
 end
 
 --- From a nil or string value, get a valid options object to use when mapping
-local function to_options(desc)
+function utils.to_options(desc)
 	local options = { noremap = true, silent = true }
 
 	if desc then
@@ -24,30 +35,38 @@ local function to_options(desc)
 end
 
 --- Wrapper for setting keymaps via the vim.keymap api
-local function map(mode, key, command, desc)
-	vim.keymap.set(mode, key, command, to_options(desc))
+function utils.map(mode, key, command, desc)
+	vim.keymap.set(mode, key, command, utils.to_options(desc))
 end
 
-local function set_theme(theme)
+function utils.set_theme(theme)
 	vim.cmd("colorscheme " .. theme)
 end
 
-local function get_pkg_count()
+function utils.get_pkg_count()
 	return #require("lazy").plugins() or 0
 end
 
-local function get_random_quote()
-	local inspire = require("inspire")
-	local quote = inspire.get_quote()
-
-	return quote.text
+function utils.format_file()
+	require("conform").format()
 end
 
-return {
-	get_pkg_count = get_pkg_count,
-	get_random_quote = get_random_quote,
-	map = map,
-	set_theme = set_theme,
-	table_join = table_join,
-	to_options = to_options,
-}
+function utils.get_random_quote()
+	local quotes = require("config.quotes")
+
+	return quotes.get_random()
+end
+
+function utils.close_current_buffer()
+	local buf_count = #vim.fn.getbufinfo({ buflisted = 1 })
+
+	if buf_count > 1 then
+		vim.cmd("bnext | bd #")
+
+		return
+	end
+
+	vim.cmd("bd | " .. utils.constants.dashboard_cmd)
+end
+
+return utils
