@@ -50,6 +50,15 @@ local function config()
 				{
 					icon = " ",
 					icon_hl = "group",
+					desc = "Open a previously open workspace",
+					key = "w",
+					key_hl = "group",
+					key_format = "SPC %s",
+					action = ":" .. utils.constants.telescope.workspaces,
+				},
+				{
+					icon = " ",
+					icon_hl = "group",
 					desc = "Explore current directory",
 					key = "e",
 					key_hl = "group",
@@ -64,15 +73,6 @@ local function config()
 					key_hl = "group",
 					key_format = "SPC %s",
 					action = ":" .. utils.constants.telescope.find_files_cmd,
-				},
-				{
-					icon = " ",
-					icon_hl = "group",
-					desc = "Search in the current directory",
-					key = "F",
-					key_hl = "group",
-					key_format = "SPC %s",
-					action = ":" .. utils.constants.telescope.live_grep_cmd,
 				},
 			},
 

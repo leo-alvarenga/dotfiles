@@ -55,13 +55,9 @@ quotes.quotes = {
   { author = "George S. Patton", text = "Lead me, follow me, or get out of my way." },
 }
 
-function quotes.get_text(index)
-	return quotes.quotes[index]
-end
-
 function quotes.get_random()
 	local index = math.random(#quotes.quotes)
-	local quote = quotes.get_text(index)
+	local quote = quotes.quotes[index]
 
 	return { quote.text, "", quote.author }
 end

@@ -71,6 +71,13 @@ function keymaps.setup_twilight()
 end
 -------------------------------------------------
 
+-------------------------------------------------
+-- Twilight keymaps
+function keymaps.setup_workspaces()
+	map("", "", "", "")
+end
+-------------------------------------------------
+
 -----------------
 -- Telescope
 -----------------
@@ -87,6 +94,9 @@ function keymaps.setup_telescope()
 			theme = telescope_theme,
 		},
 		buffers = {
+			theme = telescope_theme,
+		},
+		workspaces = {
 			theme = telescope_theme,
 		},
 		help_tags = {
@@ -109,6 +119,10 @@ function keymaps.setup_telescope()
 	map("", "<leader>c", builtin.buffers, "Telescope - Buffers")
 
 	map("", "<leader>C", builtin.help_tags, "Telescope - help tags")
+	map("", "<leader>w", ":" .. utils.constants.telescope.workspaces .. "<CR>", "Telescope - Workspaces")
+
+
+	telescope.load_extension("workspaces")
 end
 -------------------------------------------------
 

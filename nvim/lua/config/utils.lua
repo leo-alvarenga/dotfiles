@@ -8,6 +8,7 @@ utils.constants = {
 	telescope = {
 		find_files_cmd = "Telescope find_files",
 		live_grep_cmd = "Telescope live_grep",
+		workspaces = "Telescope workspaces",
 	},
 }
 
