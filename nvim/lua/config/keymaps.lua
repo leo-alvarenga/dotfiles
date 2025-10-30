@@ -15,7 +15,7 @@ function keymaps.setup_basics()
 	map("", "<leader>h", ":bprevious<cr>", "Go to previous Buffer")
 	map("", "<leader>l", ":bnext<cr>", "Go to next Buffer")
 
-	map("", "<C-x>", utils.close_current_buffer, "Close current Buffer (go to Dashboard if it's the last one)")
+	map("", "<leader>x", utils.close_current_buffer, "Close current Buffer (go to Dashboard if it's the last one)")
 
 	-- Ensuring selection is kept after indentation
 
