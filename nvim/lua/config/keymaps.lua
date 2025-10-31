@@ -6,27 +6,29 @@ local keymaps = {}
 -------------------------------------------------
 -- Basics and Helix related keymappings
 function keymaps.setup_basics()
+	---------------------
+	--  Undo/Redo
 	map("", "u", ":undo<CR>", "Undo")
 	map("", "U", ":redo<CR>", "Redo")
+	---------------------
 
-	-- Open new buffer
-	map("", "<C-n>", ":enew<CR>", "Open new empty Buffer")
-
+	---------------------
+	--  Buffer management
 	map("", "<leader>h", ":bprevious<cr>", "Go to previous Buffer")
 	map("", "<leader>l", ":bnext<cr>", "Go to next Buffer")
 
+	-- Open new buffer
+	map("", "<leader>n", ":enew<CR>", "Open new empty Buffer")
+
+	-- Close current buffer
 	map("", "<leader>x", utils.close_current_buffer, "Close current Buffer (go to Dashboard if it's the last one)")
-
-	-- Ensuring selection is kept after indentation
-
-	map("x", "<", "<gv")
-	map("x", ">", ">gv")
-
-	-- Helix does a lot right honestly...
-	-- The keymaps bellow reflect that, as I feel they genuinely improve a lot my workflow
+	---------------------
 
 	---------------------
-	--  Motions inspired by Helix :D
+	-- Motions inspired by Helix :D
+	-- Ensuring selection is kept after indentation
+	map("x", "<", "<gv")
+	map("x", ">", ">gv")
 
 	-- Going to start of the line with 'gh'
 	map("", "gh", "0")
@@ -36,10 +38,10 @@ function keymaps.setup_basics()
 
 	-- Going to end of the file with 'ge'
 	map("", "ge", "G")
+	---------------------
 
 	---------------------
-	-- Selections
-
+	-- Helix-like selection
 	-- Whole line selection (downwards) with 'x'
 	map("n", "x", "0v$j")
 	map("x", "x", "0$j")
@@ -47,6 +49,7 @@ function keymaps.setup_basics()
 	-- Whole line selection (upwards) with 'x'
 	map("n", "X", "0v$k")
 	map("x", "X", "0$k")
+	---------------------
 end
 -------------------------------------------------
 

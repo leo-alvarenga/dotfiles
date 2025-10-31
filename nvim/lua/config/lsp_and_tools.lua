@@ -135,7 +135,7 @@ local function setup_conform()
 
 			-- DevOps and Infra
 			terraform = { "terraform" },
-			yaml = { "prettier" },
+			yaml = { "prettier", "helm_ls" },
 
 			-- Web dev
 			css = { "prettier", "ast-grep", stop_after_first = true },
