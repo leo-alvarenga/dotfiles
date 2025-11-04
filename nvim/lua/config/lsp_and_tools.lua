@@ -152,7 +152,7 @@ local function setup_conform()
 	})
 end
 
-local function setup()
+local function config()
 	setup_mason()
 	setup_lspconfig()
 	setup_tools()
@@ -160,4 +160,7 @@ local function setup()
 	setup_conform()
 end
 
-setup()
+return {
+	config = config
+}
+
