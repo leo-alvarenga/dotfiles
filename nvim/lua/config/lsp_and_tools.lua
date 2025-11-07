@@ -42,6 +42,12 @@ local language_servers = {
 	},
 }
 
+local language_servers = utils.table_join({
+	language_servers.basics,
+	language_servers.devops_and_infra,
+	language_servers.web_dev,
+})
+
 local formatters = {
 	basics = {
 		"ast-grep",
@@ -87,11 +93,7 @@ local function setup_lspconfig()
 	local lspconfig = require("mason-lspconfig")
 
 	lspconfig.setup({
-		ensure_installed = utils.table_join({
-			language_servers.basics,
-			language_servers.devops_and_infra,
-			language_servers.web_dev,
-		}),
+		ensure_installed = language_servers,
 
 		-- automatic_enable = utils.table_join({ language_servers.basics, language_servers.devops_and_infra })
 		automatic_enable = true,
@@ -121,6 +123,17 @@ local function setup_tools()
 		run_on_start = true,
 		start_delay = 5000,
 	})
+end
+
+local function setup_blink()
+	local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+	for i, server in ipairs(language_servers) do
+		local config = vim.lsp.config[server]
+		vim.lsp.config[server] = utils.table_join(config, { capabilities = capabilities })
+
+		vim.lsp.enable(server)
+	end
 end
 
 local function setup_conform()
@@ -155,12 +168,12 @@ end
 local function config()
 	setup_mason()
 	setup_lspconfig()
+	setup_blink()
 	setup_tools()
 
 	setup_conform()
 end
 
 return {
-	config = config
+	config = config,
 }
-
