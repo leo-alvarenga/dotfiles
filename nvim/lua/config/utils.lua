@@ -1,6 +1,7 @@
 -- Utils
 
 local utils = {}
+-- utils.persistence = require("config.sessions")
 
 utils.constants = {
 	dashboard_cmd = "Dashboard",

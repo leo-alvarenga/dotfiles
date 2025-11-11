@@ -4,16 +4,10 @@ local keymaps = {}
 -------------------------------------------------
 
 -------------------------------------------------
--- Basics and Helix related keymappings
-function keymaps.setup_basics()
-	---------------------
-	--  Undo/Redo
-	map("", "u", ":undo<CR>", "Undo")
-	map("", "U", ":redo<CR>", "Redo")
-	---------------------
 
-	---------------------
-	--  Buffer management
+---------------------
+--  Buffer management
+function keymaps.buffer_management()
 	map("", "<leader>h", ":bprevious<cr>", "Go to previous Buffer")
 	map("", "<leader>l", ":bnext<cr>", "Go to next Buffer")
 
@@ -22,7 +16,32 @@ function keymaps.setup_basics()
 
 	-- Close current buffer
 	map("", "<leader>x", utils.close_current_buffer, "Close current Buffer (go to Dashboard if it's the last one)")
+end
+---------------------
+
+function keymaps.tab_management()
+	local tab_prefix = "<C-t>"
+
+	map("", tab_prefix .. "h", ":tabprevious<cr>", "Go to previous Tab")
+	map("", tab_prefix .. "l", ":tabnext<cr>", "Go to next Tab")
+
+	map("", tab_prefix .. "n", ":tabnew<CR>", "Open new empty Tab")
+
+	map("", tab_prefix .. "q", ":tabclose<CR>", "Close current Tab")
+
+	map("", tab_prefix .. "o", ":tabonly<CR>", "Close all tabs (except for the current one)")
+end
+
+-- Basics and Helix related keymappings
+function keymaps.setup_basics()
 	---------------------
+	--  Undo/Redo
+	map("", "u", ":undo<CR>", "Undo")
+	map("", "U", ":redo<CR>", "Redo")
+	---------------------
+
+	keymaps.buffer_management()
+	keymaps.tab_management()
 
 	---------------------
 	-- Motions inspired by Helix :D

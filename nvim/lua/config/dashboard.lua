@@ -46,11 +46,11 @@ local function config()
 				{
 					icon = " ",
 					icon_hl = "group",
-					desc = "Open a previously open workspace",
+					desc = "Select a previously open session",
 					key = "w",
 					key_hl = "group",
 					key_format = "SPC %s",
-					action = ":" .. utils.constants.telescope.workspaces,
+					action = ":! cwd",
 				},
 				{
 					icon = " ",
