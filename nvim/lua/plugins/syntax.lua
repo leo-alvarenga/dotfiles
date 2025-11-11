@@ -72,7 +72,13 @@ return {
 	-- Better diagnostics
 	{
 		"folke/trouble.nvim",
-		opts = {},
+		opts = {
+			modes = {
+				lsp = {
+					win = { position = "right" },
+				},
+			},
+		},
 		cmd = "Trouble",
 		keys = {
 			{
@@ -119,7 +125,7 @@ return {
 		"tpope/vim-sleuth",
 	},
 
-	-- -- Auto close HTML and JSX tags
+	-- Auto close HTML and JSX tags
 	{
 		"windwp/nvim-ts-autotag",
 		opts = {},
