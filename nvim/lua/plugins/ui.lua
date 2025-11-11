@@ -31,6 +31,13 @@ return {
 		opts = {},
 	},
 
+	-- Notifications and feedback
+	{
+		"nvim-mini/mini.notify",
+		branch = false,
+		opts = {},
+	},
+
 	--------------------------------------------------------------
 	-- Pickers and overlays
 
