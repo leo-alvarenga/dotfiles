@@ -4,7 +4,7 @@ return {
 
 	-- Bufferline - Currently open/pending buffers
 	{
-		"romgrk/barbar.nvim",
+		"akinsho/bufferline.nvim",
 		opts = {},
 		version = "*",
 		dependencies = "nvim-tree/nvim-web-devicons",

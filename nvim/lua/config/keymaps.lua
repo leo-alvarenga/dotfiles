@@ -3,8 +3,6 @@ local map = utils.map
 local keymaps = {}
 -------------------------------------------------
 
--------------------------------------------------
-
 ---------------------
 --  Buffer management
 function keymaps.buffer_management()
@@ -94,30 +92,35 @@ end
 -------------------------------------------------
 
 -----------------
+-- Grapple
+-----------------
+
+function keymaps.setup_grapple()
+	map("", "<leader>m", ":Grapple toggle<cr>", "Grapple - Toggle tag")
+	map("", "<leader>n", ":Grapple cycle_tags next<cr>", "Grapple - Cycle next tag")
+	map("", "<leader>p", ":Grapple cycle_tags prev<cr>", "Grapple - Cycle previous tag")
+end
+
+-------------------------------------------------
+
+-----------------
 -- Telescope
 -----------------
 function keymaps.setup_telescope()
 	local telescope = require("telescope")
 	local workspaces = require("config.workspaces")
 
-	local telescope_theme = "dropdown"
+	local telescope_picker_opts = {
+		theme = "dropdown",
+	}
 
 	telescope.setup({
-		fd = {
-			theme = telescope_theme,
-		},
-		live_grep = {
-			theme = telescope_theme,
-		},
-		buffers = {
-			theme = telescope_theme,
-		},
-		workspaces = {
-			theme = telescope_theme,
-		},
-		help_tags = {
-			theme = telescope_theme,
-		},
+		buffers = telescope_picker_opts,
+		fd = telescope_picker_opts,
+		grapple = telescope_picker_opts,
+		help_tags = telescope_picker_opts,
+		live_grep = telescope_picker_opts,
+		workspaces = telescope_picker_opts,
 	})
 
 	local builtin = require("telescope.builtin")
@@ -137,8 +140,10 @@ function keymaps.setup_telescope()
 	map("", "<leader>C", builtin.help_tags, "Telescope - help tags")
 	map("", "<leader>w", ":" .. utils.constants.telescope.workspaces .. "<CR>", "Telescope - Workspaces")
 
+	map("", "<leader>M", ":Telescope grapple tags<cr>", "Telescope - Open Grapple tags window")
 	map("", "<leader>W", workspaces.manage_workspaces, "Telescope - Manage workspaces")
 
+	telescope.load_extension("grapple")
 	telescope.load_extension("workspaces")
 end
 -------------------------------------------------

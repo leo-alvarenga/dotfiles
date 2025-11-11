@@ -5,6 +5,15 @@ return {
 		opts = {},
 	},
 	{
+		"cbochs/grapple.nvim",
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons", lazy = true },
+		},
+		opts = {
+			scope = "git_branch",
+		},
+	},
+	{
 		"christoomey/vim-tmux-navigator",
 		cmd = {
 			"TmuxNavigateLeft",
