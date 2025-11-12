@@ -16,7 +16,6 @@
   "mini.notify": { "branch": "main", "commit": "135dcfdaf3826a7d2ba8fcf760d07d3bdb5d34e5" },
   "mini.pairs": { "branch": "main", "commit": "b316e68f2d242d5bd010deaab645daa27ed86297" },
   "mini.pick": { "branch": "main", "commit": "fe1c25e2ebe4b2de7a0865889a2f1b062ab1250a" },
-  "mini.sessions": { "branch": "main", "commit": "6b69f4cf206ed8560669446a0310937d88e1c871" },
   "mini.statusline": { "branch": "main", "commit": "e331175f10d9f400b42523b3890841aba202ce16" },
   "mini.surround": { "branch": "main", "commit": "88c52297ed3e69ecf9f8652837888ecc727a28ee" },
   "none-ls.nvim": { "branch": "main", "commit": "550197530c12b4838d685cf4e0d5eb4cca8d52c7" },
