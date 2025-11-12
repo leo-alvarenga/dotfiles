@@ -31,6 +31,12 @@ return {
 	},
 
 	{
+		"nvimtools/none-ls.nvim",
+		event = "VeryLazy",
+		opts = function() end,
+	},
+
+	{
 		"nvim-treesitter/nvim-treesitter",
 		branch = "master",
 		lazy = false,

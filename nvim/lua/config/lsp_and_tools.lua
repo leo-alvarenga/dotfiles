@@ -38,6 +38,7 @@ local language_servers = {
 		"html",
 		"htmx",
 		"svelte",
+		"eslint",
 		"tailwindcss",
 	},
 }
@@ -84,6 +85,10 @@ local linters = {
 	},
 }
 
+local automatic_enable = {
+	language_servers = true, -- Could be smth like this as well utils.table_join({ language_servers.basics, language_servers.devops_and_infra })
+}
+
 local function setup_mason()
 	local mason = require("mason")
 
@@ -95,16 +100,14 @@ local function setup_lspconfig()
 
 	lspconfig.setup({
 		ensure_installed = language_servers,
-
-		-- automatic_enable = utils.table_join({ language_servers.basics, language_servers.devops_and_infra })
-		automatic_enable = true,
+		automatic_enable = automatic_enable.language_servers,
 	})
 end
 
 local function setup_linters()
 	local lint = require("lint")
 
-	local web_lint_combo = { "eslint_d" }
+	local web_lint_combo = { "eslint_d", "ast-grep", stop_after_first = true }
 	local css_lint = { "stylelint" }
 
 	lint.linters_by_fmt = {
@@ -166,7 +169,7 @@ local function setup_blink()
 
 	for i, server in ipairs(language_servers) do
 		local config = vim.lsp.config[server]
-		vim.lsp.config[server] = utils.table_join(config, { capabilities = capabilities })
+		vim.lsp.config[server] = utils.table_join({ config, { capabilities = capabilities } })
 
 		vim.lsp.enable(server)
 	end
