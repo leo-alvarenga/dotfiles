@@ -98,6 +98,7 @@ alias z='zoxide'
 alias c='clear'
 alias ed='$EDITOR'
 alias cfg='cd $HOME/.config && $EDITOR .'
+alias ":q"='exit'
 
 # Git aliases
 alias gbranch='git branch | grep "*" | cut -d " " -f2'
