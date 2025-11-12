@@ -18,16 +18,26 @@ if [[ $(whoami) == 'root' ]]; then
   exit 1
 fi
 
-update_repos() {
-  sudo pacman -Syy --needed --noconfirm > /dev/null 2>&1
-}
-
 install_deps() {
   sudo pacman -S --needed --noconfirm $@ > /dev/null 2>&1
 }
 
-uninstall_with_doas() {
-  doas pacman -Rcns --noconfirm $@ > /dev/null 2>&1
+update_repos() {
+  if ! command -v reflector &>/dev/null; then
+    echo "reflector not found. Installing..."
+
+    sudo pacman -Sy --noconfirm reflector
+  fi
+
+  sudo reflector \
+    --country 'Brazil,United States,Canada,France,Germany' \
+    --protocol https \
+    --sort rate \
+    --latest 50 \
+    --fastest 20 \
+    --save /etc/pacman.d/mirrorlist
+
+  sudo pacman -Syy --needed --noconfirm > /dev/null 2>&1
 }
 
 log_step() {
@@ -69,19 +79,6 @@ install_nvm() {
     nvm install --lts
     nvm use --lts
   fi
-}
-
-install_lang_servers() {
-  str_fmt "Installing language servers and formatters dependant on Node.js ..." "$DEFAULT_FMT"
-  
-  if ! npm --version &> /dev/null; then
-    log_fatal "Could not install! Missing npm!"
-    exit 1
-  fi
-
-  local server_and_formatters=(@astrojs/language-server typescript-language-server vscode-langservers-extracted bash-language-server yaml-language-server prettier neovim)
-  
-  npm i -g ${server_and_formatters[@]} > /dev/null 2>&1
 }
 
 install_tmux() {
@@ -176,36 +173,15 @@ install_dependencies() {
 
   install_rust
   install_nvm
-  # install_lang_servers
-  
+
   ############################################################################
-  
+
   # QoL and config util
   local QOL=(brightnessctl pamixer pavucontrol)
 
   LABELS[QOL]="quality of life and configuration managers..."
 
   install_deps "${QOL[@]}"
-}
-
-setup_doas() {
-  str_fmt "Setting up doas..." "$DEFAULT_FMT"
-  sleep 1
-
-  install_deps doas
-
-  str_fmt "Creating doas.conf" "$DEFAULT_FMT"
-  echo "permit persist setenv {PATH=/usr/bin:/usr/sbin:/bin:/usr/local/bin:/usr/local/sbin} :wheel" | sudo tee /etc/doas.conf > /dev/null
-  sleep 0.2
-
-  # Ensuring root owns the file and nobody else can edit it
-  str_fmt "Changing doas.conf permissions" "$DEFAULT_FMT"
-  sudo chown -c root:root /etc/doas.conf
-  sudo chmod -c 0400 /etc/doas.conf
-
-  if [[ ! -z $REMOVE_SUDO && $REMOVE_SUDO == true ]]; then
-    uninstall_with_doas sudo
-  fi
 }
 
 setup_dotfiles() {
@@ -234,9 +210,7 @@ if [[ $1 == '-h' || $1 == '--help' ]]; then
   str_fmt "\n\n\t- WLS_MODE - When true, only basic and low level\n\t dependencies are installed; Dotfiles are still symlinked" "$DEFAULT_FMT"
   str_fmt "\n\t- MINIMAL_MODE - When true, all dependencies are\n\t installed except for those related to a graphical environmet setup;\n\t Dotfiles are still symlinked" "$DEFAULT_FMT"
   str_fmt "\n\t- SYNC_MODE - When true, no dependencies are installed,\n\t meaning the only change done is the symlinking of the dotfiles" "$DEFAULT_FMT"
-  str_fmt "\n\t- USE_DOAS - When true, doas is installed and setup to\n\t be used; WILL BE OVERWRITTEN BY THE PREVIOUS VARIABLES" "$DEFAULT_FMT"
-  str_fmt "\n\t- REMOVE_SUDO - When true and USE_DOAS is also true,\n\t uninstall sudo completly; WILL BE OVERWRITTEN BY THE PREVIOUS VARIABLES" "$DEFAULT_FMT"
- 
+
   exit 0
 fi
 
@@ -247,12 +221,8 @@ fi
 
 # When using this script with SYNC_MODE=true, only update ~/.config and other dotfiles
 if [[ -z $SYNC_MODE || $SYNC_MODE != true ]]; then
+  update_repos
   install_dependencies
-
-  # Var is present and true
-  if [[ ! -z $USE_DOAS && $USE_DOAS == true ]]; then
-    setup_doas
-  fi
 fi
 
 setup_dotfiles

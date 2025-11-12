@@ -91,7 +91,7 @@ zstyle ':fzf-tab:completion:__zoxide_z"*' fzf-preview 'ls --color $realpath'
 
 
 # Aliases and important vars
-EDITOR=helix
+EDITOR=nvim
 
 alias ls='ls --color'
 alias z='zoxide'
