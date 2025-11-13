@@ -1,19 +1,25 @@
-local utils = require("config.utils")
-local map = utils.map
+local _buffer = require("config.utils.buffer")
+local _format = require("config.utils.format")
+local _keymap = require("config.utils.keymap")
+local _shared = require("config.utils.constants.shared")
+local _workspaces = require("config.utils.workspaces")
+
+local map = _keymap.map
+
 local keymaps = {}
 -------------------------------------------------
 
 ---------------------
---  Buffer management
+--  _buffer management
 function keymaps.buffer_management()
-	map("", "<leader>h", ":bprevious<cr>", "Go to previous Buffer")
-	map("", "<leader>l", ":bnext<cr>", "Go to next Buffer")
+	map("", "<leader>h", ":bprevious<cr>", "Go to previous _buffer")
+	map("", "<leader>l", ":bnext<cr>", "Go to next _buffer")
 
-	-- Open new buffer
-	map("", "<leader>n", ":enew<CR>", "Open new empty Buffer")
+	-- Open new _buffer
+	map("", "<leader>n", ":enew<CR>", "Open new empty _buffer")
 
-	-- Close current buffer
-	map("", "<leader>x", utils.close_current_buffer, "Close current Buffer (go to Dashboard if it's the last one)")
+	-- Close current _buffer
+	map("", "<leader>x", _buffer.close_current, "Close current Buffer (go to Dashboard if it's the last one)")
 end
 ---------------------
 
@@ -73,7 +79,7 @@ end
 -------------------------------------------------
 -- Formatting and Diagnostics
 function keymaps.setup_fmt()
-	map({ "", "i" }, "<C-s>", utils.format_file, "Format file (if possible)")
+	map({ "", "i" }, "<C-s>", _format.format_current, "Format file (if possible)")
 end
 -------------------------------------------------
 
@@ -108,7 +114,6 @@ end
 -----------------
 function keymaps.setup_telescope()
 	local telescope = require("telescope")
-	local workspaces = require("config.workspaces")
 
 	local telescope_picker_opts = {
 		theme = "dropdown",
@@ -138,10 +143,10 @@ function keymaps.setup_telescope()
 	map("", "<leader>c", builtin.buffers, "Telescope - Buffers")
 
 	map("", "<leader>C", builtin.help_tags, "Telescope - help tags")
-	map("", "<leader>w", ":" .. utils.constants.telescope.workspaces .. "<CR>", "Telescope - Workspaces")
+	map("", "<leader>w", ":" .. _shared.telescope.workspaces.cmd .. "<CR>", "Telescope - Workspaces")
 
 	map("", "<leader>M", ":Telescope grapple tags<cr>", "Telescope - Open Grapple tags window")
-	map("", "<leader>W", workspaces.manage_workspaces, "Telescope - Manage workspaces")
+	map("", "<leader>W", _workspaces.manage_workspaces, "Telescope - Manage workspaces")
 
 	telescope.load_extension("grapple")
 	telescope.load_extension("workspaces")

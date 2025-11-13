@@ -1,6 +1,6 @@
-local quotes = {}
+local M = {}
 
-quotes.quotes = {
+M.quotes = {
 	{
 		author = "Marcus Aurelius",
 		text = "You have power over your mind — not outside events. Realize this, and you will find strength.",
@@ -79,13 +79,13 @@ quotes.quotes = {
 	{ author = "George S. Patton", text = "Lead me, follow me, or get out of my way." },
 }
 
-function quotes.get_random()
+function M.get_random()
 	math.randomseed(os.time())
 
-	local index = math.random(#quotes.quotes)
-	local quote = quotes.quotes[index]
+	local index = math.random(#M.quotes)
+	local quote = M.quotes[index]
 
 	return { quote.text, "", quote.author }
 end
 
-return quotes
+return M

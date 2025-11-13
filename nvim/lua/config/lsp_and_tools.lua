@@ -1,92 +1,9 @@
-local utils = require("config.utils")
+local _langs = require("config.utils.constants.languages")
 
--- LSP lists
-local language_servers = {
-	basics = {
-		"bashls",
-		"hyprls",
-		"jsonls",
-		"lua_ls",
-	},
-
-	devops_and_infra = {
-		"docker_compose_language_service",
-		"docker_language_server",
-		"dockerls",
-		"gh_actions_ls",
-		"helm_ls",
-		"kcl",
-		"nginx_language_server",
-		"terraformls",
-		"tflint",
-		"yamlls",
-	},
-
-	web_dev = {
-		"ts_ls",
-
-		-- Backend
-		"jqls",
-		"prismals",
-		"pylsp",
-
-		-- Frontend
-		"astro",
-		"cssls",
-		"css_variables",
-		"cssmodules_ls",
-		"html",
-		"htmx",
-		"svelte",
-		"eslint",
-		"tailwindcss",
-	},
-}
-
-local language_servers = utils.table_join({
-	language_servers.basics,
-	language_servers.devops_and_infra,
-	language_servers.web_dev,
-})
-
-local formatters = {
-	basics = {
-		"ast-grep",
-		"prettier",
-		"prettierd",
-		"shfmt",
-		"stylua",
-	},
-
-	devops_and_infra = {
-		"nginx-config-formatter",
-		"terraform",
-	},
-
-	web_dev = {
-		"jq",
-	},
-}
-
-local linters = {
-	basics = {
-		"jsonlint",
-		"shellharden",
-	},
-
-	devops_and_infra = {
-		"sonarlint-language-server",
-	},
-
-	web_dev = {
-		"eslint_d",
-		"htmlhint",
-		"stylelint",
-	},
-}
+local _table = require("config.utils.table")
 
 local automatic_enable = {
-	language_servers = true, -- Could be smth like this as well utils.table_join({ language_servers.basics, language_servers.devops_and_infra })
+	language_servers = true, -- Could be smth like this as well _table.table_join({ language_servers.basics, language_servers.devops_and_infra })
 }
 
 local function setup_mason()
@@ -99,7 +16,7 @@ local function setup_lspconfig()
 	local lspconfig = require("mason-lspconfig")
 
 	lspconfig.setup({
-		ensure_installed = language_servers,
+		ensure_installed = _langs.lang_server_list,
 		automatic_enable = automatic_enable.language_servers,
 	})
 end
@@ -145,14 +62,14 @@ local function setup_tools()
 	tool_installer.setup({
 		auto_update = true,
 
-		ensure_installed = utils.table_join({
-			formatters.basics,
-			formatters.devops_and_infra,
-			formatters.web_dev,
+		ensure_installed = _table.table_join({
+			_langs.formatters.basics,
+			_langs.formatters.devops_and_infra,
+			_langs.formatters.web_dev,
 
-			linters.basics,
-			linters.devops_and_infra,
-			linters.web_dev,
+			_langs.linters.basics,
+			_langs.linters.devops_and_infra,
+			_langs.linters.web_dev,
 		}),
 
 		integrations = {
@@ -167,9 +84,9 @@ end
 local function setup_blink()
 	local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-	for i, server in ipairs(language_servers) do
+	for i, server in ipairs(_langs.lang_server_list) do
 		local config = vim.lsp.config[server]
-		vim.lsp.config[server] = utils.table_join({ config, { capabilities = capabilities } })
+		vim.lsp.config[server] = _table.table_join({ config, { capabilities = capabilities } })
 
 		vim.lsp.enable(server)
 	end

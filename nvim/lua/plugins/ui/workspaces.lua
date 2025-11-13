@@ -3,7 +3,7 @@ return {
 	"natecraddock/workspaces.nvim",
 	opts = {
 		hooks = {
-			open = { require("config.workspaces").on_open },
+			open = { require("config.utils.workspaces").on_open },
 		},
 	},
 	version = false,

@@ -1,8 +1,8 @@
-local utils = require("config.utils")
+local _shared = require("config.utils.constants.shared")
 
-local workspaces = {}
+local M = {}
 
-function workspaces.manage_workspaces()
+function M.manage_workspaces()
 	local mini_pick = require("mini.pick")
 
 	local opts = {
@@ -28,8 +28,8 @@ function workspaces.manage_workspaces()
 	end)
 end
 
-function workspaces.on_open(_, path)
-	vim.cmd("cd " .. path .. " | " .. utils.constants.telescope.find_files_cmd)
+function M.on_open(_, path)
+	vim.cmd("cd " .. path .. " | " .. _shared.telescope.find_files.cmd)
 end
 
-return workspaces
+return M
