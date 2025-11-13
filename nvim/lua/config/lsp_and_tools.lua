@@ -3,7 +3,7 @@ local _langs = require("config.utils.constants.languages")
 local _table = require("config.utils.table")
 
 local automatic_enable = {
-	language_servers = true, -- Could be smth like this as well _table.table_join({ language_servers.basics, language_servers.devops_and_infra })
+	language_servers = true, -- Could be smth like this as well _table.merge_arrays({ language_servers.basics, language_servers.devops_and_infra })
 }
 
 local function setup_mason()
@@ -62,7 +62,7 @@ local function setup_tools()
 	tool_installer.setup({
 		auto_update = true,
 
-		ensure_installed = _table.table_join({
+		ensure_installed = _table.merge_arrays({
 			_langs.formatters.basics,
 			_langs.formatters.devops_and_infra,
 			_langs.formatters.web_dev,
@@ -86,7 +86,7 @@ local function setup_blink()
 
 	for i, server in ipairs(_langs.lang_server_list) do
 		local config = vim.lsp.config[server]
-		vim.lsp.config[server] = _table.table_join({ config, { capabilities = capabilities } })
+		vim.lsp.config[server] = _table.merge_arrays({ config, { capabilities = capabilities } })
 
 		vim.lsp.enable(server)
 	end

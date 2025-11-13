@@ -96,7 +96,7 @@ M.language_servers = {
 	},
 }
 
-M.lang_server_list = _table.table_join({
+M.lang_server_list = _table.merge_arrays({
 	M.language_servers.basics,
 	M.language_servers.devops_and_infra,
 	M.language_servers.web_dev,
