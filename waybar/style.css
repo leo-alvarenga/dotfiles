@@ -16,7 +16,7 @@ window>box {
   color: @fg-main;
   margin: 8px 8px 0 8px;
   border: 1px solid @bg-main;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 window#waybar {
