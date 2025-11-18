@@ -19,7 +19,7 @@ function keymaps.buffer_management()
 	map("", "<leader>n", ":enew<CR>", "Open new empty _buffer")
 
 	-- Close current _buffer
-	map("", "<leader>x", _buffer.close_current, "Close current Buffer (go to Dashboard if it's the last one)")
+	map("", "<leader>q", _buffer.close_current, "Close current Buffer (go to Dashboard if it's the last one)")
 end
 ---------------------
 
