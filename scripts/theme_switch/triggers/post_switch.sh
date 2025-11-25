@@ -1,4 +1,0 @@
-
-# Reload sway
-swaymsg reload
-
