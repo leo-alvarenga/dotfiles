@@ -1,0 +1,24 @@
+# Ignore all to start whitelisting below
+*
+
+!README.md
+!LICENSE
+
+!ghostty/
+!ghostty/**
+
+!nvim/
+!nvim/**
+
+!opencode/
+!opencode/**
+
+!tmux/
+!tmux/**
+
+!.profile
+!.zprofile
+!.zsh*
+
+!.gitignore
+!.gitmodules
