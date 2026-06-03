@@ -20,5 +20,7 @@
 !.zprofile
 !.zsh*
 
+!starship.toml
+
 !.gitignore
 !.gitmodules

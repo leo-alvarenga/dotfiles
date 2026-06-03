@@ -1,0 +1,130 @@
+# Starship Config - Kanagawa Wave Theme
+# Clean, minimal, keyboard-focused workflow
+
+# Prompt format - pill-shaped like tmux status-right
+# Structure: [](mini-pill: dir)[git|node|pkg|docker][accent: duration]
+format = """
+[](fg:surface)\
+$directory\
+$git_branch\
+$git_status\
+$nodejs\
+$package\
+$docker_context\
+$cmd_duration\
+[](fg:surface)\
+$character\
+"""
+
+# Kanagawa Wave color palette
+palette = "kanagawa"
+
+[palettes.kanagawa]
+bg = "#1F1F28"
+surface = "#363646"
+git_bg = "#363646"
+lang_bg = "#223249"
+fg = "#DCD7BA"
+fg_dim = "#727169"
+blue = "#7E9CD8"
+green = "#76946A"
+yellow = "#C0A36E"
+orange = "#FFA066"
+red = "#C34043"
+magenta = "#957FB8"
+cyan = "#7AA89F"
+
+# Directory - shows current path
+[directory]
+style = "fg:blue bg:surface"
+format = "[ $path ]($style)"
+truncation_length = 10
+truncation_symbol = ".../"
+home_symbol = " ~"
+
+# Git branch
+[git_branch]
+symbol = ""
+style = "fg:red bg:surface"
+format = "[[|](fg:magenta bg:surface) $symbol $branch ]($style)"
+
+# Git status - minimal with semantic colors
+[git_status]
+style = "bold bg:surface bg:surface"
+format = "[[|](fg:magenta bg:surface)$all_status$ahead_behind ]($style)"
+conflicted = "[ ](fg:red bg:surface bold)"
+ahead = "[ ⇡${count}](fg:green bg:surface bold)"
+behind = "[ ⇣${count}](fg:red bg:surface bold)"
+diverged = "[ ⇕⇡${ahead_count}⇣${behind_count}](fg:yellow bg:surface bold)"
+up_to_date = "[ 󰅠](fg:green bg:surface bold)"
+untracked = "[ 󱀶 ${count}](fg:yellow bg:surface bold)"
+stashed = "[ 󰴮${count}](fg:cyan bg:surface bold)"
+modified = "[  ${count}](fg:orange bg:surface bold)"
+staged = "[  ${count}](fg:blue bg:surface bold)"
+renamed = "[ »${count}](fg:magenta bg:surface bold bg:surface)"
+deleted = "[ 󰆴 ${count}](fg:red bg:surface bold)"
+
+# Node.js version
+[nodejs]
+symbol = " "
+style = "fg:green bg:surface"
+format = "[[|](fg:magenta bg:surface)$symbol($version) ]($style)"
+detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts"]
+detect_files = ["package.json", ".node-version", ".nvmrc"]
+detect_folders = ["node_modules"]
+
+# Package version (from package.json)
+[package]
+symbol = "󰏗 "
+style = "fg:cyan bg:surface"
+format = "[[|](fg:magenta bg:surface)$symbol$version ]($style)"
+display_private = false
+
+# Docker context
+[docker_context]
+symbol = " "
+style = "fg:blue bg:surface"
+format = "[[|](fg:magenta bg:surface)$symbol$context ]($style)"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+
+# Command duration - accent section (like tmux time)
+[cmd_duration]
+min_time = 2000
+style = "fg:magenta bg:surface"
+format = "[[|](fg:magenta bg:surface)$duration ]($style)"
+
+# Prompt character - changes with vi mode
+[character]
+success_symbol = "[ ❯](bold green)"
+error_symbol = "[ ❯](bold red)"
+vimcmd_symbol = "[ ❮](bold green)"
+vimcmd_visual_symbol = "[ ❮](bold yellow)"
+vimcmd_replace_symbol = "[ ❮](bold magenta)"
+
+# Line break before character
+[line_break]
+disabled = false
+
+# Disable modules we don't need
+[golang]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[aws]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[time]
+disabled = true
+
+[username]
+disabled = true
+
+[hostname]
+disabled = true
