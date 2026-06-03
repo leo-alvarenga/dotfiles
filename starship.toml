@@ -56,7 +56,7 @@ conflicted = "[ ](fg:red bg:surface bold)"
 ahead = "[  ${count}](fg:green bg:surface bold)"
 behind = "[  ${count}](fg:red bg:surface bold)"
 diverged = "[ ⇕  ${ahead_count} ${behind_count}](fg:yellow bg:surface bold)"
-up_to_date = "[ 󰅠](fg:green bg:surface bold)"
+up_to_date = "[ 󰅠 ](fg:green bg:surface bold)"
 untracked = "[ 󱀶 ${count}](fg:yellow bg:surface bold)"
 stashed = "[ 󰴮${count}](fg:cyan bg:surface bold)"
 modified = "[  ${count}](fg:orange bg:surface bold)"
@@ -68,7 +68,7 @@ deleted = "[ 󰆴 ${count}](fg:red bg:surface bold)"
 [nodejs]
 symbol = " "
 style = "fg:green bg:surface"
-format = "[[|](fg:magenta bg:surface)$symbol($version) ]($style)"
+format = "[[|](fg:magenta bg:surface) $symbol($version) ]($style)"
 detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts"]
 detect_files = ["package.json", ".node-version", ".nvmrc"]
 detect_folders = ["node_modules"]
@@ -77,14 +77,14 @@ detect_folders = ["node_modules"]
 [package]
 symbol = "󰏗 "
 style = "fg:cyan bg:surface"
-format = "[[|](fg:magenta bg:surface)$symbol$version ]($style)"
+format = "[[|](fg:magenta bg:surface) $symbol$version ]($style)"
 display_private = false
 
 # Docker context
 [docker_context]
 symbol = " "
 style = "fg:blue bg:surface"
-format = "[[|](fg:magenta bg:surface)$symbol$context ]($style)"
+format = "[[|](fg:magenta bg:surface) $symbol$context ]($style)"
 only_with_files = true
 detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
 detect_folders = []
