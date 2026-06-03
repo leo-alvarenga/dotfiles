@@ -37,7 +37,7 @@ cyan = "#7AA89F"
 # Directory - shows current path
 [directory]
 style = "fg:blue bg:surface"
-format = "[ $path ]($style)"
+format = "[$path ]($style)"
 truncation_length = 10
 truncation_symbol = ".../"
 home_symbol = " ~"
