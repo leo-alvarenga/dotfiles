@@ -93,7 +93,7 @@ detect_folders = []
 [cmd_duration]
 min_time = 2000
 style = "fg:magenta bg:surface"
-format = "[[|](fg:magenta bg:surface)$duration ]($style)"
+format = "[[|](fg:magenta bg:surface) $duration ]($style)"
 
 # Prompt character - changes with vi mode
 [character]
