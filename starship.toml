@@ -36,11 +36,10 @@ cyan = "#7AA89F"
 
 # Directory - shows current path
 [directory]
-style = "fg:blue bg:surface"
-format = "[$path ]($style)"
-truncation_length = 14
 truncation_symbol = "…/"
-home_symbol = " ~"
+format = "[$path ]($style)"
+style = "fg:blue bg:surface"
+fish_style_pwd_dir_length = 1
 
 # Git branch
 [git_branch]
@@ -70,16 +69,18 @@ deleted = "[ 󰆴 ${count}](fg:red bg:surface bold)"
 [nodejs]
 symbol = " "
 style = "fg:green bg:surface"
+detect_folders = ["node_modules"]
+version_format = "v${major}.${minor}"
 format = "[[|](fg:magenta bg:surface) $symbol($version) ]($style)"
 detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts"]
 detect_files = ["package.json", ".node-version", ".nvmrc"]
-detect_folders = ["node_modules"]
 
 [lua]
-format = "[[|](fg:magenta bg:surface) $symbol($version )]($style)"
 symbol = "󰢱 "
-style = "fg:blue bg:surface bold"
 disabled = false
+style = "fg:blue bg:surface bold"
+version_format = "v${major}.${minor}"
+format = "[[|](fg:magenta bg:surface) $symbol($version )]($style)"
 
 # Package version (from package.json)
 [package]
