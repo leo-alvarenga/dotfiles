@@ -36,10 +36,12 @@ cyan = "#7AA89F"
 
 # Directory - shows current path
 [directory]
+truncation_length = 3
+truncate_to_repo = true
+read_only = " "
 truncation_symbol = "…/"
 format = "[$path ]($style)"
 style = "fg:blue bg:surface"
-fish_style_pwd_dir_length = 1
 
 # Git branch
 [git_branch]
