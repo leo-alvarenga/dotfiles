@@ -58,10 +58,10 @@ behind = "[  ${count}](fg:red bg:surface bold)"
 diverged = "[ ⇕  ${ahead_count} ${behind_count}](fg:yellow bg:surface bold)"
 up_to_date = "[ 󰅠 ](fg:green bg:surface bold)"
 untracked = "[ 󱀶 ${count}](fg:yellow bg:surface bold)"
-stashed = "[ 󰴮${count}](fg:cyan bg:surface bold)"
+stashed = "[ 󰴮 ${count}](fg:cyan bg:surface bold)"
 modified = "[  ${count}](fg:orange bg:surface bold)"
 staged = "[  ${count}](fg:blue bg:surface bold)"
-renamed = "[ »${count}](fg:magenta bg:surface bold bg:surface)"
+renamed = "[ » ${count}](fg:magenta bg:surface bold bg:surface)"
 deleted = "[ 󰆴 ${count}](fg:red bg:surface bold)"
 
 # Node.js version
