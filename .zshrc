@@ -74,7 +74,17 @@ zstyle ':fzf-tab:completion:__zoxide_z"*' fzf-preview 'ls --color $realpath'
 # Aliases and important vars
 EDITOR=nvim
 
-alias ls='ls --color'
+# If lsd is available, use it as the default ls command
+if command -v lsd &> /dev/null; then
+    alias ls='lsd'
+fi
+
+
+if command -v batcat &> /dev/null; then
+    alias bat='batcat'
+fi
+
+alias ll='ls --blocks "name,date"'
 alias z='zoxide'
 alias c='clear'
 alias ed='$EDITOR'
