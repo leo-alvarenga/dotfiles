@@ -84,28 +84,39 @@ if command -v batcat &> /dev/null; then
     alias bat='batcat'
 fi
 
+alias ccat='env cat' # Saving the original cat command for when we need it
+alias cat='bat --paging=never --style=plain' # Use bat for cat with no paging and plain style
 alias ll='ls --blocks "name,date"'
+
+
 alias z='zoxide'
 alias c='clear'
 alias ed='$EDITOR'
 alias cfg='cd $HOME/.config && $EDITOR .'
 alias ":q"='exit'
 
+######################################################
 # Git aliases
 alias gbranch='git branch | grep "*" | cut -d " " -f2'
 alias gs='git status'
-alias ga='git add .'
-alias gc='git commit -m'
+
+alias gaa='git add .' # Add all
+alias ga='git add' # Add specific file
+alias gcm='git commit -m'
+alias gc='git commit'
+
 alias gpush='git push'
 alias gpushnew='gpush -u origin $(gbranch)'
 alias gpull='git pull'
+alias gfetch='git fetch'
+######################################################
 
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 bindkey -v
 
 # Other shell integrations
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd cd)"
 
 # Auto generated stuff starts here
 
@@ -125,3 +136,4 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+
