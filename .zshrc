@@ -101,14 +101,24 @@ alias gbranch='git branch | grep "*" | cut -d " " -f2'
 alias gs='git status'
 
 alias gaa='git add .' # Add all
+alias gcb-ai='git checkout -b "$(ai-branch)"'
 alias ga='git add' # Add specific file
 alias gcm='git commit -m'
+alias gcm-ai='git commit -m "$(ai-commit)"'
+alias gcm-ai-long='git commit -m "$(ai-commit -l)" --no-verify'
 alias gc='git commit'
 
 alias gpush='git push'
 alias gpushnew='gpush -u origin $(gbranch)'
 alias gpull='git pull'
 alias gfetch='git fetch'
+######################################################
+
+######################################################
+# AI Integration
+if [[ -f "$HOME/.config/zsh/ai-integration.zsh" ]]; then
+  source "$HOME/.config/zsh/ai-integration.zsh"
+fi
 ######################################################
 
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"

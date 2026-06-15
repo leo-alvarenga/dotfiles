@@ -19,6 +19,8 @@
 !.profile
 !.zprofile
 !.zsh*
+!zsh/
+!zsh/**
 
 !starship.toml
 
