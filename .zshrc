@@ -147,3 +147,10 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+######################################################
+# Greeter
+if [[ -f "$HOME/.config/zsh/greeter/greeter.zsh" ]]; then
+  source "$HOME/.config/zsh/greeter/greeter.zsh"
+fi
+######################################################
+
