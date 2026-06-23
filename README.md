@@ -8,6 +8,7 @@ my config files for a keyboard-focused, terminal-based dev workflow
 - **tmux/** - tmux config (submodule)
 - **opencode/** - opencode config (submodule)
 - **ghostty/** - ghostty terminal config
+- **foot/** - foot terminal config (Currently stydying foot as a replacement)
 - shell stuff (.zshrc, .profile, etc.)
 
 the goal is minimal mouse usage, maximum productivity
