@@ -27,6 +27,8 @@ git submodule update --init --recursive
 
 Then, install the dependencies for each submodule (nvim, tmux, opencode) and set up your shell environment as needed. Some of the depencies are listed below, but check each submodule's README for more details.
 
+- A nerd font installed (I use JetBrains Mono Nerd Font)
+- `Recursive Mono Casual` or the font of your choice installed and set in your terminal emulator (remember to set the font in your terminal emulator settings)
 - `bat`
 - `fzf`
 - `zsh`
