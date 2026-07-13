@@ -16,6 +16,9 @@
 !opencode/
 !opencode/**
 
+!personal_helpers/
+!personal_helpers/**
+
 !tmux/
 !tmux/**
 

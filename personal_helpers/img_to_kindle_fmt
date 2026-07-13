@@ -1,0 +1,55 @@
+#! /usr/bin/env bash
+
+img_to_kindle_fmt() {
+    CMD_USED=$0
+    KINDLE_RES="1072x1448"
+
+    print_usage() {
+        echo -e "\nThis script converts an image to a Kindle-compatible format to be used as a KOReader screensaver\n"
+
+        echo -e "USAGE:\n"
+
+        echo -e "\t - $CMD_USED <image_file>"
+        echo -e "\t - $CMD_USED <image_file> <output_file>"
+        echo -e "\t - $CMD_USED {-h | --help}: Show this help message\n"
+    }
+
+    if [ "$#" -lt 1 ]; then
+        print_usage
+        return 1
+    fi
+
+    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        print_usage
+        return 0
+    fi
+
+    if ! command -v convert &> /dev/null; then
+        echo "ImageMagick is not installed. Please install it to use this script."
+        return 1
+    fi
+
+    if [ ! -f "$1" ]; then
+        echo "File '$1' does not exist."
+        return 1
+    fi
+
+    OUTPUT_FILE="${2:-out.png}"
+
+    convert "$1" \
+      -auto-orient \
+      -background black \
+      -alpha remove \
+      -colorspace Lab \
+      -filter LanczosSharp \
+      -resize ${KINDLE_RES}^ \
+      -colorspace sRGB \
+      -gravity center \
+      -crop ${KINDLE_RES}+0+0 \
+      +repage \
+      -grayscale Rec709Luminance \
+      -dither Riemersma \
+      -colors 16 \
+      -quality 75 png:"$OUTPUT_FILE"
+}
+
