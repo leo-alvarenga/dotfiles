@@ -11,8 +11,8 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = { self, home-manager, nixpkgs, ... }: {
-    nixosConfigurations.nixos-box = nixpkgs.lib.nixosSystem = {
+  outputs = { home-manager, nixpkgs, ... }: {
+    nixosConfigurations.nixos-box = nixpkgs.lib.nixosSystem {
       system = "x86_63-linux";
       modules = [
         ./configuration.nix
@@ -23,7 +23,7 @@
             useUserPackages = true;
             users.cypherlock = import ./home.nix;
             backupFileExtension = "backup";
-          }
+          };
         }
       ];
     };

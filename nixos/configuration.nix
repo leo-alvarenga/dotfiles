@@ -38,15 +38,15 @@
     autoRepeatDelay = 200;
     autoRepeatInterval = 35;
 
-    # I yearn for the GNOME; Best DE for laptop users such as myself as of mid 2026; I will DIE on this hill
-    displayManager.gdm.enable = true;
-    desktopManager.gnome.enable = true;
-
     xkb = {
       layout = "us";
       variant = "";
     };
   };
+
+  # I yearn for the GNOME; Best DE for laptop users such as myself as of mid 2026; I will DIE on this hill
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
