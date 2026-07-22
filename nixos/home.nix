@@ -47,6 +47,6 @@
 
     # Misc
     steam
-    prismlaucher
+    prismlauncher
   ];
 }
