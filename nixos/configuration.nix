@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -66,10 +66,6 @@
     isNormalUser = true;
     description = "cypherlock";
     extraGroups = [ "networkmanager" "wheel" ];
-
-    packages = with pkgs; [
-    #  thunderbird
-    ];
   };
 
   programs.zsh.enable = true;

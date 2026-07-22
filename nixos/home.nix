@@ -33,6 +33,7 @@
     zoxide
     ripgrep
     starship
+    fastfetch
     tree-sitter
 
     # Nix language support
@@ -43,5 +44,9 @@
     foot
     neovim
     opencode
+
+    # Misc
+    steam
+    prismlaucher
   ];
 }
