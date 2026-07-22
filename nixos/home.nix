@@ -46,7 +46,7 @@
     opencode
 
     # Misc
-    steam
     prismlauncher
+    steam-unwrapped
   ];
 }
