@@ -37,7 +37,7 @@
   };
 
   services.xserver = {
-    enable = true;
+    enable = false;
     autoRepeatDelay = 200;
     autoRepeatInterval = 35;
 
@@ -51,12 +51,20 @@
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
+  # Disable some GNOME packages
+  environment.gnome.excludePackages = with pkgs; [ gnome-tour gnome-user-docs ];
+  services.gnome = {
+    games.enable = false;
+    core-apps.enable = false;
+    core-developer-tools.enable = false;
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -83,7 +91,9 @@
     less
     curl
     tmux
+    tree
     wget
+    net-tools
     
     # Dev env
     vim
