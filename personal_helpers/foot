@@ -1,0 +1,17 @@
+#! /usr/bin/env bash
+
+start_foot_server() {
+    if ! command -v foot &> /dev/null; then
+        echo "foot not found, skipping server start"
+        return 1
+    fi
+
+    local socket="${XDG_RUNTIME_DIR}/foot-${WAYLAND_DISPLAY:-wayland-0}.sock"
+    if [ -S "$socket" ]; then
+        return 0
+    fi
+
+    foot --server &
+    disown
+    echo "foot server started"
+}
