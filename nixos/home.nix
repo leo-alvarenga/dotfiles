@@ -28,6 +28,7 @@
 
     # utilities
     fzf
+    # cava -> Ill prob do smth fun with this later
     yazi
     unzip
     zoxide

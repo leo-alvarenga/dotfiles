@@ -2,9 +2,9 @@
 
 {
   imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  [
+    ./hardware-configuration.nix
+  ];
 
 
   # First and foremost!
@@ -16,6 +16,9 @@
   networking.hostName = "nixos-box";
   networking.wireless.enable = true;
   networking.networkmanager.enable = true;
+
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   time.timeZone = "America/Sao_Paulo";
 
@@ -69,7 +72,6 @@
   };
 
   programs.zsh.enable = true;
-  programs.firefox.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
@@ -85,6 +87,9 @@
     
     # Dev env
     vim
+
+    # Web
+    brave
   ];
 
   # Fonts
