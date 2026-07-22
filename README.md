@@ -7,7 +7,7 @@ My config files for a keyboard-focused, terminal-based dev workflow
 - **nvim/** - neovim config (submodule)
 - **tmux/** - tmux config (submodule)
 - **opencode/** - opencode config (submodule)
-- **ghostty/** - ghostty terminal config
+- **nixos/** - nixos config
 - **foot/** - foot terminal config (Currently stydying foot as a replacement)
 - shell stuff (.zshrc, .profile, etc.)
 

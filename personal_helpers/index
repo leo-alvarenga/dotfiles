@@ -1,0 +1,2 @@
+source "$HOME/.config/personal_helpers/img_to_kindle_fmt"
+source "$HOME/.config/personal_helpers/dotfiles_link"

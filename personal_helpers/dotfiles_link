@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+dotfiles_link() {
+  local config_home="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+  for f in .zshrc .zshenv .zprofile .profile; do
+    ln -sf "$config_home/$f" "$HOME/$f"
+  done
+
+  source "$HOME/.zshrc"
+}

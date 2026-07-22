@@ -153,8 +153,8 @@ fi
 
 ######################################################
 # Personal helpers
-if [[ -f "$HOME/.config/personal_helpers/img_to_kindle_fmt" ]]; then
-  source "$HOME/.config/personal_helpers/img_to_kindle_fmt"
+if [[ -d "$HOME/.config/personal_helpers" ]]; then
+  source "$HOME/.config/personal_helpers/index"
 fi
 ######################################################
 
