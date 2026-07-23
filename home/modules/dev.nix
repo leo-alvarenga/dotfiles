@@ -32,6 +32,7 @@
 
     # Dev workflow
     foot
+    tmux
     neovim
     opencode
   ];

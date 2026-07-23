@@ -113,7 +113,6 @@
     lsd
     less
     curl
-    tmux
     tree
     wget
     nautilus

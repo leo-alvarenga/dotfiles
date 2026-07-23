@@ -9,6 +9,9 @@
 !home/
 !home/**
 
+!nix/
+!nix/**
+
 !nixos/
 !nixos/**
 

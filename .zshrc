@@ -69,7 +69,8 @@ zstyle ':fzf-tab:completion:__zoxide_z"*' fzf-preview 'ls --color $realpath'
 
 
 # Aliases and important vars
-EDITOR=nvim
+VISUAL="$(which nvim)"
+EDITOR="$VISUAL"
 
 # If lsd is available, use it as the default ls command
 if command -v lsd &> /dev/null; then
