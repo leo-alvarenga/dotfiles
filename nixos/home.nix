@@ -23,6 +23,10 @@ with lib.hm.gvariant;
         sources = [ (mkTuple [ "xkb" "us" ]) (mkTuple [ "xkb" "br" ]) ];
       };
 
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
+
       "org/gnome/desktop/notifications" = {
         application-children = [ "gnome-power-panel" "gnome-about-panel" ];
       };

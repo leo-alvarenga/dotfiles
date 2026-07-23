@@ -116,6 +116,7 @@
     tmux
     tree
     wget
+    nautilus
     net-tools
     
     # Dev env
