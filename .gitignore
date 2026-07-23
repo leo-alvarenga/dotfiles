@@ -1,34 +1,46 @@
 # Ignore all to start whitelisting below
 *
 
-!README.md
-!LICENSE
-
+# Terminal files
 !foot/
 !foot/**
+
+# Nix configuration files
+!home/
+!home/**
 
 !nixos/
 !nixos/**
 
+# Neovim configuration files
 !nvim/
 !nvim/**
 
+# OpenCode configuration files
 !opencode/
 !opencode/**
 
+# Personal helpers
 !personal_helpers/
 !personal_helpers/**
 
+# Tmux configuration files
 !tmux/
 !tmux/**
 
+# Zsh configuration files
 !.profile
 !.zprofile
 !.zsh*
 !zsh/
 !zsh/**
 
+# Starship configuration files
 !starship.toml
 
+# Meta
 !.gitignore
 !.gitmodules
+
+!README.md
+!LICENSE

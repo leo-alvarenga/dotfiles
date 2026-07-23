@@ -1,13 +1,6 @@
-{ lib, pkgs, ... }:
-
-with lib.hm.gvariant;
-
+{ pkgs, ... }:
 {
-  home.stateVersion = "26.05";
-  home.username = "cypherlock";
-  home.homeDirectory = "/home/cypherlock";
-
-  # Home packages
+  # Dev packages
   home.packages = with pkgs; [
     # Languages and compilers
     go
@@ -29,7 +22,6 @@ with lib.hm.gvariant;
 
     # utilities
     fzf
-    # cava -> Ill prob do smth fun with this later
     yazi
     unzip
     zoxide
@@ -42,9 +34,5 @@ with lib.hm.gvariant;
     foot
     neovim
     opencode
-
-    # Misc
-    prismlauncher
-    steam-unwrapped
   ];
 }
