@@ -9,9 +9,32 @@
 
   # First and foremost!
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+    plymouth = {
+      enable = true;
+      theme = "hexagon";
+      themePackages = with pkgs; [
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "hexagon" ];
+        })
+      ];
+    };
+
+    loader.timeout = 0;
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "rd.udev.log_level=3"
+      "rd.systemd.show_status=auto"
+    ];
+  };
 
   networking.hostName = "nixos-box";
   networking.wireless.enable = true;
@@ -93,6 +116,7 @@
     tmux
     tree
     wget
+    nautilus
     net-tools
     
     # Dev env

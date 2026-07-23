@@ -38,6 +38,10 @@
 # Starship configuration files
 !starship.toml
 
+# Wallpapers and backgrounds
+!wallpapers/
+!wallpapers/**
+
 # Meta
 !.gitignore
 !.gitmodules

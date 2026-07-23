@@ -158,7 +158,7 @@ if [[ -d "$HOME/.config/personal_helpers" ]]; then
 fi
 
 # Start foot server on login (once per session)
-if [[ -o login ]] && command -v start_foot_server &> /dev/null; then
+if command -v start_foot_server &> /dev/null; then
   start_foot_server
 fi
 ######################################################
