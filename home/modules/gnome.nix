@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 with lib.hm.gvariant;
 {
   # Dconf settings - Generated with dconf2nix

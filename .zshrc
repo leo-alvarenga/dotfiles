@@ -158,10 +158,6 @@ if [[ -d "$HOME/.config/personal_helpers" ]]; then
   source "$HOME/.config/personal_helpers/index"
 fi
 
-# Start foot server on login (once per session)
-if command -v start_foot_server &> /dev/null; then
-  start_foot_server
-fi
 ######################################################
 
 
