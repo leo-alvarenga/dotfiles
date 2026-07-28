@@ -35,5 +35,6 @@
     tmux
     neovim
     opencode
+    pi-coding-agent
   ];
 }
