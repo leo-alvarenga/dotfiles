@@ -34,6 +34,9 @@
     foot
     tmux
     neovim
+
+    # AI tools
+    rtk
     opencode
     pi-coding-agent
   ];
