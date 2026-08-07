@@ -1,10 +1,8 @@
-# Starship Config - Kanagawa Wave Theme
+# Starship Config - Kanagawa Wave Theme (Bubble / Pill - archived variant)
 # Clean, minimal, keyboard-focused workflow
 
-# Prompt format - pill-shaped like tmux status-right
-# Structure: [](mini-pill: dir)[git|node|pkg|docker][accent: duration]
 format = """
-[](fg:surface)\
+[ ](bg:surface)\
 $directory\
 $nodejs\
 $lua\
@@ -12,12 +10,12 @@ $docker_context\
 $git_branch\
 $git_status\
 $cmd_duration\
-[](fg:surface)\
+[](fg:surface)\
 $character\
 """
 
 # Kanagawa Wave color palette
-palette = "kanagawa"
+palette = "everforest"
 
 [palettes.kanagawa]
 bg = "#1F1F28"
@@ -33,6 +31,20 @@ orange = "#FFA066"
 red = "#C34043"
 magenta = "#957FB8"
 cyan = "#7AA89F"
+[palettes.everforest]
+bg        = "#232A2E"
+surface   = "#343F44"
+git_bg    = "#343F44"
+lang_bg   = "#2D353B"
+fg        = "#D3C6AA"
+fg_dim    = "#859289"
+blue      = "#7FBBB3"
+green     = "#A7C080"
+yellow    = "#DBBC7F"
+orange    = "#E69875"
+red       = "#E67E80"
+magenta   = "#D699B6"
+cyan      = "#83C092"
 
 # Directory - shows current path
 [directory]
@@ -49,12 +61,12 @@ symbol = ""
 truncation_length = 16
 truncation_symbol = "…"
 style = "fg:red bg:surface"
-format = "[[|](fg:magenta bg:surface) $symbol $branch ]($style)"
+format = "[[](fg:magenta bg:surface) $symbol $branch ]($style)"
 
 # Git status - minimal with semantic colors
 [git_status]
 style = "bold bg:surface bg:surface"
-format = "[[|](fg:magenta bg:surface)$all_status$ahead_behind ]($style)"
+format = "[[](fg:magenta bg:surface)$all_status$ahead_behind ]($style)"
 conflicted = "[ ](fg:red bg:surface bold)"
 ahead = "[  ${count}](fg:green bg:surface bold)"
 behind = "[  ${count}](fg:red bg:surface bold)"
@@ -73,7 +85,7 @@ symbol = " "
 style = "fg:green bg:surface"
 detect_folders = ["node_modules"]
 version_format = "v${major}.${minor}"
-format = "[[|](fg:magenta bg:surface) $symbol($version) ]($style)"
+format = "[[](fg:magenta bg:surface) $symbol($version) ]($style)"
 detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts"]
 detect_files = ["package.json", ".node-version", ".nvmrc"]
 
@@ -82,7 +94,7 @@ symbol = "󰢱 "
 disabled = false
 style = "fg:blue bg:surface bold"
 version_format = "v${major}.${minor}"
-format = "[[|](fg:magenta bg:surface) $symbol($version )]($style)"
+format = "[[](fg:magenta bg:surface) $symbol($version )]($style)"
 
 # Package version (from package.json)
 [package]
@@ -92,7 +104,7 @@ disabled = true
 [docker_context]
 symbol = " "
 style = "fg:blue bg:surface"
-format = "[[|](fg:magenta bg:surface) $symbol$context ]($style)"
+format = "[[](fg:magenta bg:surface) $symbol$context ]($style)"
 only_with_files = true
 detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
 detect_folders = []
@@ -101,7 +113,7 @@ detect_folders = []
 [cmd_duration]
 min_time = 2000
 style = "fg:magenta bg:surface"
-format = "[[|](fg:magenta bg:surface) $duration ]($style)"
+format = "[[](fg:magenta bg:surface) $duration ]($style)"
 
 # Prompt character - changes with vi mode
 [character]
