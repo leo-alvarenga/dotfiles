@@ -9,6 +9,7 @@
     rustup
     nodejs
     python3
+    python3Packages.pip
 
     # Lua basics
     lua
