@@ -15,7 +15,7 @@ $character\
 """
 
 # Kanagawa Wave color palette
-palette = "everforest"
+palette = "kanagawa"
 
 [palettes.kanagawa]
 bg = "#1F1F28"
@@ -31,6 +31,7 @@ orange = "#FFA066"
 red = "#C34043"
 magenta = "#957FB8"
 cyan = "#7AA89F"
+
 [palettes.everforest]
 bg        = "#232A2E"
 surface   = "#343F44"
