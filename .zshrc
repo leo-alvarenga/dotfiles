@@ -68,10 +68,6 @@ zstyle ':fzf-tab:completion:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:completion:__zoxide_z"*' fzf-preview 'ls --color $realpath'
 
 
-# Aliases and important vars
-VISUAL="$(which nvim)"
-EDITOR="$VISUAL"
-
 # If lsd is available, use it as the default ls command
 if command -v lsd &> /dev/null; then
     alias ls='lsd'
@@ -119,17 +115,12 @@ if [[ -f "$HOME/.config/zsh/ai-integration.zsh" ]]; then
 fi
 ######################################################
 
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
-
 bindkey -v
 
 # Other shell integrations
 eval "$(zoxide init zsh --cmd cd)"
 
 # Auto generated stuff starts here
-
-# opencode
-export PATH=/home/lasilva/.opencode/bin:$PATH
 
 eval "$(starship init zsh)"
 
