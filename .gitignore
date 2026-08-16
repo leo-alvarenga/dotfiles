@@ -19,10 +19,6 @@
 !nvim/
 !nvim/**
 
-# OpenCode configuration files
-!opencode/
-!opencode/**
-
 # Personal helpers
 !personal_helpers/
 !personal_helpers/**
