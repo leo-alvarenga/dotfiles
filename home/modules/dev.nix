@@ -37,7 +37,7 @@
 
     # AI tools
     rtk
-    opencode
+    ollama
     pi-coding-agent
   ];
 }
