@@ -12,8 +12,6 @@ My config files for a keyboard-focused, terminal-based dev workflow
 - **nix/** - nix config options for non-NixOS systems
 - shell stuff (.zshrc, .profile, etc.)
 
-the goal is minimal mouse usage, maximum productivity
-
 ## setup
 
 ```bash
@@ -26,7 +24,7 @@ or if you already cloned without submodules:
 git submodule update --init --recursive
 ```
 
-Then, install the dependencies for each submodule (nvim, tmux) and set up your shell environment as needed. Some of the depencies are listed below, but check each submodule's README for more details.
+Then, install the dependencies for each submodule (nvim, tmux) and set up your shell environment as needed. Some of the dependencies are listed below, but check each submodule's README for more details.
 
 > **Tip:** If you are using **NixOS**, you can use the `nixos/flake.nix` file to set up your system with all the required dependencies.
 > And if you are using **Home Manager** on a **non-NixOS** system, you can use the `home/flake.nix` file to set up your user environment with _most_ of the required dependencies (check the `nixos/configuration.nix` file to see other requirements, such as fonts and other util).

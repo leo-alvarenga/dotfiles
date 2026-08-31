@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-# Kanagawa Greeter
-
 # Kanagawa color palette (from starship.toml)
 KANAGAWA_BLUE="\033[38;2;126;156;216m"      # #7E9CD8
 KANAGAWA_GREEN="\033[38;2;118;148;106m"     # #76946A
@@ -17,7 +15,6 @@ RESET="\033[0m"
 # Configuration
 QUOTES_FILE="${HOME}/.config/zsh/greeter/quotes.txt"
 
-# Function to print a random quote
 print_quote() {
     if [[ -f "$QUOTES_FILE" ]]; then
         local quote=$(shuf -n 1 "$QUOTES_FILE" 2>/dev/null || sort -R "$QUOTES_FILE" | head -n 1)
@@ -28,11 +25,8 @@ print_quote() {
     fi
 }
 
-# Main greeter function
 show_greeter() {
-    # Print random zen quote
     print_quote
 }
 
-# Run the greeter
 show_greeter

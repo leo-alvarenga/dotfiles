@@ -15,10 +15,10 @@ fi
 source "$ZINIT_HOME/zinit.zsh"
 
 # QoL plugins
-zinit light zsh-users/zsh-syntax-highlighting # Sets up syntax hightlighting
-zinit light zsh-users/zsh-completions # Extend completions
-zinit light zsh-users/zsh-autosuggestions # Enable smart auto-suggestions
-zinit light Aloxaf/fzf-tab # Enable fuzzy finding when completing wit Tab
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
 
 
 # Snippet -> Source from [remote or local] file
@@ -32,7 +32,6 @@ zinit snippet OMZP::aws
 zinit snippet OMZP::command-not-found
 
 
-# Load completions
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
