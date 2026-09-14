@@ -7,5 +7,6 @@
   imports = [
     ../default.nix
     ../modules/dev.nix
+    ../modules/music.nix
   ];
 }

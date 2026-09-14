@@ -1,5 +1,5 @@
 
-{ pkgs, ... }:
+{ ... }:
 {
   home.username = "cypherlock";
   home.homeDirectory = "/home/cypherlock";
@@ -8,6 +8,7 @@
     ../default.nix
     ../modules/dev.nix
     ../modules/gnome.nix
+    ../modules/music.nix
     ../modules/gaming.nix
   ];
 }
