@@ -12,5 +12,6 @@
     ripgrep
     starship
     fastfetch
+    bubblewrap
   ];
 }
