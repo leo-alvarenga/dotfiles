@@ -5,5 +5,6 @@
     freac # convert
     picard # organize
     lrcget # fetch lyrics
+    nicotine-plus
   ];
 }
