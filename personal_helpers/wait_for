@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+wait_for() {
+    local secs=$1; shift
+
+    while (( secs > 0 )); do
+        printf '\rWaiting %d s...' "$secs"
+        sleep 1
+        (( secs-- ))
+    done
+
+    printf '\r\033[K'
+    "$@"
+}
