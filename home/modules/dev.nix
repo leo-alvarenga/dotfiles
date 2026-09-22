@@ -9,6 +9,7 @@
     rustup
     nodejs
     python3
+    typescript
 
     # Lua basics
     lua
