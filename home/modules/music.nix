@@ -2,7 +2,7 @@
 {
   # Home packages
   home.packages = with pkgs; [
-    freac # convert
+    gapless # audio player
     picard # organize
     lrcget # fetch lyrics
     nicotine-plus
