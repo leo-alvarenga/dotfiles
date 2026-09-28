@@ -5,6 +5,7 @@
     gapless # audio player
     picard # organize
     lrcget # fetch lyrics
-    nicotine-plus
+
+    nicotine-plus # Soulseek client "󰨈 Rawr"
   ];
 }
