@@ -35,6 +35,7 @@
     foot
     tmux
     neovim
+    lazygit
 
     # AI tools
     rtk
