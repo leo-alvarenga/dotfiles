@@ -1,7 +1,6 @@
 # Root user cache location
 CACHE_HOME="$XDG_CACHE_HOME:-$HOME/.cache}"
 
-
 # Where zinit and its plugins will be store
 ZINIT_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/zinit.git"
 ZINIT_REPO_URL="https://github.com/zdharma-continuum/zinit.git"
@@ -20,7 +19,6 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-
 # Snippet -> Source from [remote or local] file
 # OMZ -> Oh My Zsh -> Shorthand for https://github.com/ohmyzsh/ohmyzsh/raw/master/
 #  " L -> " /lib/ 
@@ -31,7 +29,6 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::aws
 zinit snippet OMZP::command-not-found
 
-
 autoload -Uz compinit && compinit
 
 zinit cdreplay -q
@@ -40,7 +37,6 @@ bindkey -v
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 bindkey '^[w' kill-region
-
 
 # History
 HISTSIZE=5000
@@ -58,7 +54,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' # Ensure its case insensitive
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -66,12 +61,10 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:completion:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:completion:__zoxide_z"*' fzf-preview 'ls --color $realpath'
 
-
 # If lsd is available, use it as the default ls command
 if command -v lsd &> /dev/null; then
     alias ls='lsd'
 fi
-
 
 if command -v batcat &> /dev/null; then
     alias bat='batcat'
@@ -80,7 +73,6 @@ fi
 alias ccat='env cat' # Saving the original cat command for when we need it
 alias cat='bat --paging=never --style=plain' # Use bat for cat with no paging and plain style
 alias ll='ls --blocks "name,date"'
-
 
 alias z='zoxide'
 alias c='clear'
@@ -145,5 +137,4 @@ if [[ -d "$HOME/.config/personal_helpers" ]]; then
 fi
 
 ######################################################
-
 
